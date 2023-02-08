@@ -1,14 +1,14 @@
 <script lang="ts">
-	import axios from 'axios';
-	const get_data = async () => {
-		const data = await axios.get('http://localhost:5173/api/posts');
-		console.log(data.data[0].content);
-	};
+	import { info } from '../stores/store';
+	import { add } from '../stores/add';
 
-	get_data();
+	add('very nice');
 </script>
 
 <div class="heading">Hall Booking System</div>
+{#each $info as single_info}
+	<div>{single_info}</div>
+{/each}
 
 <style>
 	.heading {

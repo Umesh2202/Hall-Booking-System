@@ -5,8 +5,11 @@ export const GET: RequestHandler = async () => {
 	const posts = [
 		{
 			slug: 'sveltekit',
-			content: `<h1>SvelteKit</h1>
-            <p>This data is from the server</p>`
+			content: `umesh`
+		},
+		{
+			slug: 'sveltekit',
+			content: `nice`
 		}
 	];
 

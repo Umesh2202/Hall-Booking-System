@@ -8,7 +8,6 @@
 	button {
 		padding: 0.5em;
 		width: 7em;
-		/* border-radius: 0.5em; */
 		color: whitesmoke;
 	}
 	button:hover {
