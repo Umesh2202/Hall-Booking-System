@@ -1,22 +1,22 @@
 <script lang="ts">
 	import FormInput from './formInput.svelte';
-	import { firstName } from '../stores/store';
-	import { add } from '../stores/add';
+	import { auth } from '../routes/firebase';
+	import { createUserWithEmailAndPassword } from 'firebase/auth';
+	import { email, password } from '../stores/store';
 
-	const update = () => {
-		add($firstName);
+	const addUser = async () => {
+		const cred = await createUserWithEmailAndPassword(auth, $email, $password);
+		console.log(cred.user);
 	};
 </script>
 
 <div class="form">
 	<div class="container">
 		<div class="inner">
-			<FormInput field="First name" />
-			<FormInput field="Last name" />
-			<FormInput field="Club name" />
 			<FormInput field="Email" />
+			<FormInput field="Password" />
 		</div>
-		<button class="bg-indigo-600" on:click={update}>next</button>
+		<button class="bg-indigo-600" on:click={addUser}>next</button>
 	</div>
 </div>
 

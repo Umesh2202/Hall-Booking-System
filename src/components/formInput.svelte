@@ -1,24 +1,25 @@
 <script lang="ts">
+	import { email, password } from '../stores/store';
+
 	export let field: String;
 	let value: string;
-	import { firstName } from '../stores/store';
 
 	const update = () => {
-		firstName.set(value);
-		console.log($firstName);
+		field === 'Email' ? email.set(value) : password.set(value);
+		console.log($email, $password);
 	};
 </script>
 
 <div class="">
-	<label for="email-address" class="">{field}</label>
+	<label for={`${field}`} class="">{field}</label>
 	<input
 		type="text"
-		name="email-address"
-		id="email-address"
-		autocomplete="email"
-		class="mt-1 block w-full  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-input"
-		on:change={update}
+		name={`field==="Password"?"pwd":${field}`}
+		id={`field==="Password"?"pwd":${field}`}
+		autocomplete={`${field}`}
+		class="mt-1 block w-full  border-gray-300 shadow-sm sm:text-sm text-input"
 		bind:value
+		on:change={update}
 	/>
 </div>
 
@@ -30,7 +31,6 @@
 	}
 
 	div {
-		/* border: 2px solid red; */
 		padding: 1em;
 	}
 </style>
