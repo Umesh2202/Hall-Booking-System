@@ -1,12 +1,16 @@
 <script lang="ts">
 	import FormInput from './formInput.svelte';
-	import { auth } from '../routes/firebase';
+	import { auth } from '../routes/api/halls/firebase';
 	import { createUserWithEmailAndPassword } from 'firebase/auth';
 	import { email, password } from '../stores/store';
+	import axios from 'axios';
 
 	const addUser = async () => {
-		const cred = await createUserWithEmailAndPassword(auth, $email, $password);
-		console.log(cred.user);
+		// const cred = await createUserWithEmailAndPassword(auth, $email, $password);
+		axios.post('http://localhost:5173/api/users', {
+			email: $email,
+			password: $password
+		});
 	};
 </script>
 

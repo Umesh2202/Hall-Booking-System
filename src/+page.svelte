@@ -1,8 +1,8 @@
 <script lang="ts">
-	import UserForm from '../components/userForm.svelte';
-	import Top from '../components/top.svelte';
-	import Option from '../components/option.svelte';
-	import AdminForm from '../components/adminForm.svelte';
+	import UserForm from './components/userForm.svelte';
+	import Top from './components/top.svelte';
+	import Option from './components/option.svelte';
+	import AdminForm from './components/adminForm.svelte';
 </script>
 
 <div>

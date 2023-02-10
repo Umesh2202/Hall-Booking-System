@@ -6,7 +6,6 @@
 
 	const update = () => {
 		field === 'Email' ? email.set(value) : password.set(value);
-		console.log($email, $password);
 	};
 </script>
 
