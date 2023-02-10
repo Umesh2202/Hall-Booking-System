@@ -7,7 +7,7 @@ export const GET: RequestHandler = async () => {
 	let ss: any = await getDocs(colRef);
 	let infos: any[] = [];
 
-	ss.docs.forEach((doc: any) => {
+	ss.docs.forEach((doc: { data: () => any; id: any; }) => {
 		infos.push({ ...doc.data(), id: doc.id });
 	});
 	return json(infos);
