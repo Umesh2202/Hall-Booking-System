@@ -3,17 +3,33 @@
 	import { auth } from '../routes/api/halls/firebase';
 	import { createUserWithEmailAndPassword } from 'firebase/auth';
 	import { email, password } from '../stores/store';
+	import Popup from './popup.svelte';
+	import { popup } from '../stores/store';
 	import axios from 'axios';
 
+	let message: string = '';
 	const addUser = async () => {
-		// const cred = await createUserWithEmailAndPassword(auth, $email, $password);
-		axios.post('http://localhost:5173/api/users', {
-			email: $email,
-			password: $password
-		});
+		try {
+			await createUserWithEmailAndPassword(auth, $email, $password);
+			axios.post('http://localhost:5173/api/users', {
+				email: $email,
+				password: $password
+			});
+			message = 'Please wait';
+			email.set('');
+			password.set('');
+		} catch (err) {
+			message = `${err}`;
+		}
+		popup.set(true);
+
+		setTimeout(() => {
+			popup.set(false);
+		}, 3000);
 	};
 </script>
 
+<Popup {message} />
 <div class="form">
 	<div class="container">
 		<div class="inner">

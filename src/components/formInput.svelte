@@ -28,8 +28,4 @@
 		border: 2px solid black;
 		padding: 0.5em;
 	}
-
-	div {
-		padding: 1em;
-	}
 </style>
