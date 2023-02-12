@@ -16,7 +16,7 @@
 		name={`field==="Password"?"pwd":${field}`}
 		id={`field==="Password"?"pwd":${field}`}
 		autocomplete={`${field}`}
-		class="mt-1 block w-full  border-gray-300 shadow-sm sm:text-sm text-input"
+		class="  sm:text-sm text-input"
 		bind:value
 		on:change={update}
 	/>

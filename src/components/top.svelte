@@ -5,7 +5,7 @@
 
 <style>
 	.heading {
-		margin-top: 1em;
+		/* margin-top: 1em; */
 		font-size: 3rem;
 	}
 </style>
