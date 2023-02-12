@@ -5,6 +5,7 @@
 	import { email, password } from '../stores/store';
 	import Popup from './popup.svelte';
 	import { popup } from '../stores/store';
+	import logo from '../logo.png';
 	import axios from 'axios';
 
 	let message: string = '';
@@ -32,43 +33,52 @@
 <Popup {message} />
 <div class="form">
 	<div class="container">
+		<!-- <img src={logo} alt="" /> -->
 		<div class="inner">
 			<FormInput field="Email" />
 			<FormInput field="Password" />
 		</div>
-		<button class="bg-indigo-600" on:click={addUser}>next</button>
+		<button on:click={addUser}>NEXT</button>
 	</div>
 </div>
 
 <style>
 	.form {
-		width: 100vw;
+		width: 100%;
 		display: grid;
 		justify-items: center;
-		background-color: #3f3f41;
+		background-color: #0075fc;
 		padding-top: 4em;
 		padding-bottom: 4em;
+		min-height: 100vh;
 	}
 	.container {
-		background-color: white;
+		background-color: #f5f5f5;
 		padding: 5em;
 		width: 40%;
+		border-radius: 1em;
 	}
 
 	.inner {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 		gap: 1em;
 	}
 
 	button {
 		padding: 0.5em;
 		width: 100%;
-		color: whitesmoke;
+		color: #474744;
 		margin-top: 1em;
+		font-size: 2rem;
+		width: 50%;
+		background-color: #ffc400;
+		border-radius: 0.3em;
+		font-weight: 700;
 	}
 
 	button:hover {
-		background-color: #6200be;
+		background-color: #0075fc;
+		color: #f5f5f5;
 	}
 </style>

@@ -2,7 +2,9 @@
 	<div class="position">Login As</div>
 	<div class="options">
 		<button>Admin</button>
-		<button>User</button>
+		<a href="/userForm">
+			<button>User</button>
+		</a>
 	</div>
 </div>
 
@@ -30,8 +32,10 @@
 		font-size: 2rem;
 		border-radius: 0.3em;
 		font-weight: bold;
+		width: 100%;
 	}
+
 	button:hover {
-		background-color: #ffe600;
+		background-color: #ffc400;
 	}
 </style>

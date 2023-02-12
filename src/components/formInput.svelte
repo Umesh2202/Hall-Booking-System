@@ -9,7 +9,7 @@
 	};
 </script>
 
-<div class="">
+<div class="container">
 	<label for={`${field}`} class="">{field}</label>
 	<input
 		type="text"
@@ -23,9 +23,20 @@
 </div>
 
 <style>
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
+	label {
+		font-size: 2.5rem;
+		font-weight: 600;
+	}
 	.text-input {
-		width: 20em;
-		border: 2px solid black;
+		/* width: 20em; */
+		width: 80%;
+		border: 5px solid #0075fc;
 		padding: 0.5em;
+		font-size: 2rem;
+		border-radius: 0.3em;
 	}
 </style>

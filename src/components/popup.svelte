@@ -10,15 +10,20 @@
 
 <style>
 	.container {
-		background-color: yellowgreen;
+		background-color: #ffc400;
 		width: max-content;
 		padding: 2em;
 		position: absolute;
 		top: -50%;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.message {
 		font-size: clamp(0.5rem, 3vw, 1.2rem);
+		font-weight: 600;
 	}
 
 	.progress-bar {
