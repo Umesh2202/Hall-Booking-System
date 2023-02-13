@@ -12,6 +12,7 @@
 	let message: string = '';
 	let login_flag: boolean = false;
 	const addUser = async () => {
+		goto('/halls');
 		try {
 			await createUserWithEmailAndPassword(auth, $email, $password);
 			message = 'Please wait';
