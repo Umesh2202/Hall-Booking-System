@@ -7,25 +7,33 @@
 	import { popup } from '../stores/store';
 	import logo from '../logo.png';
 	import axios from 'axios';
+	import { goto } from '$app/navigation';
 
 	let message: string = '';
+	let login_flag: boolean = false;
 	const addUser = async () => {
 		try {
 			await createUserWithEmailAndPassword(auth, $email, $password);
+			message = 'Please wait';
 			axios.post('http://localhost:5173/api/users', {
 				email: $email,
 				password: $password
 			});
-			message = 'Please wait';
+			login_flag = true;
 			email.set('');
 			password.set('');
 		} catch (err) {
 			message = `${err}`;
+			popup.set(true);
 		}
-		popup.set(true);
 
+		popup.set(true);
 		setTimeout(() => {
 			popup.set(false);
+			if (login_flag === true) {
+				login_flag = false;
+				goto('/');
+			}
 		}, 3000);
 	};
 </script>
