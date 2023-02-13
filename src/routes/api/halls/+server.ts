@@ -4,10 +4,10 @@ import { colRef } from './firebase';
 import { getDocs } from 'firebase/firestore';
 
 export const GET: RequestHandler = async () => {
-	let ss: any = await getDocs(colRef);
-	let infos: any[] = [];
+	const ss = await getDocs(colRef);
+	const infos: [object] = [{}];
 
-	ss.docs.forEach((doc: { data: () => any; id: any; }) => {
+	ss.docs.forEach((doc: { data: () => object; id: string }) => {
 		infos.push({ ...doc.data(), id: doc.id });
 	});
 	return json(infos);
