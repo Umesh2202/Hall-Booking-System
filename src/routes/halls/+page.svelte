@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Hall from '../../components/hall.svelte';
+	import HallCard from '../../components/hallCard.svelte';
 
 	export let data;
 
@@ -12,15 +12,14 @@
 
 	<div class="halls">
 		{#each halls as hall}
-			{#if hall['name'] !== undefined}<Hall
-					name={hall['name']}
-					capacity={hall['capacity']}
-					incharge={hall['incharge']}
-				/>
+			{#if hall['name'] !== undefined}
+				<a href={`/halls/${hall['id']}`}>
+					<HallCard name={hall['name']} capacity={hall['capacity']} incharge={hall['incharge']} />
+				</a>
 			{/if}
 		{/each}
-		<Hall name="Hall Name" capacity={123} incharge="Someone" />
-		<Hall name="Hall Name" capacity={123} incharge="Someone" />
+		<HallCard name="Hall Name" capacity={123} incharge="Someone" />
+		<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 	</div>
 </div>
 
