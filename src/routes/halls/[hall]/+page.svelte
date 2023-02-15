@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Calendar from '../../../components/calendar.svelte';
+	import HallForm from '../../../components/hallForm.svelte';
+	import { hideForm } from '../../../stores/store';
 	export let data: any;
 	data = data['halls'];
 </script>
@@ -30,8 +33,16 @@
 		<div class="value">
 			{data['ongoing']}
 		</div>
+		<!-- <Calendar /> -->
 		<!-- <div class="dates">{data['dates']}</div> -->
+		<button
+			class="book"
+			on:click={() => {
+				hideForm.set(!$hideForm);
+			}}>BOOK</button
+		>
 	</div>
+	<HallForm />
 </div>
 
 <style>
@@ -76,5 +87,17 @@
 	.value {
 		font-size: 2rem;
 		color: #0075fc;
+	}
+
+	.book {
+		/* border: 2px solid red; */
+		width: 100%;
+		padding: 0.5em;
+		border-radius: 0.5em;
+		background-color: #0075fc;
+		color: #f5f5f5;
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-top: 1em;
 	}
 </style>

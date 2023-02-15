@@ -35,8 +35,8 @@
 		/* width: 20em; */
 		width: 80%;
 		border: 5px solid #0075fc;
-		padding: 0.5em;
-		font-size: 2rem;
+		padding: 0.3em;
+		font-size: 1.5rem;
 		border-radius: 0.3em;
 	}
 </style>
