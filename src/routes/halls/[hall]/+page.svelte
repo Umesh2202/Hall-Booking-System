@@ -36,14 +36,16 @@
 		<!-- <Calendar /> -->
 		<!-- <div class="dates">{data['dates']}</div> -->
 		<button
+			disabled={!$hideForm}
 			class="book"
 			on:click={() => {
 				hideForm.set(!$hideForm);
-			}}>BOOK</button
+			}}>Book</button
 		>
 	</div>
 	<HallForm />
 </div>
+<div class={`${$hideForm === false ? 'cover' : ''}`} />
 
 <style>
 	.outer {
@@ -99,5 +101,15 @@
 		font-size: 1.5rem;
 		font-weight: 700;
 		margin-top: 1em;
+	}
+
+	.cover {
+		font-size: 4rem;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #47474770;
 	}
 </style>

@@ -11,7 +11,13 @@
 		<input type="date" class="date" />
 		<input type="date" class="date" />
 	</div>
-	<button>Submit</button>
+	<button class="submit">Submit</button>
+	<button
+		class="close"
+		on:click={() => {
+			hideForm.set(!$hideForm);
+		}}>X</button
+	>
 </div>
 
 <style>
@@ -22,6 +28,7 @@
 		padding: 3em;
 		position: absolute;
 		border: 5px solid #474747;
+		z-index: 2;
 	}
 
 	.field {
@@ -50,7 +57,7 @@
 		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
-	button {
+	.submit {
 		width: 100%;
 		border-radius: 0.5em;
 		margin-top: 1.5em;
@@ -59,6 +66,15 @@
 		color: #f5f5f5;
 		padding: 0.3em;
 		font-weight: 600;
+	}
+
+	.close {
+		position: absolute;
+		top: 0%;
+		right: 3%;
+		font-size: 3rem;
+		font-weight: 700;
+		color: red;
 	}
 
 	.hide {

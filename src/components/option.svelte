@@ -1,9 +1,8 @@
 <div class="container">
-	<div class="position">Login As</div>
+	<!-- <div class="position">Sign Up</div> -->
 	<div class="options">
-		<button>Admin</button>
 		<a href="/userForm">
-			<button>User</button>
+			<button>SignUp</button>
 		</a>
 	</div>
 </div>
@@ -35,6 +34,7 @@
 		font-weight: bold;
 		width: 100%;
 		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		margin-top: 1em;
 	}
 
 	button:hover {
