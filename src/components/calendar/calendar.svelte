@@ -1,76 +1,29 @@
 <script lang="ts">
 	import TopBar from './top-bar.svelte';
 	import Week from './week.svelte';
+	import { datesList } from '../../stores/store';
+	import { load } from './functions/dates';
+	import { crr_month, crr_year, crr_date, crr_day } from './functions/current_info';
+
+	load();
 </script>
 
 <main class="calendar-contain">
 	<section class="title-bar">
-		<span class="title-bar__year"> May 2017 </span>
+		<span class="title-bar__year"> {crr_month} {crr_year}</span>
 		<div class="title-bar__controls" />
 	</section>
 
 	<aside class="calendar__sidebar">
-		<h2 class="sidebar__heading">Wednesday<br />April 6</h2>
+		<h2 class="sidebar__heading">{crr_day}<br />{crr_month} {crr_date}</h2>
 	</aside>
 
 	<section class="calendar__days">
 		<TopBar />
 
-		<Week
-			dates={[
-				{ date: 30, inactive: true },
-				{ date: 31, inactive: true },
-				{ date: 1, inactive: false },
-				{ date: 2, inactive: false },
-				{ date: 3, inactive: false },
-				{ date: 4, inactive: false },
-				{ date: 5, inactive: false }
-			]}
-		/>
-		<Week
-			dates={[
-				{ date: 6, inactive: false },
-				{ date: 31, inactive: false },
-				{ date: 1, inactive: false },
-				{ date: 2, inactive: false },
-				{ date: 3, inactive: false },
-				{ date: 4, inactive: false },
-				{ date: 5, inactive: false }
-			]}
-		/>
-		<Week
-			dates={[
-				{ date: 6, inactive: false },
-				{ date: 31, inactive: false },
-				{ date: 1, inactive: false },
-				{ date: 2, inactive: false },
-				{ date: 3, inactive: false },
-				{ date: 4, inactive: false },
-				{ date: 5, inactive: false }
-			]}
-		/>
-		<Week
-			dates={[
-				{ date: 30, inactive: false },
-				{ date: 31, inactive: false },
-				{ date: 1, inactive: false },
-				{ date: 2, inactive: false },
-				{ date: 3, inactive: false },
-				{ date: 4, inactive: false },
-				{ date: 5, inactive: false }
-			]}
-		/>
-		<Week
-			dates={[
-				{ date: 30, inactive: false },
-				{ date: 31, inactive: false },
-				{ date: 1, inactive: false },
-				{ date: 2, inactive: false },
-				{ date: 3, inactive: false },
-				{ date: 4, inactive: false },
-				{ date: 5, inactive: false }
-			]}
-		/>
+		{#each $datesList as dates}
+			<Week {dates} />
+		{/each}
 	</section>
 </main>
 

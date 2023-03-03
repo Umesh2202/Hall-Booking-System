@@ -6,7 +6,7 @@
 </script>
 
 <div class="container">
-	<div class="feature-head">Supported features that you can rely safely on</div>
+	<div class="feature-head">Supported features that you <br /> can rely safely on</div>
 	<div class="features">
 		<FeatureCard
 			svg={tick}
@@ -41,7 +41,7 @@
 	}
 
 	.feature-head {
-		font-size: 3rem;
+		font-size: 3.5rem;
 		font-weight: bold;
 		margin-bottom: 2em;
 	}

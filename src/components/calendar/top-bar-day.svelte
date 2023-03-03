@@ -11,6 +11,6 @@
 		color: #2d4338;
 		font-weight: 400;
 		-webkit-font-smoothing: subpixel-antialiased;
-		font-size: 1rem;
+		font-size: 1.2rem;
 	}
 </style>
