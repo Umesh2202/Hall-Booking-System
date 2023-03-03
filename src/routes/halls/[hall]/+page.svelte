@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Calendar from '../../../components/calendar.svelte';
+	import Calendar from '../../../components/calendar/calendar.svelte';
 	import HallForm from '../../../components/hallForm.svelte';
 	import { hideForm } from '../../../stores/store';
 	export let data: any;
@@ -22,9 +22,6 @@
 		<div class="value">
 			{data['contact']}
 		</div>
-		<!-- <div class="desc"> -->
-		<!-- {data['desc']} -->
-		<!-- </div> -->
 		<div class="head">Location</div>
 		<div class="value">
 			{data['location']}
@@ -33,8 +30,13 @@
 		<div class="value">
 			{data['ongoing']}
 		</div>
-		<!-- <Calendar /> -->
-		<!-- <div class="dates">{data['dates']}</div> -->
+		<div class="head">Description</div>
+		<div class="value">
+			{data['desc']}
+		</div>
+
+		<div class="head">Calendar</div>
+		<Calendar />
 		<button
 			disabled={!$hideForm}
 			class="book"
@@ -60,7 +62,8 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #f5f5f5;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
+		text-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
 	}
 
 	.inner {
@@ -69,13 +72,14 @@
 		width: 60%;
 		padding: 4em;
 		border-radius: 1em;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		/* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
+		box-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
 	}
 	.name {
 		font-size: 7rem;
 		color: #0075fc;
 		font-weight: 700;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
 	}
 
 	.head {
@@ -83,7 +87,7 @@
 		color: #474747;
 		font-weight: 600;
 		margin-top: 0.5em;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
 	}
 
 	.value {

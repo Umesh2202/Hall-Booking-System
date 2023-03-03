@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '../logo.png';
+	import logo from '../assets/logo.png';
 </script>
 
 <div class="outer">
@@ -21,6 +21,7 @@
 <style>
 	.outer {
 		display: flex;
+		justify-content: center;
 		/* margin: auto; */
 		width: 100%;
 		/* border: 2px solid red; */
@@ -37,6 +38,7 @@
 
 	.nav-item {
 		font-size: 1.5rem;
+		display: flex;
 	}
 
 	.anchor {
@@ -45,6 +47,9 @@
 		font-weight: 700;
 		color: #0075fc;
 		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	button {
@@ -55,5 +60,6 @@
 		margin-right: 1em;
 		border-radius: 0.5em;
 		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		display: flex;
 	}
 </style>

@@ -5,7 +5,6 @@
 	import { email, password } from '../stores/store';
 	import Popup from './popup.svelte';
 	import { popup } from '../stores/store';
-	import logo from '../logo.png';
 	import axios from 'axios';
 	import { goto } from '$app/navigation';
 
@@ -42,7 +41,7 @@
 <Popup {message} />
 <div class="form">
 	<div class="container">
-		<!-- <img src={logo} alt="" /> -->
+		<div class="login">Login</div>
 		<div class="inner">
 			<FormInput field="Email" />
 			<FormInput field="Password" />
@@ -59,7 +58,7 @@
 		background-color: #0075fc;
 		padding-top: 4em;
 		padding-bottom: 4em;
-		min-height: 100vh;
+		/* min-height: 100vh; */
 	}
 	.container {
 		background-color: #f5f5f5;
@@ -68,10 +67,17 @@
 		border-radius: 1em;
 	}
 
+	.login {
+		font-size: 5rem;
+		font-weight: 700;
+		color: #0075fc;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+	}
 	.inner {
 		display: grid;
 		grid-template-rows: repeat(2, 1fr);
 		gap: 1em;
+		margin-top: 2.5em;
 	}
 
 	button {
@@ -84,6 +90,7 @@
 		background-color: #ffc400;
 		border-radius: 0.3em;
 		font-weight: 700;
+		margin-top: 2.5em;
 	}
 
 	button:hover {
