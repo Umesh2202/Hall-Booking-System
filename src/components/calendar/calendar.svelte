@@ -1,6 +1,7 @@
 <script lang="ts">
 	import TopBar from './top-bar.svelte';
 	import Week from './week.svelte';
+	import ColorCodes from './colorCodes.svelte';
 	import { datesList } from '../../stores/store';
 	import { load } from './functions/dates';
 	import { crr_month, crr_year, crr_date, crr_day } from './functions/current_info';
@@ -15,7 +16,8 @@
 	</section>
 
 	<aside class="calendar__sidebar">
-		<h2 class="sidebar__heading">{crr_day}<br />{crr_month} {crr_date}</h2>
+		<div class="sidebar__heading">{crr_day}<br />{crr_month} {crr_date}</div>
+		<ColorCodes />
 	</aside>
 
 	<section class="calendar__days">
@@ -139,6 +141,7 @@
 		padding: 0.8rem 0 1rem 1rem;
 		background: #f5f7f6;
 	}
+
 	@media screen and (min-width: 55em) {
 		.calendar__days {
 			width: 70%;

@@ -74,7 +74,7 @@
 		right: 3%;
 		font-size: 3rem;
 		font-weight: 700;
-		color: red;
+		color: #ff0000;
 	}
 
 	.hide {

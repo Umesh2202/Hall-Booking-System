@@ -13,12 +13,6 @@
 		padding-bottom: 4em;
 		margin-top: 2em;
 	}
-	.position {
-		color: #f5f5f5;
-		font-size: 3rem;
-		margin-bottom: 0.5em;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-	}
 
 	.options {
 		display: grid;
