@@ -1,14 +1,39 @@
 <script lang="ts">
+	// @ts-nocheck
 	import { crr_date } from './functions/current_info';
+	import { bookings } from '../../stores/store';
+	import { convertSecToDate } from './functions/bookingInfo';
 
 	export let inactive: boolean;
 	export let date: number;
+
+	let bookedFlag: boolean = false;
+
+	let bookingsData = $bookings;
+	bookingsData = convertSecToDate(bookingsData);
+	for (let i = 0; i < bookingsData.length; i++) {
+		const startDate = bookingsData[i]['startDate'];
+		const endDate = bookingsData[i]['endDate'];
+
+		const startDateStInd = startDate.indexOf('/');
+		const startDateEdInd = startDate.lastIndexOf('/');
+		const startDateNum = Number(startDate.slice(startDateStInd + 1, startDateEdInd));
+
+		const endDateStInd = endDate.indexOf('/');
+		const endDateEdInd = endDate.lastIndexOf('/');
+		const endDateNum = Number(endDate.slice(endDateStInd + 1, endDateEdInd));
+
+		if (date >= startDateNum && date <= endDateNum) {
+			bookedFlag = true;
+			break;
+		}
+	}
 </script>
 
 <div
 	class={`calendar__day ${inactive === true ? 'inactive' : ''} ${
 		crr_date === date && inactive === false ? 'current' : ''
-	}`}
+	} ${bookedFlag === true ? 'booked' : ''}`}
 >
 	<span class="calendar__date">{date}</span>
 </div>
@@ -34,9 +59,21 @@
 	}
 
 	.current .calendar__date {
-		color: #0075fc;
+		position: relative;
 	}
 
+	.current .calendar__date::after {
+		position: absolute;
+		content: '';
+		border: 2px solid #0075fc;
+		width: 30%;
+		bottom: -40%;
+		left: 0;
+	}
+
+	.booked .calendar__date {
+		color: #ff0080;
+	}
 	@media screen and (min-width: 55em) {
 		.calendar__date {
 			font-size: 2.3rem;

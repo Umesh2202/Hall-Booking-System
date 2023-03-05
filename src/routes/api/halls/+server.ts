@@ -6,6 +6,7 @@ import { getDocs } from 'firebase/firestore';
 export const GET: RequestHandler = async () => {
 	const ss = await getDocs(colRef);
 	const infos: [object] = [{}];
+	infos.pop();
 
 	ss.docs.forEach((doc: { data: () => object; id: string }) => {
 		infos.push({ ...doc.data(), id: doc.id });

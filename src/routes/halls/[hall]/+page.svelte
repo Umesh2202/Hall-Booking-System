@@ -1,9 +1,21 @@
 <script lang="ts">
 	import Calendar from '../../../components/calendar/calendar.svelte';
 	import HallForm from '../../../components/hallForm.svelte';
-	import { hideForm } from '../../../stores/store';
+	import { hideForm, bookings } from '../../../stores/store';
+	import {
+		extractBookingInfo,
+		convertSecToDate
+	} from '../../../components/calendar/functions/bookingInfo';
 	export let data: any;
 	data = data['halls'];
+
+	// const info = extractBookingInfo(data);
+
+	// console.log(info);
+	let bookingsInfo = data['bookings'];
+	// bookingsInfo = convertSecToDate(bookingsInfo);
+	// console.log(bookingsInfo);
+	bookings.set(bookingsInfo);
 </script>
 
 <div class="outer">
