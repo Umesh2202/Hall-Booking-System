@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { email, password } from '../stores/store';
+	import { email, password } from '../../stores/store';
 
 	export let field: String;
 	let value: string;

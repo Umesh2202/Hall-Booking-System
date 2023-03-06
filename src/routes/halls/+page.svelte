@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HallCard from '../../components/hallCard.svelte';
+	import HallCard from '../../components/hall/hallCard.svelte';
 
 	export let data;
 

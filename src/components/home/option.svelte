@@ -1,5 +1,4 @@
 <div class="container">
-	<!-- <div class="position">Sign Up</div> -->
 	<div class="options">
 		<a href="/userForm">
 			<button>SignUp</button>

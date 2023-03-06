@@ -1,10 +1,10 @@
 <script lang="ts">
 	import FormInput from './formInput.svelte';
-	import { auth } from '../routes/api/halls/firebase';
+	import { auth } from '../../routes/api/halls/firebase';
 	import { createUserWithEmailAndPassword } from 'firebase/auth';
-	import { email, password } from '../stores/store';
+	import { email, password } from '../../stores/store';
 	import Popup from './popup.svelte';
-	import { popup } from '../stores/store';
+	import { popup } from '../../stores/store';
 	import axios from 'axios';
 	import { goto } from '$app/navigation';
 

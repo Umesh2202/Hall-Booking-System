@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '../assets/logo.png';
+	import logo from '../../assets/logo.png';
 </script>
 
 <div class="outer">
@@ -22,9 +22,7 @@
 	.outer {
 		display: flex;
 		justify-content: center;
-		/* margin: auto; */
 		width: 100%;
-		/* border: 2px solid red; */
 		background-color: #f5f5f5;
 		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 	}
@@ -32,7 +30,6 @@
 	.inner {
 		display: flex;
 		margin: auto;
-		/* border: 2px solid blue; */
 		padding: 1em;
 	}
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let message: string;
-	import { popup } from '../stores/store';
+	import { popup } from '../../stores/store';
 </script>
 
 <div class={`container ${$popup === true ? 'open-popup' : 'close-popup'}`}>

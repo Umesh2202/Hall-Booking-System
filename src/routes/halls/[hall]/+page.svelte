@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Calendar from '../../../components/calendar/calendar.svelte';
-	import HallForm from '../../../components/hallForm.svelte';
+	import HallForm from '../../../components/hall/hallForm.svelte';
 	import { hideForm, bookings } from '../../../stores/store';
 	import {
 		extractBookingInfo,
@@ -57,7 +57,7 @@
 			}}>Book</button
 		>
 	</div>
-	<HallForm />
+	<HallForm id={data['id']} />
 </div>
 <div class={`${$hideForm === false ? 'cover' : ''}`} />
 

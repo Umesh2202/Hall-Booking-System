@@ -1,5 +1,5 @@
 <script lang="ts">
-	import UserForm from '../../components/userForm.svelte';
+	import UserForm from '../../components/loginForm/userForm.svelte';
 </script>
 
 <UserForm />

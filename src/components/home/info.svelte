@@ -1,7 +1,7 @@
 <script>
-	import tick from '../assets/tick.svg';
-	import cross from '../assets/cross.svg';
-	import add from '../assets/add.svg';
+	import tick from '../../assets/tick.svg';
+	import cross from '../../assets/cross.svg';
+	import add from '../../assets/add.svg';
 	import FeatureCard from './featureCard.svelte';
 </script>
 

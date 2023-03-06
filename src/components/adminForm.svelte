@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FormInput from './formInput.svelte';
+	import FormInput from './loginForm/formInput.svelte';
 </script>
 
 <div class="container">

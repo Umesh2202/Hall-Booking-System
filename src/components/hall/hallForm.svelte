@@ -1,17 +1,33 @@
 <script lang="ts">
-	import { hideForm } from '../stores/store';
+	import axios from 'axios';
+	import { hideForm } from '../../stores/store';
+	import type Date from '../calendar/date.svelte';
+
+	export let id: number;
+
+	let eventName: string, startDate: Date, endDate: Date;
+
+	const book = () => {
+		console.log(id);
+		axios.post(`http://localhost:5173/api/hallsBook`, {
+			eventName: eventName,
+			startDate: startDate,
+			endDate: endDate,
+			id: id
+		});
+	};
 </script>
 
 <div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
 	<div class="field">Event Name</div>
-	<input type="text" class="name" />
+	<input type="text" class="name" bind:value={eventName} />
 	<div class="dates">
 		<div class="field">Start Date</div>
 		<div class="field">End Date</div>
-		<input type="date" class="date" />
-		<input type="date" class="date" />
+		<input type="date" class="date" bind:value={startDate} />
+		<input type="date" class="date" bind:value={endDate} />
 	</div>
-	<button class="submit">Submit</button>
+	<button class="submit" on:click={book}>Submit</button>
 	<button
 		class="close"
 		on:click={() => {
