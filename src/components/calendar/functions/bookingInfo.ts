@@ -28,12 +28,12 @@ export const convertSecToDate = (
 	info.pop();
 	for (let i = 0; i < data.length; i++) {
 		const stSec = data[i].startDate.seconds;
-		let date = new Date(1970, 0, 2);
+		let date = new Date(1970, 0, 1);
 		date.setSeconds(stSec);
 		const startDate = date.toLocaleDateString();
 
 		const edSec = data[i].endDate.seconds;
-		date = new Date(1970, 0, 2);
+		date = new Date(1970, 0, 1);
 		date.setSeconds(edSec);
 		const endDate = date.toLocaleDateString();
 

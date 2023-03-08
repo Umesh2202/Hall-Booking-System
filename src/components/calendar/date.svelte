@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-nocheck
-	import { crr_date } from './functions/current_info';
+	import { crr_date } from './functions/currentInfo';
 	import { bookings } from '../../stores/store';
 	import { convertSecToDate } from './functions/bookingInfo';
 
@@ -33,7 +33,7 @@
 <div
 	class={`calendar__day ${inactive === true ? 'inactive' : ''} ${
 		crr_date === date && inactive === false ? 'current' : ''
-	} ${bookedFlag === true ? 'booked' : ''}`}
+	} ${bookedFlag === true && inactive === false ? 'booked' : ''}`}
 >
 	<span class="calendar__date">{date}</span>
 </div>
@@ -72,7 +72,7 @@
 	}
 
 	.booked .calendar__date {
-		color: #ff0080;
+		color: #ff002b;
 	}
 	@media screen and (min-width: 55em) {
 		.calendar__date {

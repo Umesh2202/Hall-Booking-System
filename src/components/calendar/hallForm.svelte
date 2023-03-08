@@ -1,41 +1,53 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hideForm } from '../../stores/store';
+	import { hideForm, bookings } from '../../stores/store';
 	import type Date from './date.svelte';
 
 	export let id: number;
 
+	// When submit is clicked, the form should disappear and the calendar should be updated
+
 	let eventName: string,
 		startDate: Date,
 		endDate: Date,
-		invalidDate: boolean = false,
-		invalidEventName: boolean = false;
+		invalidDate: boolean = false, //* true if date is invalid
+		invalidEventName: boolean = false, //* true if name is invalid
+		emptyName: boolean = true, //* true if name is empty
+		emptyDate: boolean = true; //* true if any date is empty
 
-	const book = () => {
-		console.log(id);
-		axios.post(`http://localhost:5173/api/hallsBook`, {
-			eventName: eventName,
-			startDate: startDate,
-			endDate: endDate,
-			id: id
-		});
+	const book = async () => {
+		if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
+			await axios.post(`http://localhost:5173/api/hallsBook`, {
+				eventName: eventName,
+				startDate: startDate,
+				endDate: endDate,
+				id: id
+			});
+		}
 	};
 
 	const checkValidDate = () => {
-		if (startDate > endDate) {
-			invalidDate = true;
+		if (startDate === undefined || endDate === undefined) {
+			emptyDate = true;
 		} else {
-			invalidDate = false;
+			emptyDate = false;
+			if (startDate > endDate) {
+				invalidDate = true;
+			} else {
+				invalidDate = false;
+			}
 		}
 	};
 
 	const checkValidEventName = () => {
 		if (eventName === '') {
-			invalidEventName = true;
+			emptyName = true;
 		} else if (eventName[0] === ' ') {
 			invalidEventName = true;
+			emptyName = false;
 		} else {
 			invalidEventName = false;
+			emptyName = false;
 		}
 	};
 
@@ -69,7 +81,17 @@
 		<input type="date" class="date" bind:value={endDate} on:change={checkValidDate} />
 	</div>
 	<div class={`warning ${invalidDate === true ? 'invalidDate' : ''}`}>Enter valid date</div>
-	<button class="submit" on:click={book}>Submit</button>
+	<button
+		class={`submit ${
+			invalidDate || invalidEventName || emptyName || emptyDate === true ? 'disable' : ''
+		}`}
+		on:click={() => {
+			book();
+			setTimeout(() => {
+				window.location.reload();
+			}, 1000);
+		}}>Submit</button
+	>
 	<button
 		class="close"
 		on:click={() => {
@@ -93,7 +115,7 @@
 		color: #474747;
 		font-size: 2.5rem;
 		font-weight: 600;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 8px #0000004d;
 	}
 
 	.dates {
@@ -112,7 +134,7 @@
 		border-radius: 0.5em;
 		padding: 0.5em;
 		font-size: 1.5rem;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 2px 2px 8px #0000004d;
 	}
 
 	.submit {
@@ -126,6 +148,10 @@
 		font-weight: 600;
 	}
 
+	.disable {
+		background-color: #474747;
+		cursor: auto;
+	}
 	.close {
 		position: absolute;
 		top: 0%;

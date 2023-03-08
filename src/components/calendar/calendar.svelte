@@ -4,7 +4,7 @@
 	import ColorCodes from './colorCodes.svelte';
 	import { datesList } from '../../stores/store';
 	import { load } from './functions/dates';
-	import { crr_month, crr_year, crr_date, crr_day } from './functions/current_info';
+	import { crr_month, crr_year, crr_date, crr_day } from './functions/currentInfo';
 
 	load();
 </script>
