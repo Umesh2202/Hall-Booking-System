@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Calendar from '../../../components/calendar/calendar.svelte';
-	import HallForm from '../../../components/hall/hallForm.svelte';
+	import HallForm from '../../../components/calendar/hallForm.svelte';
 	import { hideForm, bookings } from '../../../stores/store';
 	import {
 		extractBookingInfo,
