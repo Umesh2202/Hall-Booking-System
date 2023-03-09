@@ -1,5 +1,6 @@
 <script lang="ts">
 	import logo from '../../assets/logo.png';
+	import { validUser } from '../../stores/store';
 </script>
 
 <div class="outer">
@@ -13,8 +14,13 @@
 		</div>
 	</div>
 	<div class="inner">
-		<div class="nav-item"><button>User Login</button></div>
-		<div class="nav-item"><button>Admin Login</button></div>
+		<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}><button>User Login</button></div>
+		<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+			<button>Admin Login</button>
+		</div>
+		<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`}>
+			<button>Logout</button>
+		</div>
 	</div>
 </div>
 
@@ -36,6 +42,10 @@
 	.nav-item {
 		font-size: 1.5rem;
 		display: flex;
+	}
+
+	.hidden {
+		visibility: hidden;
 	}
 
 	.anchor {

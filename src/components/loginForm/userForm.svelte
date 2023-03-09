@@ -1,8 +1,8 @@
 <script lang="ts">
 	import FormInput from './formInput.svelte';
 	import { auth } from '../../routes/api/halls/firebase';
-	import { createUserWithEmailAndPassword } from 'firebase/auth';
-	import { email, password } from '../../stores/store';
+	import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+	import { email, password, validUser } from '../../stores/store';
 	import Popup from './popup.svelte';
 	import { popup } from '../../stores/store';
 	import axios from 'axios';
@@ -11,17 +11,20 @@
 	let message: string = '';
 	let login_flag: boolean = false;
 	const addUser = async () => {
-		goto('/halls');
 		try {
-			await createUserWithEmailAndPassword(auth, $email, $password);
+			// const user = await createUserWithEmailAndPassword(auth, $email, $password);
+			const user = await signInWithEmailAndPassword(auth, $email, $password);
+			console.log(user);
 			message = 'Please wait';
+			login_flag = true;
 			axios.post('http://localhost:5173/api/users', {
 				email: $email,
 				password: $password
 			});
-			login_flag = true;
 			email.set('');
 			password.set('');
+			validUser.set(true);
+			goto('/halls');
 		} catch (err) {
 			message = `${err}`;
 			popup.set(true);
@@ -32,7 +35,7 @@
 			popup.set(false);
 			if (login_flag === true) {
 				login_flag = false;
-				goto('/');
+				// goto('/');
 			}
 		}, 3000);
 	};
@@ -49,6 +52,7 @@
 		<button on:click={addUser}>NEXT</button>
 	</div>
 </div>
+createUser
 
 <style>
 	.form {
@@ -71,7 +75,7 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #0075fc;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 8px #0000004d;
 	}
 	.inner {
 		display: grid;
