@@ -23,7 +23,7 @@
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 		</div>
 	{:else}
-		<div class="invalid">Invalid User <br />Please SignIn or LogIn</div>
+		<div class="invalid">Invalid User <br />Please SignUp or LogIn</div>
 	{/if}
 </div>
 

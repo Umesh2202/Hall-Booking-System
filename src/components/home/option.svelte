@@ -1,7 +1,11 @@
+<script>
+	import { formText } from '../../stores/store';
+</script>
+
 <div class="container">
 	<div class="options">
 		<a href="/userForm">
-			<button>SignUp</button>
+			<button on:click={() => formText.set('SignUp')}>SignUp</button>
 		</a>
 	</div>
 </div>

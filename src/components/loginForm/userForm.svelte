@@ -1,12 +1,11 @@
 <script lang="ts">
-	import FormInput from './formInput.svelte';
-	import { auth } from '../../routes/api/halls/firebase';
-	import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-	import { email, password, validUser } from '../../stores/store';
-	import Popup from './popup.svelte';
-	import { popup } from '../../stores/store';
 	import axios from 'axios';
 	import { goto } from '$app/navigation';
+	import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+	import { email, password, validUser, popup, formText } from '../../stores/store';
+	import FormInput from './formInput.svelte';
+	import { auth } from '../../routes/api/users/firebase';
+	import Popup from './popup.svelte';
 
 	let message: string = '';
 	let login_flag: boolean = false;
@@ -44,7 +43,7 @@
 <Popup {message} />
 <div class="form">
 	<div class="container">
-		<div class="login">Login</div>
+		<div class="login">{$formText}</div>
 		<div class="inner">
 			<FormInput field="Email" />
 			<FormInput field="Password" />
@@ -52,7 +51,6 @@
 		<button on:click={addUser}>NEXT</button>
 	</div>
 </div>
-createUser
 
 <style>
 	.form {

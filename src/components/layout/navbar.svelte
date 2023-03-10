@@ -1,6 +1,15 @@
 <script lang="ts">
+	import { signOut } from 'firebase/auth';
+	import { auth } from '../../routes/api/users/firebase';
 	import logo from '../../assets/logo.png';
-	import { validUser } from '../../stores/store';
+	import { validUser, formText } from '../../stores/store';
+	import { goto } from '$app/navigation';
+
+	const logOut = () => {
+		signOut(auth);
+		validUser.set(false);
+		goto('/');
+	};
 </script>
 
 <div class="outer">
@@ -14,12 +23,26 @@
 		</div>
 	</div>
 	<div class="inner">
-		<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}><button>User Login</button></div>
-		<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
-			<button>Admin Login</button>
-		</div>
+		<a href="/userForm">
+			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+				<button
+					on:click={() => {
+						formText.set('User Login');
+					}}>User Login</button
+				>
+			</div>
+		</a>
+		<a href="/userForm">
+			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+				<button on:click={() => formText.set('Admin Login')}>Admin Login</button>
+			</div>
+		</a>
 		<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`}>
-			<button>Logout</button>
+			<button
+				on:click={() => {
+					logOut();
+				}}>Logout</button
+			>
 		</div>
 	</div>
 </div>

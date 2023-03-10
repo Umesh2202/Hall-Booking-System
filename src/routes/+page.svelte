@@ -20,7 +20,6 @@
 
 	div {
 		min-height: 100vh;
-		/* background-image: url('./b.svg'); */
 		background-color: #0075fc;
 		display: grid;
 		justify-content: center;
