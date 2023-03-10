@@ -1,13 +1,26 @@
 <script lang="ts">
 	import Calendar from '../../../components/calendar/calendar.svelte';
-	import HallForm from '../../../components/calendar/hallForm.svelte';
-	import { hideForm, bookings } from '../../../stores/store';
+	import HallForm from '../../../components/hall/hallForm.svelte';
+	import { convertSecToDate } from '../../../components/calendar/functions/bookingInfo';
+	import { hideForm, bookings, userId } from '../../../stores/store';
+	import BookingDate from '../../../components/hall/bookingDate.svelte';
 	export let data: any;
 
 	data = data['halls'];
 
-	let bookingsInfo = data['bookings'];
+	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
+	let crrBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
+		return el['userId'] === $userId;
+	});
+
+	crrBookingInfo = convertSecToDate(crrBookingInfo);
+
+	// for(let i=0;i<crrBookingInfo.length;i++){
+	// 	const dates=convertSecToDate({})
+	// }
+	console.log(crrBookingInfo);
+	console.log($userId);
 </script>
 
 <div class="outer">
@@ -37,6 +50,16 @@
 		<div class="head">Description</div>
 		<div class="value">
 			{data['desc']}
+		</div>
+		<div class="head">Your Bookings (mm/dd/yyyy)</div>
+		<div class="value">
+			{#each crrBookingInfo as info}
+				<BookingDate
+					startDate={info['startDate']}
+					endDate={info['endDate']}
+					eventName={info['eventName']}
+				/>
+			{/each}
 		</div>
 
 		<div class="head">Calendar</div>

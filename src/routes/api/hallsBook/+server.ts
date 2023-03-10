@@ -19,7 +19,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	let startDate = body['startDate'];
 	let endDate = body['endDate'];
 	const eventName = body['eventName'];
-
+	const userId = body['userId'];
+	console.log('type: ', typeof userId);
 	startDate = Timestamp.fromDate(new Date(startDate)).toDate();
 
 	endDate = Timestamp.fromDate(new Date(endDate)).toDate();
@@ -29,7 +30,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	const docRef = doc(colRef, body['id']);
 
 	await updateDoc(docRef, {
-		bookings: arrayUnion({ eventName: eventName, startDate: startDate, endDate: endDate })
+		bookings: arrayUnion({
+			eventName: eventName,
+			startDate: startDate,
+			endDate: endDate,
+			userId: `${userId}`
+		})
 	});
 
 	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });

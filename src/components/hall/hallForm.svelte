@@ -1,11 +1,11 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hideForm, bookings } from '../../stores/store';
-	import type Date from './date.svelte';
+	import { hideForm, bookings, userId } from '../../stores/store';
+	import type Date from '../calendar/date.svelte';
 
 	export let id: number;
 
-	// When submit is clicked, the form should disappear and the calendar should be updated
+	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
 		startDate: Date,
@@ -21,7 +21,8 @@
 				eventName: eventName,
 				startDate: startDate,
 				endDate: endDate,
-				id: id
+				id: id,
+				userId: `${$userId}`
 			});
 		}
 	};
@@ -88,8 +89,8 @@
 		on:click={() => {
 			book();
 			setTimeout(() => {
-				window.location.reload();
-			}, 1000);
+				// window.location.reload();
+			}, 2000);
 		}}>Submit</button
 	>
 	<button

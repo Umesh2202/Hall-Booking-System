@@ -1,10 +1,8 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { goto } from '$app/navigation';
-	import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-	import { email, password, validUser, popup, formText } from '../../stores/store';
+	import { email, password, validUser, popup, formText, userId } from '../../stores/store';
 	import FormInput from './formInput.svelte';
-	import { auth } from '../../routes/api/users/firebase';
 	import Popup from './popup.svelte';
 	import { formAction } from './functions/form';
 	import InvalidUser from '../invalid/invalidUser.svelte';
@@ -16,7 +14,7 @@
 			message = 'Please wait';
 			popup.set(true);
 			const user = await formAction($formText, $email, $password);
-			console.log(user['user']['uid']);
+			userId.set(user['user']['uid']);
 			axios.post('http://localhost:5173/api/users', {
 				email: $email,
 				password: $password

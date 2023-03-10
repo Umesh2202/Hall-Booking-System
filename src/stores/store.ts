@@ -8,4 +8,4 @@ export const datesList = writable([]);
 export const bookings = writable();
 export const validUser = writable(false);
 export const formText = writable('');
-export const userId = writable('');
+export const userId = writable('veCtcQRflWfdf0WOEiydZySOSFp2');

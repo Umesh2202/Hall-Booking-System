@@ -66,7 +66,7 @@
 		position: absolute;
 		content: '';
 		border: 2px solid #0075fc;
-		width: 30%;
+		width: 50%;
 		bottom: -40%;
 		left: 0;
 	}

@@ -2,7 +2,7 @@ export const extractBookingInfo = (data: {
 	bookings: {
 		endDate: { seconds: number };
 		startDate: { seconds: number };
-		eventName: { seconds: number };
+		eventName: { name: string };
 	}[];
 }) => {
 	const bookings = data.bookings;
