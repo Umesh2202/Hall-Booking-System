@@ -1,10 +1,13 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hideForm, bookings, userId } from '../../stores/store';
+	import { hideForm, bookings, userId, crrBookingInfo } from '../../stores/store';
 	import type Date from '../calendar/date.svelte';
 
 	export let id: number;
 
+	console.log($bookings);
+	const temp: any = $bookings;
+	const tempBookingInfo: any = $crrBookingInfo;
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
@@ -24,6 +27,10 @@
 				id: id,
 				userId: `${$userId}`
 			});
+			temp.push({ eventName: eventName, startDate: startDate, endDate: endDate });
+			tempBookingInfo.push(temp);
+			crrBookingInfo.set(tempBookingInfo);
+			bookings.set(temp);
 		}
 	};
 

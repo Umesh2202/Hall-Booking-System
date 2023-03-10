@@ -2,7 +2,7 @@
 	import Calendar from '../../../components/calendar/calendar.svelte';
 	import HallForm from '../../../components/hall/hallForm.svelte';
 	import { convertSecToDate } from '../../../components/calendar/functions/bookingInfo';
-	import { hideForm, bookings, userId } from '../../../stores/store';
+	import { hideForm, bookings, userId, crrBookingInfo } from '../../../stores/store';
 	import BookingDate from '../../../components/hall/bookingDate.svelte';
 	export let data: any;
 
@@ -10,16 +10,16 @@
 
 	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
-	let crrBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
+	let tempBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
 		return el['userId'] === $userId;
 	});
 
-	crrBookingInfo = convertSecToDate(crrBookingInfo);
-
+	tempBookingInfo = convertSecToDate(tempBookingInfo);
+	crrBookingInfo.set(tempBookingInfo);
 	// for(let i=0;i<crrBookingInfo.length;i++){
 	// 	const dates=convertSecToDate({})
 	// }
-	console.log(crrBookingInfo);
+	console.log($crrBookingInfo);
 	console.log($userId);
 </script>
 
@@ -53,7 +53,7 @@
 		</div>
 		<div class="head">Your Bookings (mm/dd/yyyy)</div>
 		<div class="value">
-			{#each crrBookingInfo as info}
+			{#each $crrBookingInfo as info}
 				<BookingDate
 					startDate={info['startDate']}
 					endDate={info['endDate']}

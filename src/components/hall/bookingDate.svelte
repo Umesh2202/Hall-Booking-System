@@ -10,6 +10,7 @@
 	<div>{endDate}</div>
 	<div>:</div>
 	<div>{eventName}</div>
+	<div><button class="delete">delete</button></div>
 </div>
 
 <style>
@@ -17,5 +18,13 @@
 		display: flex;
 		flex-direction: row;
 		gap: 0.3em;
+		position: relative;
+	}
+
+	.delete {
+		border: 2px solid red;
+		/* float: right; */
+		position: absolute;
+		right: 0;
 	}
 </style>
