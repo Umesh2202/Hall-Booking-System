@@ -6,50 +6,55 @@
 	import FormInput from './formInput.svelte';
 	import { auth } from '../../routes/api/users/firebase';
 	import Popup from './popup.svelte';
+	import { formAction } from './functions/form';
+	import InvalidUser from '../invalid/invalidUser.svelte';
 
 	let message: string = '';
 	let login_flag: boolean = false;
 	const addUser = async () => {
 		try {
-			// const user = await createUserWithEmailAndPassword(auth, $email, $password);
-			const user = await signInWithEmailAndPassword(auth, $email, $password);
-			console.log(user);
 			message = 'Please wait';
-			login_flag = true;
+			popup.set(true);
+			const user = await formAction($formText, $email, $password);
+			console.log(user['user']['uid']);
 			axios.post('http://localhost:5173/api/users', {
 				email: $email,
 				password: $password
 			});
 			email.set('');
 			password.set('');
-			validUser.set(true);
-			goto('/halls');
+			login_flag = true;
 		} catch (err) {
 			message = `${err}`;
 			popup.set(true);
 		}
 
-		popup.set(true);
 		setTimeout(() => {
 			popup.set(false);
 			if (login_flag === true) {
 				login_flag = false;
+				goto('/halls');
+				validUser.set(true);
 				// goto('/');
 			}
-		}, 3000);
+		}, 2000);
 	};
 </script>
 
-<Popup {message} />
 <div class="form">
-	<div class="container">
-		<div class="login">{$formText}</div>
-		<div class="inner">
-			<FormInput field="Email" />
-			<FormInput field="Password" />
+	{#if $formText !== ''}
+		<Popup {message} />
+		<div class="container">
+			<div class="login">{$formText}</div>
+			<div class="inner">
+				<FormInput field="Email" />
+				<FormInput field="Password" />
+			</div>
+			<button on:click={addUser}>NEXT</button>
 		</div>
-		<button on:click={addUser}>NEXT</button>
-	</div>
+	{:else}
+		<InvalidUser />
+	{/if}
 </div>
 
 <style>

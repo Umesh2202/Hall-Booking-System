@@ -1,6 +1,7 @@
 <script lang="ts">
-	import HallCard from '../../components/hall/hallCard.svelte';
 	import { validUser } from '../../stores/store';
+	import HallCard from '../../components/hall/hallCard.svelte';
+	import InvalidUser from '../../components/invalid/invalidUser.svelte';
 	export let data;
 
 	const halls = data['halls'];
@@ -23,7 +24,7 @@
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 		</div>
 	{:else}
-		<div class="invalid">Invalid User <br />Please SignUp or LogIn</div>
+		<InvalidUser />
 	{/if}
 </div>
 
@@ -61,16 +62,5 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: auto;
-	}
-
-	.invalid {
-		margin: auto;
-		/* position: absolute; */
-		width: max-content;
-		/* height: 100vh; */
-		color: #f5f5f5;
-		font-size: 6rem;
-		font-weight: 600;
-		padding-top: 1em;
 	}
 </style>
