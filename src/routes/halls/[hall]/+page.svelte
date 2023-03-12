@@ -10,17 +10,19 @@
 
 	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
+	// console.log('info:', bookingsInfo);
 	let tempBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
 		return el['userId'] === $userId;
 	});
 
 	tempBookingInfo = convertSecToDate(tempBookingInfo);
 	crrBookingInfo.set(tempBookingInfo);
+	// console.log('info:', $crrBookingInfo);
 	// for(let i=0;i<crrBookingInfo.length;i++){
 	// 	const dates=convertSecToDate({})
 	// }
-	console.log($crrBookingInfo);
-	console.log($userId);
+	// console.log($crrBookingInfo);
+	// console.log($userId);
 </script>
 
 <div class="outer">
@@ -58,6 +60,7 @@
 					startDate={info['startDate']}
 					endDate={info['endDate']}
 					eventName={info['eventName']}
+					id={data['id']}
 				/>
 			{/each}
 		</div>

@@ -2,12 +2,13 @@
 	import axios from 'axios';
 	import { hideForm, bookings, userId, crrBookingInfo } from '../../stores/store';
 	import type Date from '../calendar/date.svelte';
+	import { convertSecToDate } from '../calendar/functions/bookingInfo';
 
 	export let id: number;
 
-	console.log($bookings);
 	const temp: any = $bookings;
-	const tempBookingInfo: any = $crrBookingInfo;
+	let tempBookingInfo: any = $crrBookingInfo;
+
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
@@ -25,10 +26,17 @@
 				startDate: startDate,
 				endDate: endDate,
 				id: id,
-				userId: `${$userId}`
+				userId: `${$userId}`,
+				purpose: 0
 			});
-			temp.push({ eventName: eventName, startDate: startDate, endDate: endDate });
-			tempBookingInfo.push(temp);
+			temp.push({ eventName: eventName, startDate: startDate, endDate: endDate, userId: $userId });
+			tempBookingInfo.push({
+				eventName: eventName,
+				startDate: startDate,
+				endDate: endDate,
+				userId: $userId
+			});
+			tempBookingInfo = convertSecToDate(tempBookingInfo);
 			crrBookingInfo.set(tempBookingInfo);
 			bookings.set(temp);
 		}

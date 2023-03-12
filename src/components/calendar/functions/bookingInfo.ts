@@ -22,7 +22,14 @@ export const extractBookingInfo = (data: {
 };
 
 export const convertSecToDate = (
-	data: [{ startDate: { seconds: number }; endDate: { seconds: number }; eventName: string }]
+	data: [
+		{
+			startDate: { seconds: number };
+			endDate: { seconds: number };
+			eventName: string;
+			userId: string;
+		}
+	]
 ) => {
 	const info: object[] = [];
 	info.pop();
@@ -37,7 +44,12 @@ export const convertSecToDate = (
 		date.setSeconds(edSec);
 		const endDate = date.toLocaleDateString();
 
-		info.push({ eventName: data[i].eventName, startDate: startDate, endDate: endDate });
+		info.push({
+			eventName: data[i].eventName,
+			startDate: startDate,
+			endDate: endDate,
+			userId: data[i].userId
+		});
 	}
 
 	return info;

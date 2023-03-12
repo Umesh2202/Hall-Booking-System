@@ -1,7 +1,22 @@
 <script lang="ts">
-	export let startDate: string;
-	export let endDate: string;
-	export let eventName: string;
+	import axios from 'axios';
+	import { arrayRemove, deleteDoc } from 'firebase/firestore';
+	import { userId, crrBookingInfo, bookings } from '../../stores/store';
+	export let startDate: string, id: number, eventName: string, endDate: string;
+
+	const deleteBooking = async () => {
+		await axios.post(`http://localhost:5173/api/hallsBook`, {
+			eventName: eventName,
+			startDate: startDate,
+			endDate: endDate,
+			id: id,
+			userId: `${$userId}`,
+			purpose: 1,
+			crrBookingInfo: $crrBookingInfo,
+			bookings: $bookings
+		});
+		// console.log('delete');
+	};
 </script>
 
 <div class="outer">
@@ -10,7 +25,14 @@
 	<div>{endDate}</div>
 	<div>:</div>
 	<div>{eventName}</div>
-	<div><button class="delete">delete</button></div>
+	<div>
+		<button
+			class="delete"
+			on:click={() => {
+				deleteBooking();
+			}}>delete</button
+		>
+	</div>
 </div>
 
 <style>
