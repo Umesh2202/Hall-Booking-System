@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { extractBookingInfo } from '../../../components/calendar/functions/bookingInfo';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;
@@ -11,10 +10,7 @@ export const load = (async ({ params }) => {
 		return el['id'] === params.hall;
 	});
 
-	// const bookingsInfo = extractBookingInfo(data[0]);
-
 	return {
 		halls: data[0]
-		// bookings: bookingsInfo
 	};
 }) satisfies PageServerLoad;

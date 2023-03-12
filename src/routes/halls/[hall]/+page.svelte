@@ -10,19 +10,13 @@
 
 	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
-	// console.log('info:', bookingsInfo);
+
 	let tempBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
 		return el['userId'] === $userId;
 	});
 
 	tempBookingInfo = convertSecToDate(tempBookingInfo);
 	crrBookingInfo.set(tempBookingInfo);
-	// console.log('info:', $crrBookingInfo);
-	// for(let i=0;i<crrBookingInfo.length;i++){
-	// 	const dates=convertSecToDate({})
-	// }
-	// console.log($crrBookingInfo);
-	// console.log($userId);
 </script>
 
 <div class="outer">
@@ -92,8 +86,7 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #f5f5f5;
-		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
-		text-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
 	.inner {
@@ -102,14 +95,12 @@
 		width: 60%;
 		padding: 4em;
 		border-radius: 1em;
-		/* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
 		box-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
 	}
 	.name {
 		font-size: 7rem;
 		color: #0075fc;
 		font-weight: 700;
-		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
 	}
 
 	.head {
@@ -117,7 +108,6 @@
 		color: #474747;
 		font-weight: 600;
 		margin-top: 0.5em;
-		/* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); */
 	}
 
 	.value {

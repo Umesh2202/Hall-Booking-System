@@ -22,7 +22,7 @@
 		padding: 2em;
 		max-height: fit-content;
 		border-radius: 1em;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 2px 2px 8px #0000004d;
 	}
 
 	.outer:hover {

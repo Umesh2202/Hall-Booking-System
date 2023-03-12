@@ -37,7 +37,7 @@
 		padding: 3em;
 		line-height: 3.3em;
 		text-align: center;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
 	}
 
 	.feature-head {

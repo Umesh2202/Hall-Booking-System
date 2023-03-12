@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '../$types';
 import { colRef } from '../halls/firebase';
-import { doc, getDocs, Timestamp, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { doc, getDocs, Timestamp, updateDoc, arrayUnion } from 'firebase/firestore';
 import { convertSecToDate } from '../../../components/calendar/functions/bookingInfo';
 
 export const GET: RequestHandler = async () => {
@@ -27,9 +27,6 @@ export const POST: RequestHandler = async ({ request }) => {
 	const eventName = body['eventName'];
 	const userId = body['userId'];
 	const purpose = body['purpose'];
-	let crrBookingInfo = body['bookings'];
-	crrBookingInfo = convertSecToDate(crrBookingInfo);
-	console.log(crrBookingInfo);
 
 	const docRef = doc(colRef, body['id']);
 
@@ -48,8 +45,12 @@ export const POST: RequestHandler = async ({ request }) => {
 		});
 	} else if (purpose === 1) {
 		//* For deleting: first filtering the bookings of the current user using the userid
+
+		let crrBookingInfo = body['bookings'];
+		crrBookingInfo = convertSecToDate(crrBookingInfo);
+
 		crrBookingInfo = crrBookingInfo.filter((el: never) => {
-			return el['startDate'] !== startDate && el['endDate'] !== endDate && el['userId'];
+			return el['startDate'] !== startDate && el['endDate'] !== endDate;
 		});
 
 		crrBookingInfo = crrBookingInfo.map((el: { startDate: Date; endDate: Date }) => {
@@ -64,11 +65,9 @@ export const POST: RequestHandler = async ({ request }) => {
 			return el;
 		});
 
-		// console.log(eventName, startDate, endDate, userId);
-		// await updateDoc(docRef, {
-		// 	bookings: [...crrBookingInfo]
-		// });
-		console.log(crrBookingInfo);
+		await updateDoc(docRef, {
+			bookings: [...crrBookingInfo]
+		});
 	}
 
 	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });
