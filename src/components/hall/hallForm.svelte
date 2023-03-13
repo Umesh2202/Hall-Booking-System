@@ -7,8 +7,8 @@
 	export let id: number;
 
 	const temp: any = $bookings;
-	let tempBookingInfo: any = $crrBookingInfo;
 
+	console.log($bookings);
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
@@ -20,6 +20,7 @@
 		emptyDate: boolean = true; //* true if any date is empty
 
 	const book = async () => {
+		let tempBookingInfo: any = $crrBookingInfo;
 		if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
 			await axios.post(`http://localhost:5173/api/hallsBook`, {
 				eventName: eventName,
@@ -67,6 +68,33 @@
 		}
 	};
 
+	const changeDateFormat = (orgDate: string) => {
+		let ind: number = orgDate.indexOf('-');
+		let year: string = orgDate.slice(0, ind);
+
+		let remainString = orgDate.slice(ind + 1, orgDate.length);
+		ind = remainString.indexOf('-');
+		let month: string = remainString.slice(0, ind);
+		if (month[0] == '0') {
+			month = month.slice(1, year.length);
+		}
+
+		let date = remainString.slice(ind + 1, orgDate.length);
+		if (date[0] == '0') {
+			date = date.slice(1, year.length);
+		}
+
+		const finalDate = month + '/' + date + '/' + year;
+		return finalDate;
+	};
+	const checkBookedDate = () => {
+		let tempBookingInfo = $bookings;
+		tempBookingInfo = convertSecToDate(tempBookingInfo);
+
+		console.log(tempBookingInfo);
+		// console.log(startDate);
+		changeDateFormat(`${startDate}`);
+	};
 	const removeExtraSpaces = () => {
 		//* Removes extra spaces from the end of the event name
 		while (eventName[eventName.length - 1] === ' ') {
@@ -93,7 +121,15 @@
 	<div class="dates">
 		<div class="field">Start Date</div>
 		<div class="field">End Date</div>
-		<input type="date" class="date" bind:value={startDate} on:change={checkValidDate} />
+		<input
+			type="date"
+			class="date"
+			bind:value={startDate}
+			on:change={() => {
+				checkValidDate();
+				checkBookedDate();
+			}}
+		/>
 		<input type="date" class="date" bind:value={endDate} on:change={checkValidDate} />
 	</div>
 	<div class={`warning ${invalidDate === true ? 'invalidDate' : ''}`}>Enter valid date</div>

@@ -74,9 +74,9 @@
 
 	.login {
 		font-size: 5rem;
-		font-weight: 700;
+		font-weight: 400;
 		color: #0075fc;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 	.inner {
 		display: grid;
