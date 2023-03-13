@@ -48,7 +48,6 @@
 		min-width: 450px;
 		margin: 1rem auto;
 		background-color: #f5f7f6;
-		/* box-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5); */
 		color: #040605;
 		border: 2px solid #474747;
 		border-radius: 1em;

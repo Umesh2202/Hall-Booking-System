@@ -86,7 +86,7 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #f5f5f5;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 8px #0000004d;
 	}
 
 	.inner {
@@ -95,7 +95,7 @@
 		width: 60%;
 		padding: 4em;
 		border-radius: 1em;
-		box-shadow: 5px 5px 72px rgba(30, 46, 50, 0.5);
+		box-shadow: 5px 5px 72px #1e2e3280;
 	}
 	.name {
 		font-size: 7rem;

@@ -19,7 +19,7 @@
 		padding: 2em;
 		border-radius: 1em;
 		background-color: #f8f9fa;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 2px 2px 8px #0000004d;
 		display: grid;
 		justify-items: center;
 	}

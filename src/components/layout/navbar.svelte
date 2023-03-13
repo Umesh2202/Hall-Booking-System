@@ -23,24 +23,22 @@
 		</div>
 	</div>
 	<div class="inner">
-		<a
-			href={`${$validUser === false ? '/userForm' : ''}`}
-			class={` ${$validUser === true ? 'hidden' : ''}`}
-		>
-			<div class="nav-item">
+		<a href="/userForm">
+			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
 				<button
+					disabled={$validUser === true ? true : false}
 					on:click={() => {
 						formText.set('User Login');
 					}}>User Login</button
 				>
 			</div>
 		</a>
-		<a
-			href={`${$validUser === false ? '/userForm' : ''}`}
-			class={` ${$validUser === true ? 'hidden' : ''}`}
-		>
-			<div class="nav-item">
-				<button on:click={() => formText.set('Admin Login')}>Admin Login</button>
+		<a href="/userForm">
+			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+				<button
+					disabled={$validUser === true ? true : false}
+					on:click={() => formText.set('Admin Login')}>Admin Login</button
+				>
 			</div>
 		</a>
 		<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`}>
@@ -59,7 +57,7 @@
 		justify-content: center;
 		width: 100%;
 		background-color: #f5f5f5;
-		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 2px 2px 8px #0000004d;
 	}
 
 	.inner {
@@ -83,7 +81,7 @@
 		font-size: 2rem;
 		font-weight: 700;
 		color: #0075fc;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 8px #0000004d;
 		display: flex;
 		justify-content: center;
 		align-items: center;
