@@ -29,7 +29,7 @@
 	}
 	label {
 		font-size: 2.5rem;
-		font-weight: 400;
+		font-weight: 600;
 	}
 	.text-input {
 		/* width: 20em; */

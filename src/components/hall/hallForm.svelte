@@ -3,12 +3,12 @@
 	import { hideForm, bookings, userId, crrBookingInfo } from '../../stores/store';
 	import type Date from '../calendar/date.svelte';
 	import { convertSecToDate } from '../calendar/functions/bookingInfo';
+	import Warning from './warning.svelte';
 
 	export let id: number;
 
 	const temp: any = $bookings;
 
-	console.log($bookings);
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
@@ -17,7 +17,8 @@
 		invalidDate: boolean = false, //* true if date is invalid
 		invalidEventName: boolean = false, //* true if name is invalid
 		emptyName: boolean = true, //* true if name is empty
-		emptyDate: boolean = true; //* true if any date is empty
+		emptyDate: boolean = true, //* true if any date is empty
+		bookedDate: boolean = false; //* true if any date is between booked dates
 
 	const book = async () => {
 		let tempBookingInfo: any = $crrBookingInfo;
@@ -87,14 +88,33 @@
 		const finalDate = month + '/' + date + '/' + year;
 		return finalDate;
 	};
+
 	const checkBookedDate = () => {
 		let tempBookingInfo = $bookings;
 		tempBookingInfo = convertSecToDate(tempBookingInfo);
 
-		console.log(tempBookingInfo);
-		// console.log(startDate);
-		changeDateFormat(`${startDate}`);
+		const inputDates = {
+			startDate: changeDateFormat(`${startDate}`),
+			endDate: changeDateFormat(`${endDate}`)
+		};
+
+		for (let i = 0; i < tempBookingInfo.length; i++) {
+			const bookedStDate = tempBookingInfo[i]['startDate'];
+			const bookedEdDate = tempBookingInfo[i]['endDate'];
+
+			if (inputDates['startDate'] >= bookedStDate && inputDates['startDate'] <= bookedEdDate) {
+				bookedDate = true;
+				break;
+			} else if (inputDates['endDate'] >= bookedStDate && inputDates['endDate'] <= bookedEdDate) {
+				bookedDate = true;
+				break;
+			} else {
+				bookedDate = false;
+			}
+		}
+		console.log(bookedDate);
 	};
+
 	const removeExtraSpaces = () => {
 		//* Removes extra spaces from the end of the event name
 		while (eventName[eventName.length - 1] === ' ') {
@@ -114,9 +134,7 @@
 		on:change={removeExtraSpaces}
 	/>
 
-	<div class={`warning ${invalidEventName === true ? 'invalidEventName' : ''}`}>
-		Enter valid event name
-	</div>
+	<Warning flag={invalidEventName} label="Enter valid event name" />
 
 	<div class="dates">
 		<div class="field">Start Date</div>
@@ -130,9 +148,20 @@
 				checkBookedDate();
 			}}
 		/>
-		<input type="date" class="date" bind:value={endDate} on:change={checkValidDate} />
+		<input
+			type="date"
+			class="date"
+			bind:value={endDate}
+			on:change={() => {
+				checkValidDate();
+				checkBookedDate();
+			}}
+		/>
 	</div>
+
 	<div class={`warning ${invalidDate === true ? 'invalidDate' : ''}`}>Enter valid date</div>
+	<div class={`warning ${bookedDate === true ? 'invalidDate' : ''}`}>Date already booked</div>
+
 	<button
 		class={`submit ${
 			invalidDate || invalidEventName || emptyName || emptyDate === true ? 'disable' : ''
@@ -221,7 +250,6 @@
 		font-size: 2rem;
 		color: #ff0000;
 		text-align: center;
-		margin-top: 1em;
 		display: block;
 		visibility: hidden;
 	}

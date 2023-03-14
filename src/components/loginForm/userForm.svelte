@@ -74,7 +74,7 @@
 
 	.login {
 		font-size: 5rem;
-		font-weight: 400;
+		font-weight: 600;
 		color: #0075fc;
 		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
