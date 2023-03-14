@@ -102,17 +102,16 @@
 			const bookedStDate = tempBookingInfo[i]['startDate'];
 			const bookedEdDate = tempBookingInfo[i]['endDate'];
 
-			if (inputDates['startDate'] >= bookedStDate && inputDates['startDate'] <= bookedEdDate) {
-				bookedDate = true;
-				break;
-			} else if (inputDates['endDate'] >= bookedStDate && inputDates['endDate'] <= bookedEdDate) {
+			if (
+				(inputDates['startDate'] >= bookedStDate && inputDates['startDate'] <= bookedEdDate) ||
+				(inputDates['endDate'] >= bookedStDate && inputDates['endDate'] <= bookedEdDate)
+			) {
 				bookedDate = true;
 				break;
 			} else {
 				bookedDate = false;
 			}
 		}
-		console.log(bookedDate);
 	};
 
 	const removeExtraSpaces = () => {
@@ -159,12 +158,14 @@
 		/>
 	</div>
 
-	<div class={`warning ${invalidDate === true ? 'invalidDate' : ''}`}>Enter valid date</div>
-	<div class={`warning ${bookedDate === true ? 'invalidDate' : ''}`}>Date already booked</div>
+	<Warning flag={invalidDate} label="Enter valid date" />
+	<Warning flag={bookedDate} label="Date already booked" />
 
 	<button
 		class={`submit ${
-			invalidDate || invalidEventName || emptyName || emptyDate === true ? 'disable' : ''
+			invalidDate || invalidEventName || emptyName || emptyDate || bookedDate === true
+				? 'disable'
+				: ''
 		}`}
 		on:click={() => {
 			book();
@@ -200,7 +201,6 @@
 	}
 
 	.dates {
-		/* margin-top: 2em; */
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0 1em;
@@ -221,7 +221,6 @@
 	.submit {
 		width: 100%;
 		border-radius: 0.5em;
-		/* margin-top: 1.5em; */
 		font-size: 2rem;
 		background-color: #0075fc;
 		color: #f5f5f5;
