@@ -11,6 +11,7 @@
 	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
 
+	console.log($bookings);
 	let tempBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
 		return el['userId'] === $userId;
 	});
@@ -60,7 +61,9 @@
 		</div>
 
 		<div class="head">Calendar</div>
-		<Calendar />
+		{#key $bookings}
+			<Calendar />
+		{/key}
 		<button
 			disabled={!$hideForm}
 			class="book"
