@@ -34,11 +34,12 @@
 		<div>{eventName}</div>
 		<div>
 			<button
-				class="delete"
-				disabled={$deleteDateId === id || $deleteDateId === '' ? false : true}
+				class={`delete ${$deleteDateId === startDate || $deleteDateId === '' ? '' : 'disable'}`}
+				disabled={$deleteDateId === startDate || $deleteDateId === '' ? false : true}
 				on:click={() => {
+					console.log(id.toString());
 					deleteFlag = true;
-					deleteDateId.set(id);
+					deleteDateId.set(startDate);
 				}}>Delete</button
 			>
 		</div>
@@ -82,6 +83,10 @@
 		background-color: #ff0000;
 		color: #f5f5f5;
 		font-weight: 600;
+	}
+
+	.disable {
+		background-color: #474747;
 	}
 
 	.options {
