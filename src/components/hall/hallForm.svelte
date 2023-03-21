@@ -34,11 +34,11 @@
 			temp.push({ eventName: eventName, startDate: startDate, endDate: endDate, userId: $userId });
 			tempBookingInfo.push({
 				eventName: eventName,
-				startDate: startDate,
-				endDate: endDate,
+				startDate: changeDateFormat(startDate),
+				endDate: changeDateFormat(endDate),
 				userId: $userId
 			});
-			tempBookingInfo = convertSecToDate(tempBookingInfo);
+
 			crrBookingInfo.set(tempBookingInfo);
 			bookings.set(temp);
 		}

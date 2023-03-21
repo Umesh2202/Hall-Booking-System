@@ -113,6 +113,9 @@
 	.value {
 		font-size: 2rem;
 		color: #0075fc;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
 	}
 
 	.book {
