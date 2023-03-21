@@ -48,7 +48,7 @@
 				<FormInput field="Email" />
 				<FormInput field="Password" />
 			</div>
-			<button on:click={addUser}>NEXT</button>
+			<button on:click={addUser}>Next</button>
 		</div>
 	{:else}
 		<InvalidUser />

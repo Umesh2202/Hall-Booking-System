@@ -10,3 +10,4 @@ export const validUser = writable(false);
 export const formText = writable('');
 export const userId = writable('veCtcQRflWfdf0WOEiydZySOSFp2');
 export const crrBookingInfo = writable([]);
+export const deleteDateId = writable();

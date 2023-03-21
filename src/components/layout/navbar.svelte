@@ -81,7 +81,7 @@
 		font-size: 2rem;
 		font-weight: 700;
 		color: #0075fc;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 		display: flex;
 		justify-content: center;
 		align-items: center;

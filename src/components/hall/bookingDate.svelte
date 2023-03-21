@@ -1,21 +1,20 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { userId, crrBookingInfo, bookings } from '../../stores/store';
-	import { fade, fly } from 'svelte/transition';
+	import { userId, crrBookingInfo, bookings, deleteDateId } from '../../stores/store';
 	export let startDate: string, id: number, eventName: string, endDate: string;
 
 	let deleteFlag = false;
 	const deleteBooking = async () => {
-		// await axios.post(`http://localhost:5173/api/hallsBook`, {
-		// 	eventName: eventName,
-		// 	startDate: startDate,
-		// 	endDate: endDate,
-		// 	id: id,
-		// 	userId: `${$userId}`,
-		// 	purpose: 1,
-		// 	crrBookingInfo: $crrBookingInfo,
-		// 	bookings: $bookings
-		// });
+		await axios.post(`http://localhost:5173/api/hallsBook`, {
+			eventName: eventName,
+			startDate: startDate,
+			endDate: endDate,
+			id: id,
+			userId: `${$userId}`,
+			purpose: 1,
+			crrBookingInfo: $crrBookingInfo,
+			bookings: $bookings
+		});
 
 		let tempBookingInfo = $crrBookingInfo;
 		tempBookingInfo = tempBookingInfo.filter((el: never) => {
@@ -36,8 +35,10 @@
 		<div>
 			<button
 				class="delete"
+				disabled={$deleteDateId === id || $deleteDateId === '' ? false : true}
 				on:click={() => {
 					deleteFlag = true;
+					deleteDateId.set(id);
 				}}>Delete</button
 			>
 		</div>
@@ -49,12 +50,14 @@
 				on:click={() => {
 					deleteFlag = false;
 					deleteBooking();
+					deleteDateId.set('');
 				}}>Yes</button
 			>
 			<button
 				class="delete cancel"
 				on:click={() => {
 					deleteFlag = false;
+					deleteDateId.set('');
 				}}>No</button
 			>
 		</div>
