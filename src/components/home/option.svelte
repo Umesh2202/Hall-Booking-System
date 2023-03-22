@@ -31,7 +31,6 @@
 		font-weight: bold;
 		width: 100%;
 		box-shadow: 2px 2px 8px #0000004d;
-		margin-top: 1em;
 	}
 
 	button:hover {

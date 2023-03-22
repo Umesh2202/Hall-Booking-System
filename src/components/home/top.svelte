@@ -6,11 +6,9 @@
 
 <style>
 	.heading {
-		/* margin-top: 1em; */
 		font-size: 5rem;
 		color: #f5f5f5;
 		font-weight: bold;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.info {
@@ -20,7 +18,7 @@
 		width: 50%;
 		font-weight: 600;
 		position: relative;
-		/* text-shadow: 2px 2px 8px #0000004d; */
+		padding-bottom: 1em;
 	}
 
 	.info:after {
@@ -28,7 +26,7 @@
 		content: '';
 		border: 2px solid #f5f5f5;
 		width: 100%;
-		bottom: -20%;
+		bottom: -5%;
 		left: 0;
 	}
 </style>
