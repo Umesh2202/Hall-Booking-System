@@ -2,13 +2,15 @@
 	import { validUser } from '../../stores/store';
 	import HallCard from '../../components/hall/hallCard.svelte';
 	import InvalidUser from '../../components/invalid/invalidUser.svelte';
+	import UserForm from '../../components/loginForm/userForm.svelte';
+	import { goto } from '$app/navigation';
 	export let data;
 
 	const halls = data['halls'];
 </script>
 
-<div class="outer">
-	{#if $validUser === true}
+{#if $validUser === true}
+	<div class="outer">
 		<div class="heading">Available Halls</div>
 		<div class="sub-heading">Click to get more details</div>
 
@@ -23,10 +25,10 @@
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 		</div>
-	{:else}
-		<InvalidUser />
-	{/if}
-</div>
+	</div>
+{:else}
+	<UserForm />
+{/if}
 
 <style>
 	.heading {

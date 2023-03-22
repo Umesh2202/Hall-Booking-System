@@ -13,6 +13,7 @@ export const formText = writable('SignUp');
 export const userId = writable((browser && localStorage.getItem('userId')) || '');
 export const crrBookingInfo = writable([]);
 export const deleteDateId = writable('');
+export const adminInfo = { email: 'roman@gmail.com', password: '123456' };
 
 userId.subscribe((value) => {
 	browser && localStorage.setItem('userId', value);

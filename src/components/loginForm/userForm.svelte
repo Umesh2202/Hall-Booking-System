@@ -13,12 +13,14 @@
 		try {
 			message = 'Please wait';
 			popup.set(true);
-			const user = await formAction($formText, $email, $password);
-			userId.set(user['user']['uid']);
-			axios.post('http://localhost:5173/api/users', {
-				email: $email,
-				password: $password
-			});
+			if ($formText !== 'Admin Login') {
+				const user = await formAction($formText, $email, $password);
+				userId.set(user['user']['uid']);
+				axios.post('http://localhost:5173/api/users', {
+					email: $email,
+					password: $password
+				});
+			}
 			email.set('');
 			password.set('');
 			login_flag = true;
@@ -40,19 +42,19 @@
 </script>
 
 <div class="form">
-	{#if $formText !== ''}
-		<Popup {message} />
-		<div class="container">
-			<div class="login">{$formText}</div>
-			<div class="inner">
-				<FormInput field="Email" />
-				<FormInput field="Password" />
-			</div>
-			<button on:click={addUser}>Next</button>
+	<!-- {#if $formText !== ''} -->
+	<Popup {message} />
+	<div class="container">
+		<div class="login">{$formText}</div>
+		<div class="inner">
+			<FormInput field="Email" />
+			<FormInput field="Password" />
 		</div>
-	{:else}
-		<InvalidUser />
-	{/if}
+		<button on:click={addUser}>Next</button>
+	</div>
+	<!-- {:else} -->
+	<!-- <InvalidUser /> -->
+	<!-- {/if} -->
 </div>
 
 <style>
