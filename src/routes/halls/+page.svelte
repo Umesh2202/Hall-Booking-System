@@ -37,7 +37,7 @@
 		width: fit-content;
 		color: #f5f5f5;
 		font-weight: 700;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.sub-heading {
@@ -47,7 +47,7 @@
 		width: fit-content;
 		margin-bottom: 1em;
 		color: #ffc400;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 	.outer {
 		min-height: 100vh;

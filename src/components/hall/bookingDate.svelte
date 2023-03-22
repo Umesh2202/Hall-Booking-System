@@ -5,16 +5,17 @@
 
 	let deleteFlag = false;
 	const deleteBooking = async () => {
-		// await axios.post(`http://localhost:5173/api/hallsBook`, {
-		// 	eventName: eventName,
-		// 	startDate: startDate,
-		// 	endDate: endDate,
-		// 	id: id,
-		// 	userId: `${$userId}`,
-		// 	purpose: 1,
-		// 	crrBookingInfo: $crrBookingInfo,
-		// 	bookings: $bookings
-		// });
+		window.location.reload();
+		await axios.post(`http://localhost:5173/api/hallsBook`, {
+			eventName: eventName,
+			startDate: startDate,
+			endDate: endDate,
+			id: id,
+			userId: `${$userId}`,
+			purpose: 1,
+			crrBookingInfo: $crrBookingInfo,
+			bookings: $bookings
+		});
 
 		let tempBookingInfo = $crrBookingInfo;
 		tempBookingInfo = tempBookingInfo.filter((el: never) => {
@@ -24,6 +25,9 @@
 		console.log(tempBookingInfo);
 
 		crrBookingInfo.set(tempBookingInfo);
+
+		// setTimeout(() => {
+		// }, 1000);
 	};
 </script>
 

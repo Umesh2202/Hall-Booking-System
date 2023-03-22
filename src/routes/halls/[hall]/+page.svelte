@@ -50,14 +50,18 @@
 		</div>
 		<div class="head">Your Bookings (mm/dd/yyyy)</div>
 		<div class="value">
-			{#each $crrBookingInfo as info}
-				<BookingDate
-					startDate={info['startDate']}
-					endDate={info['endDate']}
-					eventName={info['eventName']}
-					id={data['id']}
-				/>
-			{/each}
+			{#if $crrBookingInfo.length > 0}
+				{#each $crrBookingInfo as info}
+					<BookingDate
+						startDate={info['startDate']}
+						endDate={info['endDate']}
+						eventName={info['eventName']}
+						id={data['id']}
+					/>
+				{/each}
+			{:else}
+				<div>No Bookings</div>
+			{/if}
 		</div>
 
 		<div class="head">Calendar</div>
@@ -72,12 +76,15 @@
 			}}>Book</button
 		>
 	</div>
-	<HallForm id={data['id']} />
+
+	<div class={`${$hideForm === false ? 'cover' : ''}`}>
+		<HallForm id={data['id']} />
+	</div>
 </div>
-<div class={`${$hideForm === false ? 'cover' : ''}`} />
 
 <style>
 	.outer {
+		overflow-y: hidden;
 		background-color: #0075fc;
 		min-height: 100vh;
 		display: grid;
@@ -89,7 +96,7 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #f5f5f5;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.inner {
@@ -141,5 +148,8 @@
 		top: 0;
 		left: 0;
 		background-color: #47474770;
+		display: grid;
+		justify-items: center;
+		align-items: center;
 	}
 </style>

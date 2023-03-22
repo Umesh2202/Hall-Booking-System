@@ -5,6 +5,8 @@
 	import { validUser, formText } from '../../stores/store';
 	import { goto } from '$app/navigation';
 
+	validUser.set(JSON.parse($validUser));
+	console.log(typeof $validUser);
 	const logOut = () => {
 		signOut(auth);
 		validUser.set(false);

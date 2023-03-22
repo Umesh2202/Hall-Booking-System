@@ -4,6 +4,7 @@
 	import type Date from '../calendar/date.svelte';
 	import { convertSecToDate } from '../calendar/functions/bookingInfo';
 	import Warning from './warning.svelte';
+	import cancel from '../../assets/cancel.svg';
 
 	export let id: number;
 
@@ -171,25 +172,27 @@
 		on:click={() => {
 			book();
 			setTimeout(() => {
-				// window.location.reload();
-			}, 2000);
+				window.location.reload();
+			}, 1000);
 		}}>Submit</button
 	>
 	<button
 		class="close"
 		on:click={() => {
 			hideForm.set(!$hideForm);
-		}}>X</button
+		}}
 	>
+		<img src={cancel} alt="" />
+	</button>
 </div>
 
 <style>
 	.outer {
 		background-color: #f5f5f5;
 		width: 40%;
-		border-radius: 1em;
-		padding: 3em;
-		position: absolute;
+		border-radius: 0.5em;
+		padding: 0.7em;
+		position: relative;
 		border: 5px solid #474747;
 		z-index: 2;
 	}
@@ -198,7 +201,7 @@
 		color: #474747;
 		font-size: 2.5rem;
 		font-weight: 600;
-		text-shadow: 2px 2px 8px #0000004d;
+		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.dates {
@@ -235,8 +238,8 @@
 	}
 	.close {
 		position: absolute;
-		top: 0%;
-		right: 3%;
+		top: -4%;
+		right: -4%;
 		font-size: 2rem;
 		font-weight: 700;
 		color: #ff0000;
