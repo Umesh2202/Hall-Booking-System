@@ -77,9 +77,7 @@
 		>
 	</div>
 
-	<div class={`${$hideForm === false ? 'cover' : ''}`}>
-		<HallForm id={data['id']} />
-	</div>
+	<HallForm id={data['id']} />
 </div>
 
 <style>
@@ -138,18 +136,5 @@
 		font-size: 1.5rem;
 		font-weight: 700;
 		margin-top: 1em;
-	}
-
-	.cover {
-		font-size: 4rem;
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: #47474770;
-		display: grid;
-		justify-items: center;
-		align-items: center;
 	}
 </style>

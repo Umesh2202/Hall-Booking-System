@@ -9,7 +9,7 @@ export const datesList = writable([]);
 export const bookings = writable([]);
 export const validUser = writable(browser && (localStorage.getItem('validUser') || false));
 // export const validUser = writable(false);
-export const formText = writable('SignUp');
+export const formText = writable((browser && localStorage.getItem('formText')) || 'SignUp');
 export const userId = writable((browser && localStorage.getItem('userId')) || '');
 export const crrBookingInfo = writable([]);
 export const deleteDateId = writable('');
@@ -21,4 +21,8 @@ userId.subscribe((value) => {
 
 validUser.subscribe((value) => {
 	browser && localStorage.setItem('validUser', value === false ? false : JSON.parse(value));
+});
+
+formText.subscribe((value) => {
+	browser && localStorage.setItem('formText', value);
 });

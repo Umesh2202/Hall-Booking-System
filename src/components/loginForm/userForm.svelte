@@ -13,10 +13,10 @@
 		try {
 			message = 'Please wait';
 			popup.set(true);
+			const user = await formAction($formText, $email, $password);
 			if ($formText !== 'Admin Login') {
-				const user = await formAction($formText, $email, $password);
 				userId.set(user['user']['uid']);
-				axios.post('http://localhost:5173/api/users', {
+				axios.post('http://localhost:5174/api/users', {
 					email: $email,
 					password: $password
 				});

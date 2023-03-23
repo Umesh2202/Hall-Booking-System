@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { validUser } from '../../stores/store';
+	import { validUser, formText, hideForm } from '../../stores/store';
 	import HallCard from '../../components/hall/hallCard.svelte';
 	import InvalidUser from '../../components/invalid/invalidUser.svelte';
 	import UserForm from '../../components/loginForm/userForm.svelte';
+	import AddHall from '../../components/hall/addHall.svelte';
+	import AddHallForm from '../../components/hall/addHallForm.svelte';
 	import { goto } from '$app/navigation';
 	export let data;
 
@@ -24,6 +26,11 @@
 			{/each}
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
+
+			{#if $formText === 'Admin Login'}
+				<AddHall />
+				<AddHallForm />
+			{/if}
 		</div>
 	</div>
 {:else}

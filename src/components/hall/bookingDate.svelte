@@ -6,7 +6,7 @@
 	let deleteFlag = false;
 	const deleteBooking = async () => {
 		window.location.reload();
-		await axios.post(`http://localhost:5173/api/hallsBook`, {
+		await axios.post(`http://localhost:5174/api/hallsBook`, {
 			eventName: eventName,
 			startDate: startDate,
 			endDate: endDate,

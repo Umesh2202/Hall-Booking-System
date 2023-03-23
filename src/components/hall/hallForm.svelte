@@ -24,7 +24,7 @@
 	const book = async () => {
 		let tempBookingInfo: any = $crrBookingInfo;
 		if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
-			await axios.post(`http://localhost:5173/api/hallsBook`, {
+			await axios.post(`http://localhost:5174/api/hallsBook`, {
 				eventName: eventName,
 				startDate: startDate,
 				endDate: endDate,
@@ -124,66 +124,68 @@
 	};
 </script>
 
-<div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
-	<div class="field">Event Name</div>
-	<input
-		type="text"
-		class="name"
-		placeholder="Enter event name"
-		bind:value={eventName}
-		on:input={checkValidEventName}
-		on:change={removeExtraSpaces}
-	/>
-
-	<Warning flag={invalidEventName} label="Enter valid event name" />
-
-	<div class="dates">
-		<div class="field">Start Date</div>
-		<div class="field">End Date</div>
+<div class={`${$hideForm === false ? 'cover' : ''}`}>
+	<div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
+		<div class="field">Event Name</div>
 		<input
-			type="date"
-			class="date"
-			bind:value={startDate}
-			on:change={() => {
-				checkValidDate();
-				checkBookedDate();
-			}}
+			type="text"
+			class="name"
+			placeholder="Enter event name"
+			bind:value={eventName}
+			on:input={checkValidEventName}
+			on:change={removeExtraSpaces}
 		/>
-		<input
-			type="date"
-			class="date"
-			bind:value={endDate}
-			on:change={() => {
-				checkValidDate();
-				checkBookedDate();
+
+		<Warning flag={invalidEventName} label="Enter valid event name" />
+
+		<div class="dates">
+			<div class="field">Start Date</div>
+			<div class="field">End Date</div>
+			<input
+				type="date"
+				class="date"
+				bind:value={startDate}
+				on:change={() => {
+					checkValidDate();
+					checkBookedDate();
+				}}
+			/>
+			<input
+				type="date"
+				class="date"
+				bind:value={endDate}
+				on:change={() => {
+					checkValidDate();
+					checkBookedDate();
+				}}
+			/>
+		</div>
+
+		<Warning flag={invalidDate} label="Enter valid date" />
+		<Warning flag={bookedDate} label="Date already booked" />
+
+		<button
+			class={`submit ${
+				invalidDate || invalidEventName || emptyName || emptyDate || bookedDate === true
+					? 'disable'
+					: ''
+			}`}
+			on:click={() => {
+				book();
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
+			}}>Submit</button
+		>
+		<button
+			class="close"
+			on:click={() => {
+				hideForm.set(!$hideForm);
 			}}
-		/>
+		>
+			<img src={cancel} alt="" />
+		</button>
 	</div>
-
-	<Warning flag={invalidDate} label="Enter valid date" />
-	<Warning flag={bookedDate} label="Date already booked" />
-
-	<button
-		class={`submit ${
-			invalidDate || invalidEventName || emptyName || emptyDate || bookedDate === true
-				? 'disable'
-				: ''
-		}`}
-		on:click={() => {
-			book();
-			setTimeout(() => {
-				window.location.reload();
-			}, 1000);
-		}}>Submit</button
-	>
-	<button
-		class="close"
-		on:click={() => {
-			hideForm.set(!$hideForm);
-		}}
-	>
-		<img src={cancel} alt="" />
-	</button>
 </div>
 
 <style>
@@ -263,5 +265,18 @@
 
 	.invalidDate {
 		visibility: visible;
+	}
+
+	.cover {
+		font-size: 4rem;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #47474770;
+		display: grid;
+		justify-items: center;
+		align-items: center;
 	}
 </style>
