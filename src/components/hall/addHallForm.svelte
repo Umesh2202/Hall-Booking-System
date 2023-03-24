@@ -1,42 +1,81 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hideForm, bookings, userId, crrBookingInfo } from '../../stores/store';
-	import type Date from '../calendar/date.svelte';
-	import { convertSecToDate } from '../calendar/functions/bookingInfo';
+	import { hideForm } from '../../stores/store';
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
 
-	// export let id: number;
+	// When submit is clicked, the form  disappears and the calendar is updated
 
-	const temp: any = $bookings;
-
-	// When submit is clicked, the form  disappears and the calendar  is updated
-
-	let eventName: string,
+	let hallName: string,
+		inchargeName: string,
+		desc: string,
+		location: string,
 		capacity: Number,
-		endDate: Date,
-		invalidDate: boolean = false, //* true if date is invalid
-		invalidEventName: boolean = false, //* true if name is invalid
-		emptyName: boolean = true, //* true if name is empty
-		emptyDate: boolean = true, //* true if any date is empty
-		bookedDate: boolean = false; //* true if any date is between booked dates
+		contact: string,
+		invalidCapacity: boolean = false, //* true if contact is invalid
+		invalidContact: boolean = false, //* true if contact is invalid
+		invalidHallName: boolean = false, //* true if text is invalid
+		invalidInchargeName: boolean = false, //* true if text is invalid
+		invalidDesc: boolean = false, //* true if text is invalid
+		invalidLoc: boolean = false, //* true if text is invalid
+		emptyText: boolean = true; //* true if name is empty
 
-	const checkValidEventName = () => {
-		if (eventName === '') {
-			emptyName = true;
-		} else if (eventName[0] === ' ') {
-			invalidEventName = true;
-			emptyName = false;
+	const checkValidText = (text: string) => {
+		if (text === '') {
+			emptyText = true;
+			return false;
+		} else if (text[0] === ' ') {
+			emptyText = false;
+			return true;
 		} else {
-			invalidEventName = false;
-			emptyName = false;
+			emptyText = false;
+			return false;
 		}
+	};
+
+	const checkValidHallName = () => {
+		invalidHallName = checkValidText(hallName);
+	};
+
+	const checkValidLoc = () => {
+		invalidLoc = checkValidText(location);
+	};
+
+	const checkValidInchargeName = () => {
+		invalidInchargeName = checkValidText(inchargeName);
+	};
+
+	const checkValidDesc = () => {
+		invalidDesc = checkValidText(desc);
+	};
+
+	const checkZero = (text: string) => {
+		if (text[0] <= '0') {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	const checkPhoneNum = () => {
+		invalidContact = checkZero(contact) || checkValidText(contact);
+	};
+
+	const checkValidCapacity = () => {
+		invalidCapacity = checkZero(capacity.toString());
 	};
 
 	const removeExtraSpaces = () => {
 		//* Removes extra spaces from the end of the event name
-		while (eventName[eventName.length - 1] === ' ') {
-			eventName = eventName.slice(0, eventName.length - 1);
+		while (hallName[hallName.length - 1] === ' ') {
+			hallName = hallName.slice(0, hallName.length - 1);
+		}
+	};
+
+	const editPhoneNum = () => {
+		//* Checks if entered phone number has more than 10 digits. Slices it to 10 if more.
+		if (contact.length > 10) {
+			contact = contact.slice(0, 10);
 		}
 	};
 </script>
@@ -50,8 +89,8 @@
 				type="text"
 				class="name"
 				placeholder="Enter hall name"
-				bind:value={eventName}
-				on:input={checkValidEventName}
+				bind:value={hallName}
+				on:input={checkValidHallName}
 				on:change={removeExtraSpaces}
 			/>
 
@@ -59,13 +98,13 @@
 				type="text"
 				class="name"
 				placeholder="Enter incharge name"
-				bind:value={eventName}
-				on:input={checkValidEventName}
+				bind:value={inchargeName}
+				on:input={checkValidInchargeName}
 				on:change={removeExtraSpaces}
 			/>
 
-			<Warning flag={invalidEventName} label="Enter valid hall name" />
-			<Warning flag={invalidEventName} label="Enter valid hall name" />
+			<Warning flag={invalidHallName} label="Enter valid hall name" />
+			<Warning flag={invalidInchargeName} label="Enter valid incharge name" />
 		</div>
 
 		<div class="field">Description</div>
@@ -73,24 +112,24 @@
 			type="text"
 			class="name"
 			placeholder="Enter hall description"
-			bind:value={eventName}
-			on:input={checkValidEventName}
+			bind:value={desc}
+			on:input={checkValidDesc}
 			on:change={removeExtraSpaces}
 		/>
 
-		<Warning flag={invalidEventName} label="Enter valid hall name" />
+		<Warning flag={invalidDesc} label="Enter valid description" />
 
 		<div class="field">Location</div>
 		<input
 			type="text"
 			class="name"
 			placeholder="Enter hall location"
-			bind:value={eventName}
-			on:input={checkValidEventName}
+			bind:value={location}
+			on:input={checkValidLoc}
 			on:change={removeExtraSpaces}
 		/>
 
-		<Warning flag={invalidEventName} label="Enter valid hall name" />
+		<Warning flag={invalidLoc} label="Enter valid hall location" />
 
 		<div class="dates">
 			<div class="field">Capacity</div>
@@ -101,29 +140,26 @@
 				class="date"
 				placeholder="Enter hall capacity"
 				bind:value={capacity}
-				on:input={checkValidEventName}
-				on:change={removeExtraSpaces}
+				on:input={checkValidCapacity}
 			/>
 
 			<input
-				type="number"
+				type="text"
 				class="date"
 				placeholder="Enter incharge contact"
-				bind:value={capacity}
-				on:input={checkValidEventName}
-				on:change={removeExtraSpaces}
+				bind:value={contact}
+				on:input={() => {
+					checkPhoneNum();
+					editPhoneNum();
+				}}
 			/>
 
-			<Warning flag={invalidEventName} label="Enter valid hall name" />
-			<Warning flag={invalidEventName} label="Enter valid hall name" />
+			<Warning flag={invalidCapacity} label="Enter valid hall capacity" />
+			<Warning flag={invalidContact} label="Enter valid contact" />
 		</div>
 
 		<button
-			class={`submit ${
-				invalidDate || invalidEventName || emptyName || emptyDate || bookedDate === true
-					? 'disable'
-					: ''
-			}`}
+			class={`submit ${invalidHallName || emptyText === true ? 'disable' : ''}`}
 			on:click={() => {
 				setTimeout(() => {
 					window.location.reload();
@@ -156,7 +192,6 @@
 		color: #474747;
 		font-size: 2.5rem;
 		font-weight: 600;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.dates {
