@@ -6,29 +6,37 @@
 
 	// When submit is clicked, the form  disappears and the calendar is updated
 
-	let hallName: string,
-		inchargeName: string,
-		desc: string,
-		location: string,
+	let hallName: string = '',
+		inchargeName: string = '',
+		desc: string = '',
+		location: string = '',
 		capacity: Number,
-		contact: string,
+		contact: string = '',
 		invalidCapacity: boolean = false, //* true if contact is invalid
 		invalidContact: boolean = false, //* true if contact is invalid
 		invalidHallName: boolean = false, //* true if text is invalid
 		invalidInchargeName: boolean = false, //* true if text is invalid
 		invalidDesc: boolean = false, //* true if text is invalid
 		invalidLoc: boolean = false, //* true if text is invalid
+		notFullContact: boolean = false, //* true if text is invalid
 		emptyText: boolean = true; //* true if name is empty
 
+	const checkEmptyText = () => {
+		emptyText =
+			hallName === '' || inchargeName === '' || desc === '' || location === '' || contact === '';
+	};
+
 	const checkValidText = (text: string) => {
+		checkEmptyText();
+
 		if (text === '') {
-			emptyText = true;
+			// emptyText = true;
 			return false;
 		} else if (text[0] === ' ') {
-			emptyText = false;
+			// emptyText = false;
 			return true;
 		} else {
-			emptyText = false;
+			// emptyText = false;
 			return false;
 		}
 	};
@@ -57,8 +65,22 @@
 		}
 	};
 
-	const checkPhoneNum = () => {
+	const sliceAlphabets = (text: string) => {
+		if (text[text.length - 1].charCodeAt(0) >= 48 && text[text.length - 1].charCodeAt(0) <= 57) {
+			return text;
+		}
+		return text.slice(0, text.length - 1);
+	};
+
+	const checkContact = () => {
+		contact = sliceAlphabets(contact);
 		invalidContact = checkZero(contact) || checkValidText(contact);
+
+		if (contact.length < 10) {
+			notFullContact = true;
+		} else {
+			notFullContact = false;
+		}
 	};
 
 	const checkValidCapacity = () => {
@@ -149,7 +171,7 @@
 				placeholder="Enter incharge contact"
 				bind:value={contact}
 				on:input={() => {
-					checkPhoneNum();
+					checkContact();
 					editPhoneNum();
 				}}
 			/>
@@ -159,7 +181,17 @@
 		</div>
 
 		<button
-			class={`submit ${invalidHallName || emptyText === true ? 'disable' : ''}`}
+			class={`submit ${
+				(invalidHallName ||
+					invalidCapacity ||
+					invalidContact ||
+					invalidDesc ||
+					invalidLoc ||
+					notFullContact ||
+					emptyText) === true
+					? 'disable'
+					: ''
+			}`}
 			on:click={() => {
 				setTimeout(() => {
 					window.location.reload();
