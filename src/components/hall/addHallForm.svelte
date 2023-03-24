@@ -21,6 +21,18 @@
 		notFullContact: boolean = false, //* true if text is invalid
 		emptyText: boolean = true; //* true if name is empty
 
+	const addHall = async () => {
+		await axios.post(`http://localhost:5174/api/halls`, {
+			name: hallName,
+			incharge: inchargeName,
+			desc: desc,
+			location: location,
+			capacity: capacity,
+			contact: contact,
+			bookings: []
+		});
+	};
+
 	const checkEmptyText = () => {
 		emptyText =
 			hallName === '' || inchargeName === '' || desc === '' || location === '' || contact === '';
@@ -30,13 +42,10 @@
 		checkEmptyText();
 
 		if (text === '') {
-			// emptyText = true;
 			return false;
 		} else if (text[0] === ' ') {
-			// emptyText = false;
 			return true;
 		} else {
-			// emptyText = false;
 			return false;
 		}
 	};
@@ -193,6 +202,7 @@
 					: ''
 			}`}
 			on:click={() => {
+				// addHall();
 				setTimeout(() => {
 					window.location.reload();
 				}, 1000);
