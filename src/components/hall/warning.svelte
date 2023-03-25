@@ -6,7 +6,7 @@
 
 <style>
 	.warning {
-		font-size: 2rem;
+		font-size: 1.3rem;
 		color: #ff0000;
 		text-align: center;
 		display: block;

@@ -27,23 +27,23 @@
 	.container {
 		display: flex;
 		flex-direction: column;
-		/* align-items: center; */
 	}
 	label {
 		font-size: 1.5rem;
 		font-weight: 400;
 		margin-bottom: 0.3em;
-		color: #474747;
-		/* text-align: left; */
+		color: #000000;
 	}
 	.text-input {
 		width: 100%;
-		/* border: 5px solid #0075fc; */
-		border-bottom: 1px solid #474747;
+		border-bottom: 1px solid #000000;
 		background-color: #f5f5f5;
 		padding: 0.3em;
 		font-size: 1.6rem;
 		margin-bottom: 0.5em;
-		/* border-radius: 0.3em; */
+	}
+
+	.text-input:focus {
+		outline: 3px solid #f5f5f5;
 	}
 </style>

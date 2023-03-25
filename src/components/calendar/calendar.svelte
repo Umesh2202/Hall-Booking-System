@@ -46,15 +46,16 @@
 		overflow: hidden;
 		max-width: 1020px;
 		min-width: 450px;
-		margin: 1rem auto;
+		margin-top: 1em;
+		/* margin: 1rem auto; */
 		background-color: #f5f7f6;
-		color: #040605;
+		color: #000000;
 		border: 2px solid #474747;
 		border-radius: 1em;
 	}
 	@media screen and (min-width: 55em) {
 		.calendar-contain {
-			margin: auto;
+			/* margin: auto; */
 			top: 5%;
 		}
 	}
@@ -120,7 +121,7 @@
 
 	.sidebar__heading {
 		font-size: 2.2rem;
-		font-weight: bold;
+		font-weight: 500;
 		padding-left: 1rem;
 		padding-right: 1rem;
 		margin-bottom: 3rem;

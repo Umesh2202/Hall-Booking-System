@@ -50,7 +50,7 @@
 	.calendar__date {
 		color: #040605;
 		font-size: 1.7rem;
-		font-weight: 600;
+		font-weight: 500;
 		line-height: 0.7;
 	}
 

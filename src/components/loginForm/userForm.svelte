@@ -5,7 +5,7 @@
 	import FormInput from './formInput.svelte';
 	import Popup from './popup.svelte';
 	import { formAction } from './functions/form';
-	import InvalidUser from '../invalid/invalidUser.svelte';
+	import NoAccount from './noAccount.svelte';
 
 	let message: string = '';
 	let login_flag: boolean = false;
@@ -50,8 +50,7 @@
 			<FormInput field="Password" />
 		</div>
 		<button on:click={addUser} class="next">Next</button>
-		<div>Don't have an account?</div>
-		<button class="signup">SignUp</button>
+		<NoAccount />
 	</div>
 </div>
 
@@ -74,7 +73,7 @@
 	.login {
 		font-size: 3rem;
 		font-weight: 600;
-		color: #0075fc;
+		color: #000000;
 		text-align: center;
 	}
 	.inner {
@@ -87,23 +86,16 @@
 	.next {
 		padding: 0.3em;
 		width: 100%;
-		color: #474744;
+		color: #000000;
 		margin-top: 1em;
 		font-size: 1.5rem;
 		background-color: #ffc400;
 		border-radius: 0.3em;
-		font-weight: 500;
+		font-weight: 400;
 	}
 
 	.next:hover {
 		background-color: #0075fc;
 		color: #f5f5f5;
-	}
-
-	.signup {
-		background-color: black;
-		color: #f5f5f5;
-		padding: 1em;
-		border-radius: 0.5em;
 	}
 </style>

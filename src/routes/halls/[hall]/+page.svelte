@@ -127,14 +127,13 @@
 	}
 
 	.book {
-		/* border: 2px solid red; */
 		width: 100%;
 		padding: 0.5em;
-		border-radius: 0.5em;
+		border-radius: 0.3em;
 		background-color: #0075fc;
 		color: #f5f5f5;
 		font-size: 1.5rem;
-		font-weight: 700;
+		font-weight: 500;
 		margin-top: 1em;
 	}
 </style>

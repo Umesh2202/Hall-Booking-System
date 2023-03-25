@@ -126,15 +126,19 @@
 
 <div class={`${$hideForm === false ? 'cover' : ''}`}>
 	<div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
-		<div class="field">Event Name</div>
-		<input
-			type="text"
-			class="name"
-			placeholder="Enter event name"
-			bind:value={eventName}
-			on:input={checkValidEventName}
-			on:change={removeExtraSpaces}
-		/>
+		<div class="title">Book this Hall</div>
+
+		<div class="closeflex">
+			<div class="field">Event Name</div>
+			<input
+				type="text"
+				class="name"
+				placeholder="Enter event name"
+				bind:value={eventName}
+				on:input={checkValidEventName}
+				on:change={removeExtraSpaces}
+			/>
+		</div>
 
 		<Warning flag={invalidEventName} label="Enter valid event name" />
 
@@ -191,19 +195,40 @@
 <style>
 	.outer {
 		background-color: #f5f5f5;
-		width: 40%;
-		border-radius: 0.5em;
-		padding: 0.7em;
+		width: 35%;
+		border-radius: 0.3em;
+		padding: 1em;
 		position: relative;
 		border: 5px solid #474747;
 		z-index: 2;
 	}
 
+	.title {
+		font-size: 3rem;
+		font-weight: 500;
+		text-align: center;
+		position: relative;
+	}
+
+	.title::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		bottom: -10%;
+		left: 0;
+		border: 1px solid #474747;
+	}
+
+	.closeflex {
+		display: flex;
+		flex-direction: column;
+		margin-top: 1em;
+	}
+
 	.field {
-		color: #474747;
-		font-size: 2.5rem;
-		font-weight: 600;
-		/* text-shadow: 2px 2px 8px #0000004d; */
+		color: #000000;
+		font-size: 1.5rem;
+		font-weight: 500;
 	}
 
 	.dates {
@@ -214,20 +239,27 @@
 
 	.name {
 		width: 100%;
+		margin-top: 0.5em;
+	}
+
+	.date {
+		margin-top: 0.5em;
 	}
 
 	input {
-		border: 3px solid #0075fc;
-		border-radius: 0.5em;
-		padding: 0.5em;
-		font-size: 1.5rem;
-		box-shadow: 2px 2px 8px #0000004d;
+		font-size: 1.7rem;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #474747;
+	}
+
+	input:focus {
+		outline: 3px solid #f5f5f5;
 	}
 
 	.submit {
 		width: 100%;
-		border-radius: 0.5em;
-		font-size: 2rem;
+		border-radius: 0.3em;
+		font-size: 1.5rem;
 		background-color: #0075fc;
 		color: #f5f5f5;
 		padding: 0.3em;
@@ -240,11 +272,9 @@
 	}
 	.close {
 		position: absolute;
-		top: -4%;
-		right: -4%;
-		font-size: 2rem;
-		font-weight: 700;
-		color: #ff0000;
+		top: 0%;
+		right: 0%;
+		width: 60px;
 	}
 
 	.hide {

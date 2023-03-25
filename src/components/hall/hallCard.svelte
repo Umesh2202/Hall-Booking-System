@@ -1,6 +1,4 @@
 <script lang="ts">
-	import dustbin from '../../assets/dustbin.svg';
-
 	export let name: string;
 	export let capacity: number;
 	export let incharge: string;

@@ -25,10 +25,11 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		transition: all 0.3s;
 	}
 
 	.outer:hover {
-		background-color: #ffffff;
+		box-shadow: 15px 15px 10px #0000004d;
 	}
 
 	.plus {

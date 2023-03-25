@@ -113,7 +113,8 @@
 
 <div class={`${$hideForm === false ? 'cover' : ''}`}>
 	<div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
-		<div class="dates">
+		<div class="title">Add a hall</div>
+		<div class="grid">
 			<div class="field">Hall Name</div>
 			<div class="field">Incharge Name</div>
 			<input
@@ -138,31 +139,35 @@
 			<Warning flag={invalidInchargeName} label="Enter valid incharge name" />
 		</div>
 
-		<div class="field">Description</div>
-		<input
-			type="text"
-			class="name"
-			placeholder="Enter hall description"
-			bind:value={desc}
-			on:input={checkValidDesc}
-			on:change={removeExtraSpaces}
-		/>
+		<div class="closeflex">
+			<div class="field">Description</div>
+			<input
+				type="text"
+				class="name"
+				placeholder="Enter hall description"
+				bind:value={desc}
+				on:input={checkValidDesc}
+				on:change={removeExtraSpaces}
+			/>
+		</div>
 
 		<Warning flag={invalidDesc} label="Enter valid description" />
 
-		<div class="field">Location</div>
-		<input
-			type="text"
-			class="name"
-			placeholder="Enter hall location"
-			bind:value={location}
-			on:input={checkValidLoc}
-			on:change={removeExtraSpaces}
-		/>
+		<div class="closeflex">
+			<div class="field">Location</div>
+			<input
+				type="text"
+				class="name"
+				placeholder="Enter hall location"
+				bind:value={location}
+				on:input={checkValidLoc}
+				on:change={removeExtraSpaces}
+			/>
+		</div>
 
 		<Warning flag={invalidLoc} label="Enter valid hall location" />
 
-		<div class="dates">
+		<div class="grid">
 			<div class="field">Capacity</div>
 			<div class="field">Contact</div>
 
@@ -229,21 +234,38 @@
 <style>
 	.outer {
 		background-color: #f5f5f5;
-		width: 80%;
+		width: 50%;
 		border-radius: 0.3em;
-		padding: 0.7em;
+		padding: 1em;
 		position: relative;
 		border: 5px solid #474747;
-		z-index: 2;
+		z-index: 10;
+	}
+
+	.title {
+		font-size: 3rem;
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 1em;
+		position: relative;
+	}
+
+	.title::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		bottom: -10%;
+		left: 0;
+		border: 1px solid #474747;
 	}
 
 	.field {
-		color: #474747;
-		font-size: 2.5rem;
-		font-weight: 600;
+		color: #000000;
+		font-size: 1.5rem;
+		font-weight: 400;
 	}
 
-	.dates {
+	.grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0 1em;
@@ -254,21 +276,24 @@
 	}
 
 	input {
-		border: 3px solid #0075fc;
-		border-radius: 0.5em;
-		padding: 0.5em;
-		font-size: 1.5rem;
-		box-shadow: 2px 2px 8px #0000004d;
+		font-size: 1.7rem;
+		background-color: #f5f5f5;
+		border-bottom: 1px solid #474747;
+		margin-top: 0.5em;
+	}
+
+	input:focus {
+		outline: 3px solid #f5f5f5;
 	}
 
 	.submit {
 		width: 100%;
-		border-radius: 0.5em;
-		font-size: 2rem;
+		border-radius: 0.3em;
+		font-size: 1.5rem;
 		background-color: #0075fc;
 		color: #f5f5f5;
 		padding: 0.3em;
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	.disable {
@@ -277,11 +302,9 @@
 	}
 	.close {
 		position: absolute;
-		top: -4%;
-		right: -4%;
-		font-size: 2rem;
-		font-weight: 700;
-		color: #ff0000;
+		top: 0%;
+		right: 0%;
+		width: 60px;
 	}
 
 	.hide {
@@ -315,5 +338,11 @@
 		display: grid;
 		justify-items: center;
 		align-items: center;
+		z-index: 2;
+	}
+
+	.closeflex {
+		display: flex;
+		flex-direction: column;
 	}
 </style>

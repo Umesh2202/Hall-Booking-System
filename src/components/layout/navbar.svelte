@@ -28,6 +28,7 @@
 		<a href="/userForm">
 			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
 				<button
+					class="anchor"
 					disabled={$validUser === true ? true : false}
 					on:click={() => {
 						formText.set('User Login');
@@ -38,6 +39,7 @@
 		<a href="/userForm">
 			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
 				<button
+					class="anchor"
 					disabled={$validUser === true ? true : false}
 					on:click={() => formText.set('Admin Login')}>Admin Login</button
 				>
@@ -45,6 +47,7 @@
 		</a>
 		<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`}>
 			<button
+				class="anchor"
 				on:click={() => {
 					logOut();
 				}}>Logout</button
@@ -81,19 +84,34 @@
 	.anchor {
 		margin: 0 0.5em;
 		font-size: 2rem;
-		font-weight: 700;
-		color: #0075fc;
+		font-weight: 600;
+		color: #000000;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		transition: all 0.3s;
+		position: relative;
 	}
 
-	.anchor:hover {
-		color: #474747;
+	.anchor::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 5px;
+		bottom: 0;
+		left: 0;
+		background-color: #0075fc;
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
 	}
 
-	button {
+	.anchor:hover::after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+
+	/* button {
 		background-color: #0075fc;
 		padding: 0.5em 1em;
 		color: #f5f5f5;
@@ -102,9 +120,9 @@
 		border-radius: 0.5em;
 		display: flex;
 		transition: all 0.3s ease-in-out;
-	}
+	} */
 
-	button:hover {
+	/* button:hover {
 		box-shadow: 5px 5px 10px #0000004d;
-	}
+	} */
 </style>
