@@ -16,12 +16,9 @@
 		Incharge
 		<div class="value">{incharge}</div>
 	</div>
-	<button class="delete">
-		<img src={dustbin} alt="" class="dustbin" />
-	</button>
 </div>
 
-<style>
+<style lang="scss">
 	.outer {
 		background-color: #f5f5f5;
 		padding: 2em;
@@ -29,10 +26,11 @@
 		border-radius: 1em;
 		box-shadow: 2px 2px 8px #0000004d;
 		position: relative;
+		transition: all 0.3s;
 	}
 
 	.outer:hover {
-		background-color: #ffdb65;
+		box-shadow: 15px 15px 10px #0000004d;
 	}
 	.name {
 		font-size: 3.5rem;
@@ -53,15 +51,5 @@
 	.value {
 		font-size: 1.5rem;
 		color: #0075fc;
-	}
-
-	.delete {
-		position: absolute;
-		top: 5%;
-		right: 5%;
-	}
-
-	.dustbin {
-		width: 40px;
 	}
 </style>

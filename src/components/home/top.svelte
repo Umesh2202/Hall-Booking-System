@@ -8,7 +8,8 @@
 	.heading {
 		font-size: 5rem;
 		color: #f5f5f5;
-		font-weight: bold;
+		font-weight: 600;
+		letter-spacing: -2px;
 	}
 
 	.info {
@@ -16,7 +17,7 @@
 		word-wrap: break-word;
 		color: #ffc400;
 		width: 50%;
-		font-weight: 600;
+		font-weight: 500;
 		position: relative;
 		padding-bottom: 1em;
 	}

@@ -42,7 +42,6 @@
 </script>
 
 <div class="form">
-	<!-- {#if $formText !== ''} -->
 	<Popup {message} />
 	<div class="container">
 		<div class="login">{$formText}</div>
@@ -50,11 +49,10 @@
 			<FormInput field="Email" />
 			<FormInput field="Password" />
 		</div>
-		<button on:click={addUser}>Next</button>
+		<button on:click={addUser} class="next">Next</button>
+		<div>Don't have an account?</div>
+		<button class="signup">SignUp</button>
 	</div>
-	<!-- {:else} -->
-	<!-- <InvalidUser /> -->
-	<!-- {/if} -->
 </div>
 
 <style>
@@ -65,20 +63,19 @@
 		background-color: #0075fc;
 		padding-top: 4em;
 		padding-bottom: 4em;
-		/* min-height: 100vh; */
 	}
 	.container {
 		background-color: #f5f5f5;
-		padding: 5em;
-		width: 40%;
+		padding: 3.5em;
+		width: 30%;
 		border-radius: 1em;
 	}
 
 	.login {
-		font-size: 5rem;
+		font-size: 3rem;
 		font-weight: 600;
 		color: #0075fc;
-		/* text-shadow: 2px 2px 8px #0000004d; */
+		text-align: center;
 	}
 	.inner {
 		display: grid;
@@ -87,21 +84,26 @@
 		margin-top: 2.5em;
 	}
 
-	button {
-		padding: 0.5em;
+	.next {
+		padding: 0.3em;
 		width: 100%;
 		color: #474744;
 		margin-top: 1em;
-		font-size: 2rem;
-		width: 50%;
+		font-size: 1.5rem;
 		background-color: #ffc400;
 		border-radius: 0.3em;
-		font-weight: 700;
-		margin-top: 2.5em;
+		font-weight: 500;
 	}
 
-	button:hover {
+	.next:hover {
 		background-color: #0075fc;
 		color: #f5f5f5;
+	}
+
+	.signup {
+		background-color: black;
+		color: #f5f5f5;
+		padding: 1em;
+		border-radius: 0.5em;
 	}
 </style>

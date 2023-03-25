@@ -83,7 +83,6 @@
 		font-size: 2rem;
 		font-weight: 700;
 		color: #0075fc;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -101,13 +100,11 @@
 		font-weight: 600;
 		margin-right: 1em;
 		border-radius: 0.5em;
-		box-shadow: 2px 2px 0 #0000004d;
 		display: flex;
 		transition: all 0.3s ease-in-out;
 	}
 
 	button:hover {
-		transform: translate3d(-0.2em, -0.2em, -0.2em);
-		box-shadow: 0.5em 0.5em 0 #474747;
+		box-shadow: 5px 5px 10px #0000004d;
 	}
 </style>

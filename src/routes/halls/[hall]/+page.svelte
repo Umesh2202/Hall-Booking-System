@@ -106,20 +106,20 @@
 		box-shadow: 5px 5px 72px #1e2e3280;
 	}
 	.name {
-		font-size: 7rem;
+		font-size: 5rem;
 		color: #0075fc;
-		font-weight: 700;
+		font-weight: 600;
 	}
 
 	.head {
-		font-size: 3rem;
+		font-size: 2rem;
 		color: #474747;
-		font-weight: 600;
+		font-weight: 500;
 		margin-top: 0.5em;
 	}
 
 	.value {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		color: #0075fc;
 		display: flex;
 		flex-direction: column;

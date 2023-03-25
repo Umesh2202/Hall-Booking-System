@@ -1,9 +1,9 @@
 <script>
-	import { formText } from '../../stores/store';
+	import { formText, validUser } from '../../stores/store';
 </script>
 
 <div class="container">
-	<div class="options">
+	<div class={`options ${$validUser === true ? 'hidden' : ''}`}>
 		<a href="/userForm">
 			<button on:click={() => formText.set('SignUp')}>SignUp</button>
 		</a>
@@ -28,12 +28,16 @@
 		background-color: #f5f5f5;
 		font-size: 2rem;
 		border-radius: 0.3em;
-		font-weight: bold;
+		font-weight: 500;
 		width: 100%;
 		box-shadow: 2px 2px 8px #0000004d;
 	}
 
 	button:hover {
 		background-color: #ffc400;
+	}
+
+	.hidden {
+		display: none;
 	}
 </style>
