@@ -2,8 +2,6 @@
 	export let svg: string;
 	export let feature: string;
 	export let desc: string;
-
-	// import svg from '../routes/tick.svg';
 </script>
 
 <div class="feature">
@@ -27,7 +25,7 @@
 	.title {
 		font-size: 2.5rem;
 		margin-top: 1em;
-		font-weight: 700;
+		font-weight: 500;
 	}
 
 	.desc {

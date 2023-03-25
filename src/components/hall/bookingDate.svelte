@@ -25,9 +25,6 @@
 		console.log(tempBookingInfo);
 
 		crrBookingInfo.set(tempBookingInfo);
-
-		// setTimeout(() => {
-		// }, 1000);
 	};
 </script>
 

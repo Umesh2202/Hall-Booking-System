@@ -35,8 +35,8 @@
 			temp.push({ eventName: eventName, startDate: startDate, endDate: endDate, userId: $userId });
 			tempBookingInfo.push({
 				eventName: eventName,
-				startDate: changeDateFormat(startDate),
-				endDate: changeDateFormat(endDate),
+				startDate: changeDateFormat(startDate.toString()),
+				endDate: changeDateFormat(endDate.toString()),
 				userId: $userId
 			});
 

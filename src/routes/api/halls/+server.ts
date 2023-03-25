@@ -17,16 +17,16 @@ export const GET: RequestHandler = async () => {
 export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
 	console.log(body);
-	// const docRef = await addDoc(colRef, {
-	// 	name: body['name'],
-	// 	incharge: body['incharge'],
-	// 	desc: body['desc'],
-	// 	location: body['location'],
-	// 	capacity: body['capacity'],
-	// 	contact: body['contact'],
-	// 	bookings: []
-	// });
-	// console.log('Added doc with id:', docRef.id);
+	const docRef = await addDoc(colRef, {
+		name: body['name'],
+		incharge: body['incharge'],
+		desc: body['desc'],
+		location: body['location'],
+		capacity: body['capacity'],
+		contact: body['contact'],
+		bookings: []
+	});
+	console.log('Added doc with id:', docRef.id);
 
 	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });
 };

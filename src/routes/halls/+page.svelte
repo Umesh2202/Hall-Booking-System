@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { validUser, formText, hideForm } from '../../stores/store';
 	import HallCard from '../../components/hall/hallCard.svelte';
-	import InvalidUser from '../../components/invalid/invalidUser.svelte';
 	import UserForm from '../../components/loginForm/userForm.svelte';
 	import AddHall from '../../components/hall/addHall.svelte';
 	import AddHallForm from '../../components/hall/addHallForm.svelte';
-	import { goto } from '$app/navigation';
 	export let data;
 
 	const halls = data['halls'];
@@ -24,8 +22,6 @@
 					</a>
 				{/if}
 			{/each}
-			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
-			<HallCard name="Hall Name" capacity={123} incharge="Someone" />
 
 			{#if $formText === 'Admin Login'}
 				<AddHall />
@@ -46,7 +42,6 @@
 		width: fit-content;
 		color: #f5f5f5;
 		font-weight: 700;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.sub-heading {
@@ -56,7 +51,6 @@
 		width: fit-content;
 		margin-bottom: 1em;
 		color: #ffc400;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 	.outer {
 		min-height: 100vh;
@@ -66,6 +60,7 @@
 	.halls {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 1fr;
 		gap: 2em;
 		width: 70%;
 		margin-left: auto;

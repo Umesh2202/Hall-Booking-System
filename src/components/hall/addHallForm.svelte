@@ -201,8 +201,15 @@
 					? 'disable'
 					: ''
 			}`}
+			disabled={invalidHallName ||
+				invalidCapacity ||
+				invalidContact ||
+				invalidDesc ||
+				invalidLoc ||
+				notFullContact ||
+				emptyText}
 			on:click={() => {
-				// addHall();
+				addHall();
 				setTimeout(() => {
 					window.location.reload();
 				}, 1000);
@@ -223,7 +230,7 @@
 	.outer {
 		background-color: #f5f5f5;
 		width: 80%;
-		border-radius: 0.5em;
+		border-radius: 0.3em;
 		padding: 0.7em;
 		position: relative;
 		border: 5px solid #474747;
