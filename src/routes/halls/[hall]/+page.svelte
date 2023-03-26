@@ -24,29 +24,33 @@
 	<div class="title">Details</div>
 	<div class="inner">
 		<div class="name">{data['name']}</div>
-		<div class="head">Capacity</div>
-		<div class="value">
-			{data['capacity']}
-		</div>
-		<div class="head">Incharge</div>
-		<div class="value">
-			{data['incharge']}
-		</div>
-		<div class="head">Contact</div>
-		<div class="value">
-			{data['contact']}
-		</div>
-		<div class="head">Location</div>
-		<div class="value">
-			{data['location']}
-		</div>
-		<div class="head">Ongoing Event</div>
-		<div class="value">
-			{data['ongoing']}
+		<div class="grid">
+			<div class="sub-grid">
+				<div class="head">Incharge</div>
+				<div class="value">
+					{data['incharge']}
+				</div>
+				<div class="head">Contact</div>
+				<div class="value">
+					{data['contact']}
+				</div>
+			</div>
+			<div class="cap-grid">
+				<div>
+					<div class="capacity">
+						{data['capacity']}
+					</div>
+					<div class="cap-head">Capacity</div>
+				</div>
+			</div>
 		</div>
 		<div class="head">Description</div>
 		<div class="value">
 			{data['desc']}
+		</div>
+		<div class="head">Location</div>
+		<div class="value">
+			{data['location']}
 		</div>
 		<div class="head">Your Bookings (mm/dd/yyyy)</div>
 		<div class="value">
@@ -82,7 +86,6 @@
 
 <style>
 	.outer {
-		overflow-y: hidden;
 		background-color: #0075fc;
 		min-height: 100vh;
 		display: grid;
@@ -94,7 +97,6 @@
 		font-size: 5rem;
 		font-weight: 700;
 		color: #f5f5f5;
-		/* text-shadow: 2px 2px 8px #0000004d; */
 	}
 
 	.inner {
@@ -111,9 +113,32 @@
 		font-weight: 600;
 	}
 
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+		margin-bottom: 2em;
+		margin-top: 3em;
+		align-items: flex-start;
+	}
+
+	.cap-grid {
+		display: grid;
+		justify-items: center;
+	}
+
+	.cap-head {
+		font-size: 3rem;
+	}
+
+	.capacity {
+		font-size: 7rem;
+		color: #0075fc;
+		text-align: center;
+	}
 	.head {
 		font-size: 2rem;
-		color: #474747;
+		color: #000000;
 		font-weight: 500;
 		margin-top: 0.5em;
 	}
@@ -124,6 +149,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5em;
+	}
+
+	.bookings {
+		display: grid;
+		justify-content: center;
 	}
 
 	.book {
