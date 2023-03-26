@@ -2,50 +2,54 @@
 	import HallSubCard from './hallSubCard.svelte';
 	import dustbin from '../../assets/dustbin.svg';
 	import { deleteHall } from './functions/deleteHall';
+	import { hallDelete } from '../../stores/store';
 
-	let deleteFlag: boolean;
-
-	export let id: number, name: string;
+	let deleteFlag: boolean = false;
+	export let id: string, name: string;
 	export let capacity: number;
 	export let incharge: string;
-
-	const decideClass = () => {
-		if (deleteFlag != undefined && deleteFlag === true) {
-			return 'ondelete';
-		} else if (deleteFlag != undefined && deleteFlag === false) return 'nodelete';
-		console.log('hi');
-	};
 </script>
 
-<div
-	class={`card-outer ${
-		deleteFlag != undefined && deleteFlag === true
-			? 'ondelete'
-			: deleteFlag != undefined && deleteFlag === false
-			? 'nodelete'
-			: ''
-	}`}
->
-	<a href={`/halls/${id}`}>
-		<HallSubCard {name} {capacity} {incharge} />
-	</a>
-	<button
-		class={`delete ${
-			deleteFlag != undefined && deleteFlag === true
-				? 'ondelete'
-				: deleteFlag != undefined && deleteFlag === false
-				? 'nodelete'
-				: ''
-		}`}
-		on:click={() => {
-			deleteFlag = deleteFlag === undefined ? true : !deleteFlag;
-			// deleteHall(id);
-			console.log(deleteFlag);
-			console.log(`${id}`);
-		}}
-	>
-		<img src={dustbin} alt="" class="dustbin" />
-	</button>
+<div class={`card-outer `}>
+	{#if deleteFlag === false}
+		<a href={`/halls/${id}`}>
+			<HallSubCard {name} {capacity} {incharge} {deleteFlag} />
+		</a>
+		<button
+			class={`delete ${$hallDelete === true ? 'disable' : ''}`}
+			on:click={() => {
+				deleteFlag = true;
+				hallDelete.set(true);
+				console.log(deleteFlag);
+				console.log(`${id}`);
+			}}
+			disabled={$hallDelete}
+		>
+			<img src={dustbin} alt="" class="dustbin" />
+		</button>
+	{:else}
+		<!-- <ConfirmDelete /> -->
+		<div class="outer">
+			<div class="title">Are you sure you want to delete this hall?</div>
+			<div class="warning">NOTE: All the bookings related to this hall will be deleted</div>
+			<div class="buttons">
+				<button
+					class="decide yes"
+					on:click={() => {
+						window.location.reload();
+						deleteHall(id);
+					}}>Yes</button
+				>
+				<button
+					class="decide no"
+					on:click={() => {
+						deleteFlag = false;
+						hallDelete.set(false);
+					}}>No</button
+				>
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -61,22 +65,66 @@
 		padding: 1em;
 		border-radius: 50%;
 		z-index: 2;
+		transition: all 0.3s;
 	}
 
-	.ondelete {
-		animation: flipfront 0.5 1 forwards;
+	.delete:hover {
+		transform: scale(1.2);
+	}
+
+	.disable {
+		background-color: #474747;
 	}
 
 	.dustbin {
 		width: 20px;
 	}
 
-	@keyframes flipfront {
-		from {
-			transform: rotateX('0deg');
-		}
-		to {
-			transform: rotateX('180deg');
-		}
+	.outer {
+		background-color: #f5f5f5;
+		padding: 2em;
+		max-height: fit-content;
+		border-radius: 1em;
+		box-shadow: 2px 2px 8px #0000004d;
+		height: 100%;
+		display: grid;
+		justify-content: space-evenly;
+	}
+	.title {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
+
+	.warning {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		color: #ff002b;
+		font-weight: 600;
+	}
+
+	.buttons {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2em;
+	}
+
+	.decide {
+		color: #f5f5f5;
+		font-weight: 500;
+		font-size: 1.5rem;
+		border-radius: 0.3rem;
+		transition: all 0.3s;
+	}
+
+	.decide:hover {
+		box-shadow: 5px 5px 10px #0000004d;
+	}
+
+	.yes {
+		background-color: #ff002b;
+	}
+
+	.no {
+		background-color: #0075fc;
 	}
 </style>

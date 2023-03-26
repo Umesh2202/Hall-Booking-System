@@ -1,12 +1,12 @@
 <script lang="ts">
 	import HallCardField from './hallCardField.svelte';
 
-	export let name: string;
+	export let name: string, deleteFlag: boolean;
 	export let capacity: number;
 	export let incharge: string;
 </script>
 
-<div class="outer">
+<div class={`outer ${deleteFlag === true ? 'ondelete' : deleteFlag === false ? 'nodelete' : ''}`}>
 	<div class="name">{name}</div>
 	<HallCardField field="Capacity" value={`${capacity}`} />
 	<HallCardField field="Incharge" value={`${incharge}`} />

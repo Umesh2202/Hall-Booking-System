@@ -1,7 +1,9 @@
-import axios, { type AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
-export const deleteHall = async (id) => {
+export const deleteHall = async (id: string) => {
 	await axios.delete('http://localhost:5174/api/halls', {
-		id: id
+		data: {
+			id: id
+		}
 	});
 };

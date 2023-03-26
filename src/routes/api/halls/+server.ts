@@ -32,6 +32,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 export const DELETE: RequestHandler = async ({ request }) => {
 	const body = await request.json();
+	console.log(body['id']);
 	const docRef = doc(colRef, body['id']);
 	await deleteDoc(docRef);
 

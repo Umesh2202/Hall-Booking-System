@@ -33,7 +33,7 @@
 	}
 
 	.plus {
-		transform: scale(1.3);
+		transform: scale(1);
 	}
 
 	.addBtn {

@@ -2,7 +2,7 @@
 	import { validUser, formText, hideForm } from '../../stores/store';
 	import HallCard from '../../components/hall/hallCard.svelte';
 	import UserForm from '../../components/loginForm/userForm.svelte';
-	import AddHall from '../../components/hall/addHall.svelte';
+	import AddHallCard from '../../components/hall/addHallCard.svelte';
 	import AddHallForm from '../../components/hall/addHallForm.svelte';
 	export let data;
 
@@ -27,7 +27,7 @@
 			{/each}
 
 			{#if $formText === 'Admin Login'}
-				<AddHall />
+				<AddHallCard />
 				<AddHallForm />
 			{/if}
 		</div>
@@ -63,6 +63,7 @@
 	.halls {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		justify-content: center;
 		grid-auto-rows: 1fr;
 		gap: 2em;
 		width: 70%;
