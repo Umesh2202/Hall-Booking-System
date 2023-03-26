@@ -31,10 +31,10 @@ export const POST: RequestHandler = async ({ request }) => {
 	const docRef = doc(colRef, body['id']);
 
 	if (purpose === 0) {
+		//* For booking
 		startDate = Timestamp.fromDate(new Date(startDate)).toDate();
 		endDate = Timestamp.fromDate(new Date(endDate)).toDate();
 
-		//* For booking
 		await updateDoc(docRef, {
 			bookings: arrayUnion({
 				eventName: eventName,

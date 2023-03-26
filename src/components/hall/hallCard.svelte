@@ -1,53 +1,82 @@
 <script lang="ts">
-	export let name: string;
+	import HallSubCard from './hallSubCard.svelte';
+	import dustbin from '../../assets/dustbin.svg';
+	import { deleteHall } from './functions/deleteHall';
+
+	let deleteFlag: boolean;
+
+	export let id: number, name: string;
 	export let capacity: number;
 	export let incharge: string;
+
+	const decideClass = () => {
+		if (deleteFlag != undefined && deleteFlag === true) {
+			return 'ondelete';
+		} else if (deleteFlag != undefined && deleteFlag === false) return 'nodelete';
+		console.log('hi');
+	};
 </script>
 
-<div class="outer">
-	<div class="name">{name}</div>
-	<div class="cap">
-		Capacity
-		<div class="value">{capacity}</div>
-	</div>
-	<div class="in">
-		Incharge
-		<div class="value">{incharge}</div>
-	</div>
+<div
+	class={`card-outer ${
+		deleteFlag != undefined && deleteFlag === true
+			? 'ondelete'
+			: deleteFlag != undefined && deleteFlag === false
+			? 'nodelete'
+			: ''
+	}`}
+>
+	<a href={`/halls/${id}`}>
+		<HallSubCard {name} {capacity} {incharge} />
+	</a>
+	<button
+		class={`delete ${
+			deleteFlag != undefined && deleteFlag === true
+				? 'ondelete'
+				: deleteFlag != undefined && deleteFlag === false
+				? 'nodelete'
+				: ''
+		}`}
+		on:click={() => {
+			deleteFlag = deleteFlag === undefined ? true : !deleteFlag;
+			// deleteHall(id);
+			console.log(deleteFlag);
+			console.log(`${id}`);
+		}}
+	>
+		<img src={dustbin} alt="" class="dustbin" />
+	</button>
 </div>
 
-<style lang="scss">
-	.outer {
-		background-color: #f5f5f5;
-		padding: 2em;
-		max-height: fit-content;
-		border-radius: 1em;
-		box-shadow: 2px 2px 8px #0000004d;
+<style>
+	.card-outer {
 		position: relative;
-		transition: all 0.3s;
 	}
 
-	.outer:hover {
-		box-shadow: 15px 15px 10px #0000004d;
-	}
-	.name {
-		font-size: 3.5rem;
-		font-weight: 600;
-		color: #0075fc;
-	}
-
-	.cap {
-		font-size: 2.5rem;
-		margin-top: 0.5em;
+	.delete {
+		position: absolute;
+		top: 5%;
+		right: 5%;
+		background-color: #ff002b;
+		padding: 1em;
+		border-radius: 50%;
+		z-index: 2;
 	}
 
-	.in {
-		font-size: 2rem;
-		margin-top: 1em;
+	.ondelete {
+		animation: flipfront 0.5 1 forwards;
 	}
 
-	.value {
-		font-size: 1.5rem;
-		color: #0075fc;
+	.dustbin {
+		width: 20px;
+	}
+
+	@keyframes flipfront {
+		from {
+			transform: rotateX('0deg');
+		}
+		to {
+			transform: rotateX('180deg');
+		}
 	}
 </style>

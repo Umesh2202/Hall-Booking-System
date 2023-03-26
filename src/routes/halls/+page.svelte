@@ -4,7 +4,6 @@
 	import UserForm from '../../components/loginForm/userForm.svelte';
 	import AddHall from '../../components/hall/addHall.svelte';
 	import AddHallForm from '../../components/hall/addHallForm.svelte';
-	import dustbin from '../../assets/dustbin.svg';
 	export let data;
 
 	const halls = data['halls'];
@@ -18,23 +17,12 @@
 		<div class="halls">
 			{#each halls as hall}
 				{#if hall['name'] !== undefined}
-					<div class="card-outer">
-						<a href={`/halls/${hall['id']}`}>
-							<HallCard
-								name={hall['name']}
-								capacity={hall['capacity']}
-								incharge={hall['incharge']}
-							/>
-						</a>
-						<button
-							class="delete"
-							on:click={() => {
-								console.log(`${hall['id']}`);
-							}}
-						>
-							<img src={dustbin} alt="" class="dustbin" />
-						</button>
-					</div>
+					<HallCard
+						id={hall['id']}
+						name={hall['name']}
+						capacity={hall['capacity']}
+						incharge={hall['incharge']}
+					/>
 				{/if}
 			{/each}
 
@@ -81,23 +69,5 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: auto;
-	}
-
-	.card-outer {
-		position: relative;
-	}
-
-	.delete {
-		position: absolute;
-		top: 5%;
-		right: 5%;
-		background-color: #ff002b;
-		padding: 1em;
-		border-radius: 50%;
-		z-index: 2;
-	}
-
-	.dustbin {
-		width: 20px;
 	}
 </style>

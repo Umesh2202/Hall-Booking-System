@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '../$types';
 import { colRef } from './firebase';
-import { getDocs, addDoc } from 'firebase/firestore';
+import { getDocs, addDoc, doc, deleteDoc } from 'firebase/firestore';
 
 export const GET: RequestHandler = async () => {
 	const ss = await getDocs(colRef);
@@ -16,7 +16,6 @@ export const GET: RequestHandler = async () => {
 
 export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
-	console.log(body);
 	const docRef = await addDoc(colRef, {
 		name: body['name'],
 		incharge: body['incharge'],
@@ -27,6 +26,14 @@ export const POST: RequestHandler = async ({ request }) => {
 		bookings: []
 	});
 	console.log('Added doc with id:', docRef.id);
+
+	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });
+};
+
+export const DELETE: RequestHandler = async ({ request }) => {
+	const body = await request.json();
+	const docRef = doc(colRef, body['id']);
+	await deleteDoc(docRef);
 
 	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });
 };
