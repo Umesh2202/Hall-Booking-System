@@ -81,11 +81,11 @@
 	}
 
 	.outer {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		padding: 2em;
 		max-height: fit-content;
 		border-radius: 1em;
-		box-shadow: 2px 2px 8px #0000004d;
+		box-shadow: 2px 2px 8px var(--shadow);
 		height: 100%;
 		display: grid;
 		justify-content: space-evenly;
@@ -109,7 +109,7 @@
 	}
 
 	.decide {
-		color: #f5f5f5;
+		color: var(--white);
 		font-weight: 500;
 		font-size: 1.5rem;
 		border-radius: 0.3rem;
@@ -117,7 +117,7 @@
 	}
 
 	.decide:hover {
-		box-shadow: 5px 5px 10px #0000004d;
+		box-shadow: 5px 5px 10px var(--shadow);
 	}
 
 	.yes {
@@ -125,6 +125,6 @@
 	}
 
 	.no {
-		background-color: #0075fc;
+		background-color: var(--blue);
 	}
 </style>

@@ -16,11 +16,11 @@
 
 <style>
 	.outer {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		padding: 2em;
 		max-height: fit-content;
 		border-radius: 1em;
-		box-shadow: 2px 2px 8px #0000004d;
+		box-shadow: 2px 2px 8px var(--shadow);
 		display: grid;
 		justify-content: center;
 		align-items: center;
@@ -29,7 +29,7 @@
 	}
 
 	.outer:hover {
-		box-shadow: 15px 15px 10px #0000004d;
+		box-shadow: 15px 15px 10px var(--shadow);
 	}
 
 	.plus {

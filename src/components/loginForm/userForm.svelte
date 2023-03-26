@@ -59,12 +59,12 @@
 		width: 100%;
 		display: grid;
 		justify-items: center;
-		background-color: #0075fc;
+		background-color: var(--blue);
 		padding-top: 4em;
 		padding-bottom: 4em;
 	}
 	.container {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		padding: 3.5em;
 		width: 30%;
 		border-radius: 1em;
@@ -89,13 +89,13 @@
 		color: #000000;
 		margin-top: 1em;
 		font-size: 1.5rem;
-		background-color: #ffc400;
+		background-color: var(--yellow);
 		border-radius: 0.3em;
 		font-weight: 400;
 	}
 
 	.next:hover {
-		background-color: #0075fc;
-		color: #f5f5f5;
+		background-color: var(--blue);
+		color: var(--white);
 	}
 </style>

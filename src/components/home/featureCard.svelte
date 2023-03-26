@@ -17,7 +17,7 @@
 		padding: 2em;
 		border-radius: 1em;
 		background-color: #f8f9fa;
-		box-shadow: 2px 2px 8px #0000004d;
+		box-shadow: 2px 2px 8px var(--shadow);
 		display: grid;
 		justify-items: center;
 	}

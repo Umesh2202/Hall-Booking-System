@@ -194,7 +194,7 @@
 
 <style>
 	.outer {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		width: 35%;
 		border-radius: 0.3em;
 		padding: 1em;
@@ -248,20 +248,20 @@
 
 	input {
 		font-size: 1.7rem;
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		border-bottom: 1px solid #474747;
 	}
 
 	input:focus {
-		outline: 3px solid #f5f5f5;
+		outline: 3px solid var(--white);
 	}
 
 	.submit {
 		width: 100%;
 		border-radius: 0.3em;
 		font-size: 1.5rem;
-		background-color: #0075fc;
-		color: #f5f5f5;
+		background-color: var(--blue);
+		color: var(--white);
 		padding: 0.3em;
 		font-weight: 600;
 	}

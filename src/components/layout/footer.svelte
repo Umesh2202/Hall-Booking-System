@@ -4,7 +4,7 @@
 
 <style>
 	.outer {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		width: 100%;
 		padding: 0.5em;
 		font-size: 1.5rem;

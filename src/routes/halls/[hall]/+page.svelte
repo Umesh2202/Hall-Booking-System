@@ -86,8 +86,6 @@
 
 <style>
 	.outer {
-		background-color: #0075fc;
-		min-height: 100vh;
 		display: grid;
 		justify-items: center;
 		align-items: center;
@@ -96,20 +94,20 @@
 	.title {
 		font-size: 5rem;
 		font-weight: 700;
-		color: #f5f5f5;
+		color: var(--white);
 	}
 
 	.inner {
 		margin-top: 2em;
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		width: 60%;
 		padding: 4em;
 		border-radius: 1em;
-		box-shadow: 5px 5px 72px #1e2e3280;
+		box-shadow: 5px 5px 72px #0000004d;
 	}
 	.name {
 		font-size: 5rem;
-		color: #0075fc;
+		color: var(--blue);
 		font-weight: 600;
 	}
 
@@ -133,7 +131,7 @@
 
 	.capacity {
 		font-size: 7rem;
-		color: #0075fc;
+		color: var(--blue);
 		text-align: center;
 	}
 	.head {
@@ -145,7 +143,7 @@
 
 	.value {
 		font-size: 1.5rem;
-		color: #0075fc;
+		color: var(--blue);
 		display: flex;
 		flex-direction: column;
 		gap: 0.5em;
@@ -160,8 +158,8 @@
 		width: 100%;
 		padding: 0.5em;
 		border-radius: 0.3em;
-		background-color: #0075fc;
-		color: #f5f5f5;
+		background-color: var(--blue);
+		color: var(--white);
 		font-size: 1.5rem;
 		font-weight: 500;
 		margin-top: 1em;

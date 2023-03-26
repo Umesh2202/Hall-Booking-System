@@ -24,18 +24,18 @@
 	}
 	button {
 		padding: 0.8em 0.5em;
-		color: #0075fc;
-		background-color: #f5f5f5;
+		color: var(--blue);
+		background-color: var(--white);
 		font-size: 1.5rem;
 		border-radius: 0.3em;
 		font-weight: 500;
 		width: 100%;
-		box-shadow: 2px 2px 8px #0000004d;
+		box-shadow: 2px 2px 8px var(--shadow);
 		transition: all 0.3s;
 	}
 
 	button:hover {
-		box-shadow: 10px 10px 10px #0000004d;
+		box-shadow: 10px 10px 10px var(--shadow);
 	}
 
 	.hidden {

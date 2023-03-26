@@ -10,7 +10,7 @@
 
 <style>
 	.container {
-		background-color: #ffc400;
+		background-color: var(--yellow);
 		width: max-content;
 		padding: 2em;
 		position: absolute;

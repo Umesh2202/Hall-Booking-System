@@ -4,7 +4,7 @@
 	.invalid {
 		margin: auto;
 		width: max-content;
-		color: #f5f5f5;
+		color: var(--white);
 		font-size: 6rem;
 		font-weight: 600;
 		padding-top: 1em;

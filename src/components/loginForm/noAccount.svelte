@@ -34,7 +34,7 @@
 
 	.signup {
 		background-color: #000000;
-		color: #f5f5f5;
+		color: var(--white);
 		padding: 1em;
 		border-radius: 0.5em;
 		margin-top: 1em;

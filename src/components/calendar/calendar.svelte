@@ -126,7 +126,7 @@
 		padding-right: 1rem;
 		margin-bottom: 3rem;
 		margin-top: 1rem;
-		color: #0075fc;
+		color: var(--blue);
 	}
 
 	.calendar__days {

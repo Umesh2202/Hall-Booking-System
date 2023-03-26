@@ -37,13 +37,13 @@
 	.text-input {
 		width: 100%;
 		border-bottom: 1px solid #000000;
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		padding: 0.3em;
 		font-size: 1.6rem;
 		margin-bottom: 0.5em;
 	}
 
 	.text-input:focus {
-		outline: 3px solid #f5f5f5;
+		outline: 3px solid var(--white);
 	}
 </style>

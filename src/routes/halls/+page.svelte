@@ -7,6 +7,7 @@
 	export let data;
 
 	const halls = data['halls'];
+	console.log(halls.length);
 </script>
 
 {#if $validUser === true}
@@ -43,7 +44,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
-		color: #f5f5f5;
+		color: var(--white);
 		font-weight: 700;
 	}
 
@@ -53,14 +54,14 @@
 		margin-right: auto;
 		width: fit-content;
 		margin-bottom: 1em;
-		color: #ffc400;
+		color: var(--yellow);
 	}
 
 	.halls {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		justify-content: center;
-		grid-auto-rows: 1fr;
+		/* grid-auto-rows: 1fr; */
 		gap: 2em;
 		width: 70%;
 		margin-left: auto;

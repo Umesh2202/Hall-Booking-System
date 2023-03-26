@@ -28,7 +28,7 @@
 
 <style>
 	.container {
-		background-color: #f5f5f5;
+		background-color: var(--white);
 		border-radius: 1em;
 		display: grid;
 		justify-content: center;

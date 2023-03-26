@@ -84,7 +84,7 @@
 		padding: 0.3em 1em;
 		border-radius: 0.5em;
 		background-color: #ff0000;
-		color: #f5f5f5;
+		color: var(--white);
 		font-weight: 600;
 	}
 
@@ -98,7 +98,7 @@
 	}
 
 	.cancel {
-		background-color: #0075fc;
+		background-color: var(--blue);
 		position: static;
 	}
 

@@ -17,6 +17,11 @@
 	:root {
 		--nav: 8vh;
 		--foot: 6vh;
+		--min-height: calc(100vh - (var(--nav) + var(--foot)));
+		--blue: #0075fc;
+		--white: #f5f5f5;
+		--shadow: #0000004d;
+		--yellow: #ffc400;
 	}
 
 	:global(*) {
@@ -28,7 +33,7 @@
 	}
 
 	.bg {
-		min-height: calc(100vh- (var(--nav)+var(--foot)));
-		background-color: #0075fc;
+		min-height: var(--min-height);
+		background-color: var(--blue);
 	}
 </style>

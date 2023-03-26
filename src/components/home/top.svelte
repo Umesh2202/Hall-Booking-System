@@ -7,7 +7,7 @@
 <style>
 	.heading {
 		font-size: 5rem;
-		color: #f5f5f5;
+		color: var(--white);
 		font-weight: 600;
 		letter-spacing: -2px;
 	}
@@ -15,7 +15,7 @@
 	.info {
 		font-size: 2rem;
 		word-wrap: break-word;
-		color: #ffc400;
+		color: var(--yellow);
 		width: 50%;
 		font-weight: 500;
 		position: relative;
@@ -25,7 +25,7 @@
 	.info:after {
 		position: absolute;
 		content: '';
-		border: 2px solid #f5f5f5;
+		border: 2px solid var(--white);
 		width: 100%;
 		bottom: -5%;
 		left: 0;

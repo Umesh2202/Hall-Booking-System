@@ -61,8 +61,8 @@
 		display: flex;
 		justify-content: center;
 		width: 100%;
-		background-color: #f5f5f5;
-		box-shadow: 2px 2px 8px #0000004d;
+		background-color: var(--white);
+		box-shadow: 2px 2px 8px var(--shadow);
 		height: var(--nav);
 	}
 
@@ -102,7 +102,7 @@
 		height: 5px;
 		bottom: 0;
 		left: 0;
-		background-color: #0075fc;
+		background-color: var(--blue);
 		transform-origin: bottom right;
 		transition: transform 0.25s ease-out;
 	}

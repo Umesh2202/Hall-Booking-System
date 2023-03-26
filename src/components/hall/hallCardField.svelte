@@ -15,6 +15,6 @@
 
 	.value {
 		font-size: 1.5rem;
-		color: #0075fc;
+		color: var(--blue);
 	}
 </style>
