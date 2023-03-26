@@ -1,18 +1,19 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hideForm } from '../../stores/store';
+	import { editForm, hideForm } from '../../stores/store';
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
 
 	// When submit is clicked, the form  disappears and the calendar is updated
 
-	let hallName: string = '',
-		inchargeName: string = '',
-		desc: string = '',
-		location: string = '',
+	export let hallName: string,
+		inchargeName: string,
+		desc: string,
+		location: string,
 		capacity: Number,
-		contact: string = '',
-		invalidCapacity: boolean = false, //* true if contact is invalid
+		contact: string;
+	console.log(hallName);
+	let invalidCapacity: boolean = false, //* true if contact is invalid
 		invalidContact: boolean = false, //* true if contact is invalid
 		invalidHallName: boolean = false, //* true if text is invalid
 		invalidInchargeName: boolean = false, //* true if text is invalid
@@ -224,6 +225,7 @@
 			class="close"
 			on:click={() => {
 				hideForm.set(!$hideForm);
+				editForm.set(false);
 			}}
 		>
 			<img src={cancel} alt="" />

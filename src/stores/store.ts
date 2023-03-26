@@ -14,6 +14,7 @@ export const crrBookingInfo = writable([]);
 export const deleteDateId = writable('');
 export const adminInfo = { email: 'roman@gmail.com', password: '123456' };
 export const hallDelete = writable(false);
+export const editForm = writable(false);
 
 userId.subscribe((value) => {
 	browser && localStorage.setItem('userId', value);

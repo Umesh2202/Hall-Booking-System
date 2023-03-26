@@ -4,10 +4,11 @@
 	import UserForm from '../../components/loginForm/userForm.svelte';
 	import AddHallCard from '../../components/hall/addHallCard.svelte';
 	import AddHallForm from '../../components/hall/addHallForm.svelte';
+	import { editForm } from '../../stores/store';
 	export let data;
 
 	const halls = data['halls'];
-	console.log(halls.length);
+	console.log(halls);
 </script>
 
 {#if $validUser === true}
@@ -18,18 +19,15 @@
 		<div class="halls">
 			{#each halls as hall}
 				{#if hall['name'] !== undefined}
-					<HallCard
-						id={hall['id']}
-						name={hall['name']}
-						capacity={hall['capacity']}
-						incharge={hall['incharge']}
-					/>
+					<HallCard info={hall} />
 				{/if}
 			{/each}
 
 			{#if $formText === 'Admin Login'}
 				<AddHallCard />
-				<AddHallForm />
+				{#if $editForm === false}
+					<AddHallForm hallName="" inchargeName="" desc="" location="" capacity={0} contact="" />
+				{/if}
 			{/if}
 		</div>
 	</div>

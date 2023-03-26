@@ -2,13 +2,21 @@
 	import HallSubCard from './hallSubCard.svelte';
 	import dustbin from '../../assets/dustbin.svg';
 	import pen from '../../assets/pen.svg';
+	import AddHallForm from './addHallForm.svelte';
 	import { deleteHall } from './functions/deleteHall';
-	import { hallDelete } from '../../stores/store';
+	import { editForm, hallDelete, hideForm } from '../../stores/store';
 
-	let deleteFlag: boolean = false;
-	export let id: string, name: string;
-	export let capacity: number;
-	export let incharge: string;
+	let deleteFlag: boolean = false,
+		editFlag: boolean = false;
+	// export let id: string, name: string;
+	// export let capacity: number;
+	// export let incharge: string;
+	export let info;
+
+	let id = info['id'];
+	let name = info['name'];
+	let capacity = info['capacity'];
+	let incharge = info['incharge'];
 </script>
 
 <div class={`card-outer `}>
@@ -21,17 +29,33 @@
 			on:click={() => {
 				deleteFlag = true;
 				hallDelete.set(true);
-				console.log(deleteFlag);
-				console.log(`${id}`);
 			}}
 			disabled={$hallDelete}
 		>
 			<img src={dustbin} alt="" class="icon" />
 		</button>
 
-		<button class="delete pen">
+		<button
+			class="delete pen"
+			on:click={() => {
+				console.log(editFlag);
+				editFlag = true;
+				editForm.set(true);
+				hideForm.set(!hideForm);
+			}}
+		>
 			<img src={pen} alt="" class="icon" />
 		</button>
+		{#if $editForm === true}
+			<AddHallForm
+				hallName={name}
+				inchargeName={incharge}
+				desc={info['desc']}
+				location={info['location']}
+				{capacity}
+				contact={info['contact']}
+			/>
+		{/if}
 	{:else}
 		<!-- <ConfirmDelete /> -->
 		<div class="outer">
