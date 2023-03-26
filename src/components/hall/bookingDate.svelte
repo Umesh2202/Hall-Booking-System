@@ -89,7 +89,7 @@
 	}
 
 	.disable {
-		background-color: #474747;
+		background-color: var(--grey);
 	}
 
 	.options {

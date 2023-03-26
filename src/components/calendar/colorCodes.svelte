@@ -4,7 +4,7 @@
 
 <div class="color_codes">
 	<ColorCode field="Current Date" color="#0075fc" />
-	<ColorCode field="Booked Dates" color="#ff002b" />
+	<ColorCode field="Booked Dates" color="var(--red)" />
 	<ColorCode field="Available Date" color="#000000" />
 </div>
 

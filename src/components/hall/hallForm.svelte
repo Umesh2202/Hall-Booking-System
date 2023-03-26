@@ -199,7 +199,7 @@
 		border-radius: 0.3em;
 		padding: 1em;
 		position: relative;
-		border: 5px solid #474747;
+		border: 2px solid var(--grey);
 		z-index: 2;
 	}
 
@@ -216,7 +216,7 @@
 		width: 100%;
 		bottom: -10%;
 		left: 0;
-		border: 1px solid #474747;
+		border: 1px solid var(--grey);
 	}
 
 	.closeflex {
@@ -249,7 +249,7 @@
 	input {
 		font-size: 1.7rem;
 		background-color: var(--white);
-		border-bottom: 1px solid #474747;
+		border-bottom: 1px solid var(--grey);
 	}
 
 	input:focus {
@@ -267,7 +267,7 @@
 	}
 
 	.disable {
-		background-color: #474747;
+		background-color: var(--grey);
 		cursor: auto;
 	}
 	.close {

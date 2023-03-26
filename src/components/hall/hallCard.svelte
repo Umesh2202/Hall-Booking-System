@@ -1,6 +1,7 @@
 <script lang="ts">
 	import HallSubCard from './hallSubCard.svelte';
 	import dustbin from '../../assets/dustbin.svg';
+	import pen from '../../assets/pen.svg';
 	import { deleteHall } from './functions/deleteHall';
 	import { hallDelete } from '../../stores/store';
 
@@ -16,7 +17,7 @@
 			<HallSubCard {name} {capacity} {incharge} {deleteFlag} />
 		</a>
 		<button
-			class={`delete ${$hallDelete === true ? 'disable' : ''}`}
+			class={`delete dustbin ${$hallDelete === true ? 'disable' : ''}`}
 			on:click={() => {
 				deleteFlag = true;
 				hallDelete.set(true);
@@ -25,7 +26,11 @@
 			}}
 			disabled={$hallDelete}
 		>
-			<img src={dustbin} alt="" class="dustbin" />
+			<img src={dustbin} alt="" class="icon" />
+		</button>
+
+		<button class="delete pen">
+			<img src={pen} alt="" class="icon" />
 		</button>
 	{:else}
 		<!-- <ConfirmDelete /> -->
@@ -59,13 +64,19 @@
 
 	.delete {
 		position: absolute;
-		top: 5%;
+		top: 25%;
 		right: 5%;
-		background-color: #ff002b;
+		background-color: var(--blue);
 		padding: 1em;
 		border-radius: 50%;
 		z-index: 2;
 		transition: all 0.3s;
+	}
+
+	.dustbin {
+		top: 5%;
+		right: 5%;
+		background-color: var(--red);
 	}
 
 	.delete:hover {
@@ -73,10 +84,10 @@
 	}
 
 	.disable {
-		background-color: #474747;
+		background-color: var(--grey);
 	}
 
-	.dustbin {
+	.icon {
 		width: 20px;
 	}
 
@@ -98,7 +109,7 @@
 	.warning {
 		font-size: 1.5rem;
 		line-height: 2rem;
-		color: #ff002b;
+		color: var(--red);
 		font-weight: 600;
 	}
 
@@ -121,7 +132,7 @@
 	}
 
 	.yes {
-		background-color: #ff002b;
+		background-color: var(--red);
 	}
 
 	.no {

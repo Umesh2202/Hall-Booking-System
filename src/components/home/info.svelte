@@ -32,7 +32,7 @@
 		border-radius: 1em;
 		display: grid;
 		justify-content: center;
-		color: #474747;
+		color: var(--grey);
 		width: 70vw;
 		padding: 4em;
 		line-height: 3.3em;

@@ -103,7 +103,7 @@
 		width: 60%;
 		padding: 4em;
 		border-radius: 1em;
-		box-shadow: 5px 5px 72px #0000004d;
+		box-shadow: 5px 5px 72px var(--shadow);
 	}
 	.name {
 		font-size: 5rem;

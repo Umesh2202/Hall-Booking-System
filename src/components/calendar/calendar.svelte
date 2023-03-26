@@ -50,7 +50,7 @@
 		/* margin: 1rem auto; */
 		background-color: #f5f7f6;
 		color: #000000;
-		border: 2px solid #474747;
+		border: 2px solid var(--grey);
 		border-radius: 1em;
 	}
 	@media screen and (min-width: 55em) {

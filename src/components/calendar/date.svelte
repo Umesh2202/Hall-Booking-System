@@ -48,7 +48,7 @@
 	}
 
 	.calendar__date {
-		color: #040605;
+		color: #000000;
 		font-size: 1.7rem;
 		font-weight: 500;
 		line-height: 0.7;
@@ -72,7 +72,7 @@
 	}
 
 	.booked .calendar__date {
-		color: #ff002b;
+		color: var(--red);
 	}
 	@media screen and (min-width: 55em) {
 		.calendar__date {
