@@ -23,18 +23,19 @@
 		gap: 1.5em;
 	}
 	button {
-		padding: 0.5em;
+		padding: 0.8em 0.5em;
 		color: #0075fc;
 		background-color: #f5f5f5;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		border-radius: 0.3em;
 		font-weight: 500;
 		width: 100%;
 		box-shadow: 2px 2px 8px #0000004d;
+		transition: all 0.3s;
 	}
 
 	button:hover {
-		background-color: #ffc400;
+		box-shadow: 10px 10px 10px #0000004d;
 	}
 
 	.hidden {

@@ -16,7 +16,7 @@
 
 <div class="outer">
 	<div class="inner">
-		<div class="nav-item"><img src={logo} alt="" width="70px" /></div>
+		<!-- <div class="nav-item"><img src={logo} alt="" width="40px" /></div> -->
 		<div class="nav-item">
 			<a href="/" class="anchor">Home</a>
 		</div>
@@ -63,6 +63,7 @@
 		width: 100%;
 		background-color: #f5f5f5;
 		box-shadow: 2px 2px 8px #0000004d;
+		height: var(--nav);
 	}
 
 	.inner {
@@ -83,7 +84,7 @@
 
 	.anchor {
 		margin: 0 0.5em;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-weight: 600;
 		color: #000000;
 		display: flex;
@@ -110,19 +111,4 @@
 		transform: scaleX(1);
 		transform-origin: bottom left;
 	}
-
-	/* button {
-		background-color: #0075fc;
-		padding: 0.5em 1em;
-		color: #f5f5f5;
-		font-weight: 600;
-		margin-right: 1em;
-		border-radius: 0.5em;
-		display: flex;
-		transition: all 0.3s ease-in-out;
-	} */
-
-	/* button:hover {
-		box-shadow: 5px 5px 10px #0000004d;
-	} */
 </style>

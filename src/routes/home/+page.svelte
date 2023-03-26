@@ -4,8 +4,14 @@
 	import Info from '../../components/home/info.svelte';
 </script>
 
-<div>
+<div class="home">
 	<Top />
 	<Option />
 	<Info />
 </div>
+
+<style>
+	.home {
+		padding-bottom: 3em;
+	}
+</style>

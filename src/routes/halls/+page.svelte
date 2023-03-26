@@ -55,10 +55,6 @@
 		margin-bottom: 1em;
 		color: #ffc400;
 	}
-	.outer {
-		min-height: 100vh;
-		background-color: #0075fc;
-	}
 
 	.halls {
 		display: grid;
