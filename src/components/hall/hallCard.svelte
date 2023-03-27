@@ -4,19 +4,31 @@
 	import pen from '../../assets/pen.svg';
 	import AddHallForm from './addHallForm.svelte';
 	import { deleteHall } from './functions/deleteHall';
-	import { editForm, hallDelete, hideForm } from '../../stores/store';
+	import { hallEdit, hallDelete, hideForm, info } from '../../stores/store';
 
 	let deleteFlag: boolean = false,
 		editFlag: boolean = false;
-	// export let id: string, name: string;
-	// export let capacity: number;
-	// export let incharge: string;
-	export let info;
 
-	let id = info['id'];
-	let name = info['name'];
-	let capacity = info['capacity'];
-	let incharge = info['incharge'];
+	export let info1;
+
+	let id = info1['id'],
+		name: string = info1['name'],
+		capacity: number = info1['capacity'],
+		incharge: string = info1['incharge'],
+		desc: string = info1['desc'],
+		location: string = info1['location'],
+		contact: string = info1['contact'];
+
+	const setCrrValues = () => {
+		info.set({
+			hallName: name,
+			inchargeName: incharge,
+			desc: desc,
+			location: location,
+			capacity: capacity,
+			contact: contact
+		});
+	};
 </script>
 
 <div class={`card-outer `}>
@@ -36,28 +48,17 @@
 		</button>
 
 		<button
-			class="delete pen"
+			class={`delete pen ${$hallEdit === true ? 'disable' : ''}`}
 			on:click={() => {
-				console.log(editFlag);
+				setCrrValues();
 				editFlag = true;
-				editForm.set(true);
-				hideForm.set(!hideForm);
+				hallEdit.set(true);
+				hideForm.set(false);
 			}}
 		>
 			<img src={pen} alt="" class="icon" />
 		</button>
-		{#if $editForm === true}
-			<AddHallForm
-				hallName={name}
-				inchargeName={incharge}
-				desc={info['desc']}
-				location={info['location']}
-				{capacity}
-				contact={info['contact']}
-			/>
-		{/if}
 	{:else}
-		<!-- <ConfirmDelete /> -->
 		<div class="outer">
 			<div class="title">Are you sure you want to delete this hall?</div>
 			<div class="warning">NOTE: All the bookings related to this hall will be deleted</div>

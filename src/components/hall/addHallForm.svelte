@@ -1,19 +1,19 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { editForm, hideForm } from '../../stores/store';
+	import { hallEdit, hideForm } from '../../stores/store';
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
+	import { info } from '../../stores/store';
 
 	// When submit is clicked, the form  disappears and the calendar is updated
 
-	export let hallName: string,
-		inchargeName: string,
-		desc: string,
-		location: string,
-		capacity: Number,
-		contact: string;
-	console.log(hallName);
-	let invalidCapacity: boolean = false, //* true if contact is invalid
+	let hallName: string = $info['hallName'],
+		inchargeName: string = $info['inchargeName'],
+		desc: string = $info['desc'],
+		location: string = $info['location'],
+		capacity: Number = $info['capacity'],
+		contact: string = $info['contact'],
+		invalidCapacity: boolean = false, //* true if contact is invalid
 		invalidContact: boolean = false, //* true if contact is invalid
 		invalidHallName: boolean = false, //* true if text is invalid
 		invalidInchargeName: boolean = false, //* true if text is invalid
@@ -21,6 +21,7 @@
 		invalidLoc: boolean = false, //* true if text is invalid
 		notFullContact: boolean = false, //* true if text is invalid
 		emptyText: boolean = true; //* true if name is empty
+	console.log(hallName);
 
 	const addHall = async () => {
 		await axios.post(`http://localhost:5174/api/halls`, {
@@ -224,8 +225,8 @@
 		<button
 			class="close"
 			on:click={() => {
-				hideForm.set(!$hideForm);
-				editForm.set(false);
+				hideForm.set(true);
+				hallEdit.set(false);
 			}}
 		>
 			<img src={cancel} alt="" />

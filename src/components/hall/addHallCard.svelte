@@ -1,12 +1,26 @@
 <script lang="ts">
 	import add from '../../assets/add.svg';
-	import { hideForm } from '../../stores/store';
+	import { hideForm, info } from '../../stores/store';
+
+	let capacity: number;
+
+	const setValues = () => {
+		info.set({
+			hallName: '',
+			inchargeName: '',
+			desc: '',
+			location: '',
+			capacity: capacity,
+			contact: ''
+		});
+	};
 </script>
 
 <div class="outer">
 	<button
 		class="addBtn"
 		on:click={() => {
+			setValues();
 			hideForm.set(false);
 		}}
 	>
