@@ -1,9 +1,8 @@
 <script lang="ts">
 	import axios from 'axios';
-	import { hallEdit, hideForm } from '../../stores/store';
+	import { hallEdit, hideForm, info } from '../../stores/store';
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
-	import { info } from '../../stores/store';
 
 	// When submit is clicked, the form  disappears and the calendar is updated
 
@@ -32,6 +31,19 @@
 			capacity: capacity,
 			contact: contact,
 			bookings: []
+		});
+	};
+
+	const editHall = async () => {
+		await axios.patch(`http://localhost:5174/api/halls`, {
+			name: hallName,
+			incharge: inchargeName,
+			desc: desc,
+			location: location,
+			capacity: capacity,
+			contact: contact,
+			bookings: [],
+			id: $info['id']
 		});
 	};
 
@@ -115,7 +127,7 @@
 
 <div class={`${$hideForm === false ? 'cover' : ''}`}>
 	<div class={`outer ${$hideForm === false ? '' : 'hide'}`}>
-		<div class="title">Add a hall</div>
+		<div class="title">{$info['title']}</div>
 		<div class="grid">
 			<div class="field">Hall Name</div>
 			<div class="field">Incharge Name</div>
@@ -216,7 +228,11 @@
 				notFullContact ||
 				emptyText}
 			on:click={() => {
-				addHall();
+				if (!$hallEdit) {
+					addHall();
+				} else {
+					editHall();
+				}
 				setTimeout(() => {
 					window.location.reload();
 				}, 1000);

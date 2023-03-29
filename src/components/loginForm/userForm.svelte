@@ -60,8 +60,6 @@
 		display: grid;
 		justify-items: center;
 		background-color: var(--blue);
-		padding-top: 4em;
-		padding-bottom: 4em;
 	}
 	.container {
 		background-color: var(--white);
@@ -95,7 +93,6 @@
 	}
 
 	.next:hover {
-		background-color: var(--blue);
-		color: var(--white);
+		outline: 3px solid #000000;
 	}
 </style>

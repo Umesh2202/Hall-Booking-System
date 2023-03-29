@@ -11,16 +11,29 @@
 
 <div class="container">
 	<label for={`${field}`} class="">{field}</label>
-	<input
-		type="text"
-		name={`field==="Password"?"pwd":${field}`}
-		id={`field==="Password"?"pwd":${field}`}
-		placeholder={`Type your ${field}`}
-		autocomplete={`${field}`}
-		class="  sm:text-sm text-input"
-		bind:value
-		on:change={update}
-	/>
+	{#if field === 'Password'}
+		<input
+			type="password"
+			name="pwd"
+			id="pwd"
+			placeholder={`Type your ${field}`}
+			autocomplete={`${field}`}
+			class="  sm:text-sm text-input"
+			bind:value
+			on:change={update}
+		/>
+	{:else if field === 'Email'}
+		<input
+			type="email"
+			name="email"
+			id="email"
+			placeholder={`Type your ${field}`}
+			autocomplete={`${field}`}
+			class="  sm:text-sm text-input"
+			bind:value
+			on:change={update}
+		/>
+	{/if}
 </div>
 
 <style>

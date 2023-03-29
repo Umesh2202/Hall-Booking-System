@@ -21,7 +21,9 @@ export const info = writable({
 	desc: '',
 	location: '',
 	capacity: 0,
-	contact: ''
+	contact: '',
+	title: '',
+	id: ''
 });
 
 userId.subscribe((value) => {

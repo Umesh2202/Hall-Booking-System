@@ -35,5 +35,7 @@
 	.bg {
 		min-height: var(--min-height);
 		background-color: var(--blue);
+		padding-bottom: 2em;
+		padding-top: 3em;
 	}
 </style>

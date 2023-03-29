@@ -4,7 +4,7 @@
 	import pen from '../../assets/pen.svg';
 	import AddHallForm from './addHallForm.svelte';
 	import { deleteHall } from './functions/deleteHall';
-	import { hallEdit, hallDelete, hideForm, info } from '../../stores/store';
+	import { hallEdit, hallDelete, hideForm, info, formText } from '../../stores/store';
 
 	let deleteFlag: boolean = false,
 		editFlag: boolean = false;
@@ -26,7 +26,9 @@
 			desc: desc,
 			location: location,
 			capacity: capacity,
-			contact: contact
+			contact: contact,
+			title: 'Edit this hall',
+			id: id
 		});
 	};
 </script>
@@ -36,28 +38,30 @@
 		<a href={`/halls/${id}`}>
 			<HallSubCard {name} {capacity} {incharge} {deleteFlag} />
 		</a>
-		<button
-			class={`delete dustbin ${$hallDelete === true ? 'disable' : ''}`}
-			on:click={() => {
-				deleteFlag = true;
-				hallDelete.set(true);
-			}}
-			disabled={$hallDelete}
-		>
-			<img src={dustbin} alt="" class="icon" />
-		</button>
+		{#if $formText === 'Admin Login'}
+			<button
+				class={`delete dustbin ${$hallDelete === true ? 'disable' : ''}`}
+				on:click={() => {
+					deleteFlag = true;
+					hallDelete.set(true);
+				}}
+				disabled={$hallDelete}
+			>
+				<img src={dustbin} alt="" class="icon" />
+			</button>
 
-		<button
-			class={`delete pen ${$hallEdit === true ? 'disable' : ''}`}
-			on:click={() => {
-				setCrrValues();
-				editFlag = true;
-				hallEdit.set(true);
-				hideForm.set(false);
-			}}
-		>
-			<img src={pen} alt="" class="icon" />
-		</button>
+			<button
+				class={`delete pen ${$hallEdit || $hallDelete === true ? 'disable' : ''}`}
+				on:click={() => {
+					setCrrValues();
+					editFlag = true;
+					hallEdit.set(true);
+					hideForm.set(false);
+				}}
+			>
+				<img src={pen} alt="" class="icon" />
+			</button>
+		{/if}
 	{:else}
 		<div class="outer">
 			<div class="title">Are you sure you want to delete this hall?</div>

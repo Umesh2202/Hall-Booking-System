@@ -11,7 +11,9 @@
 			desc: '',
 			location: '',
 			capacity: capacity,
-			contact: ''
+			contact: '',
+			title: 'Add new hall',
+			id: ''
 		});
 	};
 </script>

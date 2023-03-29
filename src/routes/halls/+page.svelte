@@ -36,7 +36,6 @@
 <style>
 	.heading {
 		font-size: 5rem;
-		padding-top: 0.5em;
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
@@ -57,7 +56,7 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		justify-content: center;
-		/* grid-auto-rows: 1fr; */
+		grid-auto-rows: 1fr;
 		gap: 2em;
 		width: 70%;
 		margin-left: auto;
