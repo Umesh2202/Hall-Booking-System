@@ -6,7 +6,7 @@
 
 <style>
 	.heading {
-		font-size: 5rem;
+		font-size: var(--font2);
 		color: var(--white);
 		font-weight: 600;
 		letter-spacing: -2px;

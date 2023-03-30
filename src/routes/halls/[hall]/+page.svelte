@@ -92,8 +92,8 @@
 	}
 
 	.title {
-		font-size: 5rem;
-		font-weight: 700;
+		font-size: var(--font2);
+		font-weight: 500;
 		color: var(--white);
 	}
 
@@ -106,7 +106,7 @@
 		box-shadow: 5px 5px 72px var(--shadow);
 	}
 	.name {
-		font-size: 5rem;
+		font-size: var(--font2);
 		color: var(--blue);
 		font-weight: 600;
 	}
@@ -130,7 +130,7 @@
 	}
 
 	.capacity {
-		font-size: 7rem;
+		font-size: var(--font1);
 		color: var(--blue);
 		text-align: center;
 	}

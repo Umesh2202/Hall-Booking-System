@@ -1,12 +1,23 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import Navbar from '../components/layout/navbar.svelte';
 	import Footer from '../components/layout/footer.svelte';
+	import Loading from '../components/layout/loading.svelte';
+
+	let loading: Boolean = true;
+
+	setTimeout(() => {
+		loading = false;
+	}, 3000);
 </script>
 
 <Navbar />
 <div class="bg">
-	<slot />
+	{#if loading}
+		<Loading />
+	{:else}
+		<slot />
+	{/if}
 </div>
 <Footer />
 
@@ -23,6 +34,12 @@
 		--yellow: #ffc400;
 		--grey: #474747;
 		--red: #ff002b;
+		--font1: 7rem;
+		--font2: 5rem;
+		--font3: 4rem;
+		--font4: 3rem;
+		--font5: 2rem;
+		--font6: 1.3rem;
 	}
 
 	:global(*) {

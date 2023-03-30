@@ -298,7 +298,7 @@
 	}
 
 	.cover {
-		font-size: 4rem;
+		font-size: var(--font3);
 		position: fixed;
 		width: 100%;
 		height: 100%;

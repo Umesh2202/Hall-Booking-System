@@ -35,7 +35,7 @@
 
 <style>
 	.heading {
-		font-size: 5rem;
+		font-size: var(--font3);
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
@@ -44,7 +44,7 @@
 	}
 
 	.sub-heading {
-		font-size: 3rem;
+		font-size: var(--font5);
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
