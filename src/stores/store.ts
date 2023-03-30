@@ -3,7 +3,7 @@ import { browser } from '$app/environment';
 
 export const email = writable('');
 export const password = writable('');
-export const popup = writable(false);
+export const popup = writable('');
 export const hideForm = writable(true);
 export const datesList = writable([]);
 export const bookings = writable([]);

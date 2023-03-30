@@ -12,7 +12,7 @@
 	const addUser = async () => {
 		try {
 			message = 'Please wait';
-			popup.set(true);
+			popup.set('true');
 			const user = await formAction($formText, $email, $password);
 			if ($formText !== 'Admin Login') {
 				userId.set(user['user']['uid']);
@@ -26,11 +26,11 @@
 			login_flag = true;
 		} catch (err) {
 			message = `${err}`;
-			popup.set(true);
+			popup.set('true');
 		}
 
 		setTimeout(() => {
-			popup.set(false);
+			popup.set('false');
 			if (login_flag === true) {
 				login_flag = false;
 				goto('/halls');

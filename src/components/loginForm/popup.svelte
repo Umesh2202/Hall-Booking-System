@@ -3,10 +3,12 @@
 	import { popup } from '../../stores/store';
 </script>
 
-<div class={`container ${$popup === true ? 'open-popup' : 'close-popup'}`}>
-	<div class="message">{message}</div>
-	<div class={`progress-bar ${$popup === true ? 'progress' : 'complete'}`} />
-</div>
+{#if $popup !== ''}
+	<div class={`container ${$popup === 'true' ? 'open-popup' : 'close-popup'}`}>
+		<div class="message">{message}</div>
+		<div class={`progress-bar ${$popup === 'true' ? 'progress' : 'complete'}`} />
+	</div>
+{/if}
 
 <style>
 	.container {

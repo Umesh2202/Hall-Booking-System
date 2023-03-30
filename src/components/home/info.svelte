@@ -33,7 +33,7 @@
 		display: grid;
 		justify-content: center;
 		color: var(--grey);
-		width: 70vw;
+		width: 65vw;
 		padding: 4em;
 		line-height: 3.3em;
 		text-align: center;
@@ -41,7 +41,7 @@
 	}
 
 	.feature-head {
-		font-size: 3.5rem;
+		font-size: 3rem;
 		font-weight: 500;
 		margin-bottom: 2em;
 	}
