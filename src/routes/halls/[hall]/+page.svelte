@@ -149,11 +149,6 @@
 		gap: 0.5em;
 	}
 
-	.bookings {
-		display: grid;
-		justify-content: center;
-	}
-
 	.book {
 		width: 100%;
 		padding: 0.5em;

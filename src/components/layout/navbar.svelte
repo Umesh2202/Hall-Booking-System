@@ -4,8 +4,11 @@
 	import logo from '../../assets/logo.png';
 	import { validUser, formText } from '../../stores/store';
 	import { goto } from '$app/navigation';
+	import { fade, scale } from 'svelte/transition';
 
 	validUser.set(JSON.parse($validUser));
+
+	let hideLoginConf = true; //* true if login confirmation box is hidden
 
 	const logOut = () => {
 		signOut(auth);
@@ -49,9 +52,28 @@
 			<button
 				class="anchor"
 				on:click={() => {
-					logOut();
+					hideLoginConf = !hideLoginConf;
 				}}>Logout</button
 			>
+			{#if !hideLoginConf}
+				<div class="confirmation" in:scale out:scale>
+					<div>Are you sure you want to Logout?</div>
+					<div class="conf-buttons">
+						<button
+							class="decide yes"
+							on:click={() => {
+								logOut();
+							}}>Yes</button
+						>
+						<button
+							class="decide no"
+							on:click={() => {
+								hideLoginConf = true;
+							}}>No</button
+						>
+					</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -75,6 +97,7 @@
 	.nav-item {
 		font-size: 1.5rem;
 		display: flex;
+		position: relative;
 	}
 
 	.hidden {
@@ -110,5 +133,38 @@
 	.anchor:hover::after {
 		transform: scaleX(1);
 		transform-origin: bottom left;
+	}
+
+	.confirmation {
+		position: absolute;
+		top: 100%;
+		right: -50%;
+		background-color: var(--white);
+		padding: 1em;
+		width: 200%;
+		border-radius: 0.3em;
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+
+	.conf-buttons {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.5em;
+		margin-top: 0.5em;
+	}
+
+	.decide {
+		padding: 0.5em;
+		color: var(--white);
+		border-radius: 0.3em;
+	}
+
+	.yes {
+		background-color: var(--red);
+	}
+
+	.no {
+		background-color: var(--blue);
 	}
 </style>

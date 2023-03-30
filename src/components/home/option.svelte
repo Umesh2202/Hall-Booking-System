@@ -1,11 +1,16 @@
 <script>
 	import { formText, validUser } from '../../stores/store';
+
+	console.log(typeof $validUser);
+	$validUser === true ? console.log('e') : console.log('ne');
 </script>
 
 <div class="container">
-	<div class={`options ${$validUser === true ? 'hidden' : ''}`}>
-		<a href="/userForm">
-			<button on:click={() => formText.set('SignUp')}>SignUp</button>
+	<div class={`options `}>
+		<a href={`${$validUser === true ? '/halls' : '/userForm'}`}>
+			<button on:click={() => formText.set('SignUp')}
+				>{`${$validUser === true ? 'Book a hall' : 'SignUp'}`}</button
+			>
 		</a>
 	</div>
 </div>
