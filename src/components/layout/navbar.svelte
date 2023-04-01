@@ -29,7 +29,7 @@
 	</div>
 	<div class="inner">
 		{#if $validUser === false}
-			<a href="/userForm" in:fade out:fade>
+			<a href="/userForm" in:fade={{ delay: 1000 }} out:fade={{ duration: 500 }}>
 				<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
 					<button
 						class="anchor"
@@ -40,7 +40,7 @@
 					>
 				</div>
 			</a>
-			<a href="/userForm" in:fade out:fade>
+			<a href="/userForm" in:fade={{ delay: 1000 }} out:fade={{ duration: 500 }}>
 				<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
 					<button
 						class="anchor"
@@ -50,12 +50,15 @@
 				</div>
 			</a>
 		{:else}
-			<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`} in:fade out:fade>
+			<div
+				class={`nav-item ${$validUser === false ? 'hidden' : ''}`}
+				in:fade={{ delay: 1000 }}
+				out:fade={{ duration: 0 }}
+			>
 				<button
 					class="anchor"
 					on:click={() => {
 						hideLoginConf = !hideLoginConf;
-						console.log(hideLoginConf);
 					}}>Logout</button
 				>
 				{#if !hideLoginConf}
@@ -85,8 +88,10 @@
 
 <style>
 	.outer {
-		display: flex;
-		justify-content: center;
+		/* display: flex; */
+		/* justify-content: center; */
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		width: 100%;
 		background-color: var(--white);
 		box-shadow: 2px 2px 8px var(--shadow);
