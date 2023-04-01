@@ -11,7 +11,6 @@
 	const bookingsInfo = data['bookings'];
 	bookings.set(bookingsInfo);
 
-	console.log($bookings);
 	let tempBookingInfo = bookingsInfo.filter((el: { userId: '' }) => {
 		return el['userId'] === $userId;
 	});

@@ -1,8 +1,5 @@
 <script>
 	import { formText, validUser } from '../../stores/store';
-
-	console.log(typeof $validUser);
-	$validUser === true ? console.log('e') : console.log('ne');
 </script>
 
 <div class="container">

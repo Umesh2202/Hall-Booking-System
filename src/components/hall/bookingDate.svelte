@@ -22,8 +22,6 @@
 			return el['startDate'] !== startDate && el['endDate'] !== endDate;
 		});
 
-		console.log(tempBookingInfo);
-
 		crrBookingInfo.set(tempBookingInfo);
 	};
 </script>
@@ -40,7 +38,6 @@
 				class={`delete ${$deleteDateId === startDate || $deleteDateId === '' ? '' : 'disable'}`}
 				disabled={$deleteDateId === startDate || $deleteDateId === '' ? false : true}
 				on:click={() => {
-					console.log(id.toString());
 					deleteFlag = true;
 					deleteDateId.set(startDate);
 				}}>Delete</button

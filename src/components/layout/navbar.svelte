@@ -9,7 +9,7 @@
 	validUser.set(JSON.parse($validUser));
 
 	let hideLoginConf = true; //* true if login confirmation box is hidden
-
+	console.log(hideLoginConf);
 	const logOut = () => {
 		signOut(auth);
 		validUser.set(false);
@@ -28,53 +28,58 @@
 		</div>
 	</div>
 	<div class="inner">
-		<a href="/userForm">
-			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
-				<button
-					class="anchor"
-					disabled={$validUser === true ? true : false}
-					on:click={() => {
-						formText.set('User Login');
-					}}>User Login</button
-				>
-			</div>
-		</a>
-		<a href="/userForm">
-			<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
-				<button
-					class="anchor"
-					disabled={$validUser === true ? true : false}
-					on:click={() => formText.set('Admin Login')}>Admin Login</button
-				>
-			</div>
-		</a>
-		<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`}>
-			<button
-				class="anchor"
-				on:click={() => {
-					hideLoginConf = !hideLoginConf;
-				}}>Logout</button
-			>
-			{#if !hideLoginConf}
-				<div class="confirmation" in:scale out:scale>
-					<div>Are you sure you want to Logout?</div>
-					<div class="conf-buttons">
-						<button
-							class="decide yes"
-							on:click={() => {
-								logOut();
-							}}>Yes</button
-						>
-						<button
-							class="decide no"
-							on:click={() => {
-								hideLoginConf = true;
-							}}>No</button
-						>
-					</div>
+		{#if $validUser === false}
+			<a href="/userForm" in:fade out:fade>
+				<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+					<button
+						class="anchor"
+						disabled={$validUser === true ? true : false}
+						on:click={() => {
+							formText.set('User Login');
+						}}>User Login</button
+					>
 				</div>
-			{/if}
-		</div>
+			</a>
+			<a href="/userForm" in:fade out:fade>
+				<div class={`nav-item ${$validUser === true ? 'hidden' : ''}`}>
+					<button
+						class="anchor"
+						disabled={$validUser === true ? true : false}
+						on:click={() => formText.set('Admin Login')}>Admin Login</button
+					>
+				</div>
+			</a>
+		{:else}
+			<div class={`nav-item ${$validUser === false ? 'hidden' : ''}`} in:fade out:fade>
+				<button
+					class="anchor"
+					on:click={() => {
+						hideLoginConf = !hideLoginConf;
+						console.log(hideLoginConf);
+					}}>Logout</button
+				>
+				{#if !hideLoginConf}
+					<div class="confirmation" in:scale out:scale>
+						<div>Are you sure you want to Logout?</div>
+						<div class="conf-buttons">
+							<button
+								class="decide yes"
+								on:click={() => {
+									hideLoginConf = true;
+									logOut();
+								}}>Yes</button
+							>
+							<button
+								class="decide no"
+								on:click={() => {
+									hideLoginConf = true;
+								}}>No</button
+							>
+						</div>
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </div>
 

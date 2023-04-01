@@ -20,7 +20,6 @@
 		invalidLoc: boolean = false, //* true if text is invalid
 		notFullContact: boolean = false, //* true if text is invalid
 		emptyText: boolean = true; //* true if name is empty
-	console.log(hallName);
 
 	const addHall = async () => {
 		await axios.post(`http://localhost:5174/api/halls`, {

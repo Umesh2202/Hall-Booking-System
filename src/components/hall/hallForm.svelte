@@ -42,7 +42,6 @@
 
 			crrBookingInfo.set(tempBookingInfo);
 			bookings.set(temp);
-			console.log($bookings);
 		}
 	};
 

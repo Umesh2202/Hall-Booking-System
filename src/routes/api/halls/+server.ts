@@ -25,7 +25,6 @@ export const POST: RequestHandler = async ({ request }) => {
 		contact: body['contact'],
 		bookings: []
 	});
-	console.log('Added doc with id:', docRef.id);
 
 	return new Response(JSON.stringify({ message: 'Success' }), { status: 200 });
 };
@@ -39,7 +38,6 @@ export const DELETE: RequestHandler = async ({ request }) => {
 };
 
 export const PATCH: RequestHandler = async ({ request }) => {
-	// console.log('nice');
 	const body = await request.json();
 	const docRef = doc(colRef, body['id']);
 
