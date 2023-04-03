@@ -6,18 +6,18 @@
 
 	let loading: Boolean = true;
 
-	setTimeout(() => {
-		loading = false;
-	}, 3000);
+	// setTimeout(() => {
+	// 	loading = false;
+	// }, 1000);
 </script>
 
 <Navbar />
 <div class="bg">
-	{#if loading}
-		<Loading />
-	{:else}
-		<slot />
-	{/if}
+	<!-- {#if loading} -->
+	<!-- <Loading /> -->
+	<!-- {:else} -->
+	<slot />
+	<!-- {/if} -->
 </div>
 <Footer />
 

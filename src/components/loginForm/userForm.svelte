@@ -26,6 +26,12 @@
 			login_flag = true;
 		} catch (err) {
 			message = `${err}`;
+			const error_text = message.slice(32, 36);
+			if (error_text === 'auth') {
+				message = 'Invalid email or password';
+			} else {
+				message = 'Password should be at least 6 characters long';
+			}
 			popup.set('true');
 		}
 
@@ -37,7 +43,7 @@
 				validUser.set(true);
 				// goto('/');
 			}
-		}, 2000);
+		}, 4000);
 	};
 </script>
 
