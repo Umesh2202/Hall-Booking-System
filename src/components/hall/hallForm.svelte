@@ -9,7 +9,7 @@
 	export let id: number;
 
 	const temp: any = $bookings;
-
+	let disable_button: boolean = false;
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
 	let eventName: string,
@@ -174,16 +174,18 @@
 					: ''
 			}`}
 			on:click={() => {
+				disable_button = true;
 				book();
 				setTimeout(() => {
 					window.location.reload();
 				}, 1000);
-			}}>Submit</button
+			}}
+			disabled={disable_button}>Submit</button
 		>
 		<button
 			class="close"
 			on:click={() => {
-				hideForm.set(!$hideForm);
+				hideForm.set(true);
 			}}
 		>
 			<img src={cancel} alt="" />

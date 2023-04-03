@@ -40,7 +40,7 @@
 		</a>
 		{#if $formText === 'Admin Login'}
 			<button
-				class={`delete dustbin ${$hallDelete === true ? 'disable' : ''}`}
+				class={`delete dustbin ${$hallDelete || $hallEdit === true ? 'disable' : ''}`}
 				on:click={() => {
 					deleteFlag = true;
 					hallDelete.set(true);
@@ -58,6 +58,7 @@
 					hallEdit.set(true);
 					hideForm.set(false);
 				}}
+				disabled={$hallEdit}
 			>
 				<img src={pen} alt="" class="icon" />
 			</button>

@@ -9,12 +9,14 @@
 
 	let message: string = '';
 	let login_flag: boolean = false;
+	let disable_button: boolean = false;
+
 	const addUser = async () => {
 		try {
 			message = 'Please wait';
 			popup.set('true');
 			const user = await formAction($formText, $email, $password);
-			if ($formText !== 'Admin Login') {
+			if ($formText !== 'Admin Login' && user !== undefined) {
 				userId.set(user['user']['uid']);
 				axios.post('http://localhost:5174/api/users', {
 					email: $email,
@@ -55,8 +57,18 @@
 			<FormInput field="Email" />
 			<FormInput field="Password" />
 		</div>
-		<button on:click={addUser} class="next">Next</button>
-		<NoAccount />
+		<button
+			on:click={() => {
+				disable_button = true;
+				addUser();
+				setTimeout(() => {
+					disable_button = false;
+				}, 2000);
+			}}
+			class="next"
+			disabled={disable_button}>Next</button
+		>
+		<NoAccount {disable_button} />
 	</div>
 </div>
 

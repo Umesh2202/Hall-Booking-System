@@ -43,7 +43,7 @@
 	}
 
 	.progress {
-		animation: progress 3s 1s 1 forwards;
+		animation: progress 2s 1s 1 forwards;
 	}
 
 	.complete {

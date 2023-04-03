@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { formText } from '../../stores/store';
+
+	export let disable_button: boolean;
 </script>
 
 <div class={`noaccount ${$formText === 'SignUp' ? 'hidden' : ''}`}>
@@ -10,7 +12,8 @@
 			on:click={() => {
 				formText.set('SignUp');
 				window.location.reload();
-			}}>SignUp</button
+			}}
+			disabled={disable_button}>SignUp</button
 		>
 	{:else}
 		<div>Already have an account?</div>
