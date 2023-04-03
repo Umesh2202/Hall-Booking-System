@@ -1,13 +1,6 @@
 <script lang="ts">
 	export let message: string;
 	import { popup } from '../../stores/store';
-
-	const error_text = message.slice(32, 36);
-	console.log(error_text);
-	if (error_text === 'auth') {
-		console.log('sdff');
-		message = 'Invalid email or password';
-	}
 </script>
 
 {#if $popup !== ''}

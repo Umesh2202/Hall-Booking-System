@@ -72,6 +72,7 @@
 		gap: 0.3em;
 		position: relative;
 		font-weight: 500;
+		padding-top: 1rem;
 	}
 
 	.delete {

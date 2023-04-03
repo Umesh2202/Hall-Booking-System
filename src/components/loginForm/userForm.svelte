@@ -29,7 +29,7 @@
 		} catch (err) {
 			message = `${err}`;
 			const error_text = message.slice(32, 36);
-			if (error_text === 'auth') {
+			if (error_text === 'auth' || message !== 'Invalid email or password') {
 				message = 'Invalid email or password';
 			} else {
 				message = 'Password should be at least 6 characters long';

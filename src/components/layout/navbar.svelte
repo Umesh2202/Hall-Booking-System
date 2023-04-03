@@ -9,7 +9,6 @@
 	validUser.set(JSON.parse($validUser));
 
 	let hideLoginConf = true; //* true if login confirmation box is hidden
-	console.log(hideLoginConf);
 	const logOut = () => {
 		signOut(auth);
 		validUser.set(false);

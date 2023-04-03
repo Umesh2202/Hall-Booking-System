@@ -1,7 +1,6 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { hideForm, bookings, userId, crrBookingInfo } from '../../stores/store';
-	import type Date from '../calendar/date.svelte';
 	import { convertSecToDate } from '../calendar/functions/bookingInfo';
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
@@ -46,11 +45,15 @@
 	};
 
 	const checkValidDate = () => {
-		if (startDate === undefined || endDate === undefined) {
+		let crrSec = new Date().getTime();
+		let stSec = new Date(startDate).getTime();
+		let edSec = new Date(endDate).getTime();
+
+		if (stSec === undefined || edSec === undefined) {
 			emptyDate = true;
 		} else {
 			emptyDate = false;
-			if (startDate > endDate) {
+			if (stSec > edSec || stSec < crrSec || edSec < crrSec) {
 				invalidDate = true;
 			} else {
 				invalidDate = false;
@@ -169,7 +172,12 @@
 
 		<button
 			class={`submit ${
-				invalidDate || invalidEventName || emptyName || emptyDate || bookedDate === true
+				invalidDate ||
+				invalidEventName ||
+				emptyName ||
+				emptyDate ||
+				bookedDate ||
+				disable_button === true
 					? 'disable'
 					: ''
 			}`}
@@ -180,7 +188,8 @@
 					window.location.reload();
 				}, 1000);
 			}}
-			disabled={disable_button}>Submit</button
+			disabled={invalidDate || invalidEventName || emptyName || emptyDate || bookedDate}
+			>Submit</button
 		>
 		<button
 			class="close"
