@@ -11,6 +11,28 @@
 	let disable_button: boolean = false;
 	// When submit is clicked, the form  disappears and the calendar  is updated
 
+	const date = new Date();
+	let day = date.getDate() + 1;
+	let month = date.getMonth() + 1;
+	let year = date.getFullYear();
+
+	let dd = day.toString(),
+		mm = month.toString(),
+		yyyy = year.toString();
+
+	if (day < 10) {
+		dd = '0' + dd;
+	}
+
+	if (month < 10) {
+		mm = '0' + mm;
+	}
+
+	const today = yyyy + '-' + mm + '-' + dd;
+	const lastDay = new Date(year, month, 0).getDate().toString();
+	const lastDate = yyyy + '-' + mm + '-' + lastDay;
+
+	console.log(today, lastDate);
 	let eventName: string,
 		startDate: Date,
 		endDate: Date,
@@ -150,6 +172,8 @@
 			<input
 				type="date"
 				class="date"
+				min={today}
+				max={lastDate}
 				bind:value={startDate}
 				on:change={() => {
 					checkValidDate();
@@ -159,6 +183,8 @@
 			<input
 				type="date"
 				class="date"
+				min={today}
+				max={lastDate}
 				bind:value={endDate}
 				on:change={() => {
 					checkValidDate();
@@ -191,6 +217,7 @@
 			disabled={invalidDate || invalidEventName || emptyName || emptyDate || bookedDate}
 			>Submit</button
 		>
+
 		<button
 			class="close"
 			on:click={() => {
