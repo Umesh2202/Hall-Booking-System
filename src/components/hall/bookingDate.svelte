@@ -5,7 +5,10 @@
 
 	let deleteFlag = false;
 	const deleteBooking = async () => {
-		window.location.reload();
+		setTimeout(() => {
+			window.location.reload();
+		}, 1000);
+
 		await axios.post(`http://localhost:5174/api/hallsBook`, {
 			eventName: eventName,
 			startDate: startDate,
@@ -49,8 +52,11 @@
 			<button
 				class="delete accept"
 				on:click={() => {
-					deleteFlag = false;
 					deleteBooking();
+					setTimeout(() => {
+						deleteFlag = false;
+					}, 1000);
+
 					deleteDateId.set('');
 				}}>Yes</button
 			>

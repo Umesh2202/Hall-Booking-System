@@ -59,7 +59,7 @@
 				addUser();
 				setTimeout(() => {
 					disable_button = false;
-				}, 2000);
+				}, 4000);
 			}}
 			class="next"
 			disabled={disable_button}>Next</button

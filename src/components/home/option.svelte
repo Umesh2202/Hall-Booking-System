@@ -5,8 +5,12 @@
 <div class="container">
 	<div class={`options `}>
 		<a href={`${$validUser === true ? '/halls' : '/userForm'}`}>
-			<button on:click={() => formText.set('SignUp')}
-				>{`${$validUser === true ? 'Book a hall' : 'SignUp'}`}</button
+			<button
+				on:click={() => {
+					if ($formText === 'SignUp' || $formText === '') {
+						formText.set('SignUp');
+					}
+				}}>{`${$validUser === true ? 'Book a hall' : 'SignUp'}`}</button
 			>
 		</a>
 	</div>
