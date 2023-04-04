@@ -58,7 +58,7 @@
 					hallEdit.set(true);
 					hideForm.set(false);
 				}}
-				disabled={$hallEdit}
+				disabled={$hallEdit || $hallDelete}
 			>
 				<img src={pen} alt="" class="icon" />
 			</button>

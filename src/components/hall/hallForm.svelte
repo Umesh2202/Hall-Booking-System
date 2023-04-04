@@ -32,7 +32,6 @@
 	const lastDay = new Date(year, month, 0).getDate().toString();
 	const lastDate = yyyy + '-' + mm + '-' + lastDay;
 
-	console.log(today, lastDate);
 	let eventName: string,
 		startDate: Date,
 		endDate: Date,

@@ -20,6 +20,7 @@
 </script>
 
 <div class="outer">
+	<!-- <button class="back">"d"</button> -->
 	<div class="title">Details</div>
 	<div class="inner">
 		<div class="name">{data['name']}</div>
@@ -126,6 +127,7 @@
 
 	.cap-head {
 		font-size: 3rem;
+		text-align: center;
 	}
 
 	.capacity {
