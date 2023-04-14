@@ -68,6 +68,7 @@
 								class="decide yes"
 								on:click={() => {
 									hideLoginConf = true;
+									formText.set('');
 									logOut();
 								}}>Yes</button
 							>

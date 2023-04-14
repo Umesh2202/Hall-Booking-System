@@ -26,7 +26,7 @@
 			email.set('');
 			password.set('');
 			login_flag = true;
-		} catch (err) {
+		} catch (err: any) {
 			message = `${err.code}`;
 			const error_text = message.slice(5, message.length);
 			message = error_text.toUpperCase();
@@ -59,9 +59,9 @@
 				addUser();
 				setTimeout(() => {
 					disable_button = false;
-				}, 4000);
+				}, 5000);
 			}}
-			class="next"
+			class={`next ${disable_button === true ? 'disable' : ''}`}
 			disabled={disable_button}>Next</button
 		>
 		<NoAccount {disable_button} />
@@ -108,5 +108,9 @@
 
 	.next:hover {
 		outline: 3px solid #000000;
+	}
+
+	.disable {
+		background-color: var(--grey);
 	}
 </style>
