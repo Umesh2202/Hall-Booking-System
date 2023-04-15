@@ -1,3 +1,5 @@
+import type { infoType } from '../../../types/infoType';
+
 export const extractBookingInfo = (data: {
 	bookings: {
 		endDate: { seconds: number };
@@ -21,27 +23,18 @@ export const extractBookingInfo = (data: {
 	return info;
 };
 
-export const convertSecToDate = (
-	data: [
-		{
-			startDate: { seconds: number };
-			endDate: { seconds: number };
-			eventName: string;
-			userId: string;
-		}
-	]
-) => {
+export const convertSecToDate = (data: infoType[]) => {
 	const info: object[] = [];
 	info.pop();
 	for (let i = 0; i < data.length; i++) {
 		const stSec = data[i].startDate.seconds;
 		let date = new Date(1970, 0, 1);
-		date.setSeconds(stSec);
+		date.setSeconds(JSON.parse(stSec));
 		const startDate = date.toLocaleDateString();
 
 		const edSec = data[i].endDate.seconds;
 		date = new Date(1970, 0, 1);
-		date.setSeconds(edSec);
+		date.setSeconds(JSON.parse(edSec));
 		const endDate = date.toLocaleDateString();
 
 		info.push({

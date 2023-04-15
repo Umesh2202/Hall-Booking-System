@@ -1,7 +1,17 @@
 import { datesList } from '../../../stores/store';
 
+interface dateType {
+	[Mon: string]: number;
+	Tue: number;
+	Wed: number;
+	Thu: number;
+	Fri: number;
+	Sat: number;
+	Sun: number;
+}
+
 export const load = () => {
-	const days_obj: object = {
+	const days_obj: dateType = {
 		Mon: 0,
 		Tue: 1,
 		Wed: 2,

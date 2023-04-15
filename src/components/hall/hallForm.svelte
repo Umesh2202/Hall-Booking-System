@@ -5,6 +5,13 @@
 	import Warning from './warning.svelte';
 	import cancel from '../../assets/cancel.svg';
 
+	interface infoType {
+		startDate: string;
+		endDate: string;
+		eventName: string;
+		userId: string;
+	}
+
 	export let id: number;
 
 	const temp: any = $bookings;
@@ -115,7 +122,7 @@
 	};
 
 	const checkBookedDate = () => {
-		let tempBookingInfo: object[] = $bookings;
+		let tempBookingInfo: infoType[] = $bookings;
 		tempBookingInfo = convertSecToDate(tempBookingInfo);
 
 		const inputDates = {
