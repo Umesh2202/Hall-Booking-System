@@ -9,10 +9,11 @@ export const load = async () => {
 	if (cached) {
 		data = JSON.parse(cached);
 	} else {
-		const res = await axios.get('http://localhost:5174/api/halls');
+		const res = await axios.get('/api/halls');
 		data = res.data;
 		redis.set('data', JSON.stringify(data), 'EX', 600);
 	}
+	console.log('hi');
 
 	return {
 		halls: data

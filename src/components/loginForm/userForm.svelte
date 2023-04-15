@@ -18,7 +18,7 @@
 			const user = await formAction($formText, $email, $password);
 			if ($formText !== 'Admin Login' && user !== undefined) {
 				userId.set(user['user']['uid']);
-				axios.post('http://localhost:5174/api/users', {
+				axios.post('/api/users', {
 					email: $email,
 					password: $password
 				});

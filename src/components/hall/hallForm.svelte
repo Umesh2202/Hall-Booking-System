@@ -51,7 +51,7 @@
 	const book = async () => {
 		let tempBookingInfo: any = $crrBookingInfo;
 		if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
-			await axios.post(`http://localhost:5174/api/hallsBook`, {
+			await axios.post(`/api/hallsBook`, {
 				eventName: eventName,
 				startDate: startDate,
 				endDate: endDate,

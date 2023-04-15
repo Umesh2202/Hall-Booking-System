@@ -10,7 +10,7 @@ export const load = (async ({ params }) => {
 	if (cached) {
 		data = JSON.parse(cached);
 	} else {
-		const res = await axios.get('http://localhost:5174/api/halls');
+		const res = await axios.get('/api/halls');
 		data = res.data;
 	}
 

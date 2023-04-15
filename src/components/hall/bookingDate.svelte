@@ -9,7 +9,7 @@
 			window.location.reload();
 		}, 1000);
 
-		await axios.post(`http://localhost:5174/api/hallsBook`, {
+		await axios.post(`/api/hallsBook`, {
 			eventName: eventName,
 			startDate: startDate,
 			endDate: endDate,
