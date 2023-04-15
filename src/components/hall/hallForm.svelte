@@ -115,7 +115,7 @@
 	};
 
 	const checkBookedDate = () => {
-		let tempBookingInfo = $bookings;
+		let tempBookingInfo: object[] = $bookings;
 		tempBookingInfo = convertSecToDate(tempBookingInfo);
 
 		const inputDates = {
