@@ -2,8 +2,6 @@ import axios from 'axios';
 import type { PageServerLoad } from './$types';
 import { redis } from '$lib/server/redis';
 
-export const prerender = true;
-
 export const load = (async ({ params }) => {
 	let data;
 
