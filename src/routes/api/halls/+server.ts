@@ -16,7 +16,7 @@ export const GET: RequestHandler = async () => {
 
 export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
-	const docRef = await addDoc(colRef, {
+	await addDoc(colRef, {
 		name: body['name'],
 		incharge: body['incharge'],
 		desc: body['desc'],
