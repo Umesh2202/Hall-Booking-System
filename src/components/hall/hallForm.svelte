@@ -51,7 +51,7 @@
 	const book = async () => {
 		let tempBookingInfo: any = $crrBookingInfo;
 		if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
-			await axios.post(`/api/hallsBook`, {
+			await axios.post(`https://hall-booking-system.vercel.app/api/hallsBook`, {
 				eventName: eventName,
 				startDate: startDate,
 				endDate: endDate,

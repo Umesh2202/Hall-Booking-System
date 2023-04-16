@@ -22,7 +22,7 @@
 		emptyText: boolean = true; //* true if name is empty
 
 	const addHall = async () => {
-		await axios.post(`/api/halls`, {
+		await axios.post(`https://hall-booking-system.vercel.app/api/halls`, {
 			name: hallName,
 			incharge: inchargeName,
 			desc: desc,
@@ -34,7 +34,7 @@
 	};
 
 	const editHall = async () => {
-		await axios.patch(`/api/halls`, {
+		await axios.patch(`https://hall-booking-system.vercel.app/api/halls`, {
 			name: hallName,
 			incharge: inchargeName,
 			desc: desc,

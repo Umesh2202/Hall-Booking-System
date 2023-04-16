@@ -18,7 +18,7 @@
 			const user = await formAction($formText, $email, $password);
 			if ($formText !== 'Admin Login' && user !== undefined) {
 				userId.set(user['user']['uid']);
-				axios.post('/api/users', {
+				axios.post('https://hall-booking-system.vercel.app/api/users', {
 					email: $email,
 					password: $password
 				});

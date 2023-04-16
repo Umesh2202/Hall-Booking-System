@@ -9,7 +9,7 @@
 			window.location.reload();
 		}, 1000);
 
-		await axios.post(`/api/hallsBook`, {
+		await axios.post(`https://hall-booking-system.vercel.app/api/hallsBook`, {
 			eventName: eventName,
 			startDate: startDate,
 			endDate: endDate,

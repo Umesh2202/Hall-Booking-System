@@ -10,7 +10,7 @@ export const load = (async ({ params }) => {
 	if (cached) {
 		data = JSON.parse(cached);
 	} else {
-		const res = await axios.get('/api/halls');
+		const res = await axios.get('https://hall-booking-system.vercel.app/api/halls');
 		data = res.data;
 	}
 
