@@ -13,7 +13,6 @@ export const load = async () => {
 		data = res.data;
 		redis.set('data', JSON.stringify(data), 'EX', 600);
 	}
-	console.log('hi');
 
 	return {
 		halls: data
