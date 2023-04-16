@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, d as null_to_empty, v as validate_component, b as subscribe, f as add_attribute, h as each } from "../../../chunks/index3.js";
+import { c as create_ssr_component, e as escape, n as null_to_empty, v as validate_component, a as subscribe, b as add_attribute, d as each } from "../../../chunks/index3.js";
 import { i as info, h as hideForm, a as hallEdit, f as formText, b as hallDelete, v as validUser } from "../../../chunks/store.js";
 import { W as Warning, c as cancel } from "../../../chunks/cancel.js";
 import { U as UserForm } from "../../../chunks/userForm.js";
@@ -15,8 +15,8 @@ const HallCardField = create_ssr_component(($$result, $$props, $$bindings, slots
   if ($$props.value === void 0 && $$bindings.value && value !== void 0)
     $$bindings.value(value);
   $$result.css.add(css$5);
-  return `<div class="${"outer svelte-18helj"}">${escape(field)}
-	<div class="${"value svelte-18helj"}">${escape(value)}</div>
+  return `<div class="outer svelte-18helj">${escape(field)}
+	<div class="value svelte-18helj">${escape(value)}</div>
 </div>`;
 });
 const hallSubCard_svelte_svelte_type_style_lang = "";
@@ -40,13 +40,13 @@ const HallSubCard = create_ssr_component(($$result, $$props, $$bindings, slots) 
   return `<div class="${escape(
     null_to_empty(`outer ${deleteFlag === true ? "ondelete" : deleteFlag === false ? "nodelete" : ""}`),
     true
-  ) + " svelte-109nkno"}"><div class="${"name svelte-109nkno"}">${escape(name)}</div>
+  ) + " svelte-109nkno"}"><div class="name svelte-109nkno">${escape(name)}</div>
 	${validate_component(HallCardField, "HallCardField").$$render($$result, { field: "Capacity", value: `${capacity}` }, {}, {})}
 	${validate_component(HallCardField, "HallCardField").$$render($$result, { field: "Incharge", value: `${incharge}` }, {}, {})}
 </div>`;
 });
-const dustbin = "/_app/immutable/assets/dustbin-3f924203.svg";
-const pen = "/_app/immutable/assets/pen-e5834bd4.svg";
+const dustbin = "/_app/immutable/assets/dustbin.3f924203.svg";
+const pen = "/_app/immutable/assets/pen.e5834bd4.svg";
 const addHallForm_svelte_svelte_type_style_lang = "";
 const css$3 = {
   code: ".outer.svelte-1x28y75{background-color:var(--white);width:50%;border-radius:0.3em;padding:1em;position:relative;border:2px solid var(--grey);z-index:10}.title.svelte-1x28y75{font-size:3rem;font-weight:500;text-align:center;margin-bottom:1em;position:relative}.title.svelte-1x28y75::after{content:'';position:absolute;width:100%;bottom:-10%;left:0;border:1px solid var(--grey)}.field.svelte-1x28y75{color:#000000;font-size:1.5rem;font-weight:400}.grid.svelte-1x28y75{display:grid;grid-template-columns:repeat(2, 1fr);gap:0 1em}.name.svelte-1x28y75{width:100%}input.svelte-1x28y75{font-size:1.7rem;background-color:var(--white);border-bottom:1px solid var(--grey);margin-top:0.5em}input.svelte-1x28y75:focus{outline:3px solid var(--white)}.submit.svelte-1x28y75{width:100%;border-radius:0.3em;font-size:1.5rem;background-color:var(--blue);color:var(--white);padding:0.3em;font-weight:500}.disable.svelte-1x28y75{background-color:var(--grey);cursor:auto}.close.svelte-1x28y75{position:absolute;top:0%;right:0%;width:60px}.hide.svelte-1x28y75{display:none;position:absolute}.warning.svelte-1x28y75{font-size:2rem;color:#ff0000;text-align:center;display:block;visibility:hidden}.invalidEventName.svelte-1x28y75{visibility:visible}.invalidDate.svelte-1x28y75{visibility:visible}.cover.svelte-1x28y75{font-size:var(--font3);position:fixed;width:100%;height:100%;top:0;left:0;background-color:#47474770;display:grid;justify-items:center;align-items:center;z-index:2}.closeflex.svelte-1x28y75{display:flex;flex-direction:column}",
@@ -64,12 +64,12 @@ const AddHallForm = create_ssr_component(($$result, $$props, $$bindings, slots) 
   $$unsubscribe_info();
   $$unsubscribe_hideForm();
   $$unsubscribe_hallEdit();
-  return `<div class="${escape(null_to_empty(`${$hideForm === false ? "cover" : ""}`), true) + " svelte-1x28y75"}"><div class="${escape(null_to_empty(`outer ${$hideForm === false ? "" : "hide"}`), true) + " svelte-1x28y75"}"><div class="${"title svelte-1x28y75"}">${escape($info["title"])}</div>
-		<div class="${"grid svelte-1x28y75"}"><div class="${"field svelte-1x28y75"}">Hall Name</div>
-			<div class="${"field svelte-1x28y75"}">Incharge Name</div>
-			<input type="${"text"}" class="${"name svelte-1x28y75"}" placeholder="${"Enter hall name"}"${add_attribute("value", hallName, 0)}>
+  return `<div class="${escape(null_to_empty(`${$hideForm === false ? "cover" : ""}`), true) + " svelte-1x28y75"}"><div class="${escape(null_to_empty(`outer ${$hideForm === false ? "" : "hide"}`), true) + " svelte-1x28y75"}"><div class="title svelte-1x28y75">${escape($info["title"])}</div>
+		<div class="grid svelte-1x28y75"><div class="field svelte-1x28y75">Hall Name</div>
+			<div class="field svelte-1x28y75">Incharge Name</div>
+			<input type="text" class="name svelte-1x28y75" placeholder="Enter hall name"${add_attribute("value", hallName, 0)}>
 
-			<input type="${"text"}" class="${"name svelte-1x28y75"}" placeholder="${"Enter incharge name"}"${add_attribute("value", inchargeName, 0)}>
+			<input type="text" class="name svelte-1x28y75" placeholder="Enter incharge name"${add_attribute("value", inchargeName, 0)}>
 
 			${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -90,8 +90,8 @@ const AddHallForm = create_ssr_component(($$result, $$props, $$bindings, slots) 
     {}
   )}</div>
 
-		<div class="${"closeflex svelte-1x28y75"}"><div class="${"field svelte-1x28y75"}">Description</div>
-			<input type="${"text"}" class="${"name svelte-1x28y75"}" placeholder="${"Enter hall description"}"${add_attribute("value", desc, 0)}></div>
+		<div class="closeflex svelte-1x28y75"><div class="field svelte-1x28y75">Description</div>
+			<input type="text" class="name svelte-1x28y75" placeholder="Enter hall description"${add_attribute("value", desc, 0)}></div>
 
 		${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -103,8 +103,8 @@ const AddHallForm = create_ssr_component(($$result, $$props, $$bindings, slots) 
     {}
   )}
 
-		<div class="${"closeflex svelte-1x28y75"}"><div class="${"field svelte-1x28y75"}">Location</div>
-			<input type="${"text"}" class="${"name svelte-1x28y75"}" placeholder="${"Enter hall location"}"${add_attribute("value", location, 0)}></div>
+		<div class="closeflex svelte-1x28y75"><div class="field svelte-1x28y75">Location</div>
+			<input type="text" class="name svelte-1x28y75" placeholder="Enter hall location"${add_attribute("value", location, 0)}></div>
 
 		${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -116,12 +116,12 @@ const AddHallForm = create_ssr_component(($$result, $$props, $$bindings, slots) 
     {}
   )}
 
-		<div class="${"grid svelte-1x28y75"}"><div class="${"field svelte-1x28y75"}">Capacity</div>
-			<div class="${"field svelte-1x28y75"}">Contact</div>
+		<div class="grid svelte-1x28y75"><div class="field svelte-1x28y75">Capacity</div>
+			<div class="field svelte-1x28y75">Contact</div>
 
-			<input type="${"number"}" class="${"date svelte-1x28y75"}" placeholder="${"Enter hall capacity"}"${add_attribute("value", capacity, 0)}>
+			<input type="number" class="date svelte-1x28y75" placeholder="Enter hall capacity"${add_attribute("value", capacity, 0)}>
 
-			<input type="${"text"}" class="${"date svelte-1x28y75"}" placeholder="${"Enter incharge contact"}"${add_attribute("value", contact, 0)}>
+			<input type="text" class="date svelte-1x28y75" placeholder="Enter incharge contact"${add_attribute("value", contact, 0)}>
 
 			${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -146,7 +146,7 @@ const AddHallForm = create_ssr_component(($$result, $$props, $$bindings, slots) 
     null_to_empty(`submit ${"disable"}`),
     true
   ) + " svelte-1x28y75"}" ${"disabled"}>Submit</button>
-		<button class="${"close svelte-1x28y75"}"><img${add_attribute("src", cancel, 0)} alt="${""}"></button></div>
+		<button class="close svelte-1x28y75"><img${add_attribute("src", cancel, 0)} alt=""></button></div>
 </div>`;
 });
 const hallCard_svelte_svelte_type_style_lang = "";
@@ -174,9 +174,9 @@ const HallCard = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   $$unsubscribe_hallDelete();
   $$unsubscribe_hallEdit();
   return `<div class="${escape(null_to_empty(`card-outer `), true) + " svelte-1ps36dx"}">${`<a${add_attribute("href", `/halls/${id}`, 0)}>${validate_component(HallSubCard, "HallSubCard").$$render($$result, { name, capacity, incharge, deleteFlag }, {}, {})}</a>
-		${$formText === "Admin Login" ? `<button class="${escape(null_to_empty(`delete dustbin ${$hallDelete || $hallEdit === true ? "disable" : ""}`), true) + " svelte-1ps36dx"}" ${$hallDelete ? "disabled" : ""}><img${add_attribute("src", dustbin, 0)} alt="${""}" class="${"icon svelte-1ps36dx"}"></button>
+		${$formText === "Admin Login" ? `<button class="${escape(null_to_empty(`delete dustbin ${$hallDelete || $hallEdit === true ? "disable" : ""}`), true) + " svelte-1ps36dx"}" ${$hallDelete ? "disabled" : ""}><img${add_attribute("src", dustbin, 0)} alt="" class="icon svelte-1ps36dx"></button>
 
-			<button class="${escape(null_to_empty(`delete pen ${$hallEdit || $hallDelete === true ? "disable" : ""}`), true) + " svelte-1ps36dx"}" ${$hallEdit || $hallDelete ? "disabled" : ""}><img${add_attribute("src", pen, 0)} alt="${""}" class="${"icon svelte-1ps36dx"}"></button>` : ``}`}
+			<button class="${escape(null_to_empty(`delete pen ${$hallEdit || $hallDelete === true ? "disable" : ""}`), true) + " svelte-1ps36dx"}" ${$hallEdit || $hallDelete ? "disabled" : ""}><img${add_attribute("src", pen, 0)} alt="" class="icon svelte-1ps36dx"></button>` : ``}`}
 </div>`;
 });
 const addHallCard_svelte_svelte_type_style_lang = "";
@@ -186,7 +186,7 @@ const css$1 = {
 };
 const AddHallCard = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return `<div class="${"outer svelte-xigcs"}"><button class="${"addBtn svelte-xigcs"}"><img class="${"plus svelte-xigcs"}"${add_attribute("src", add, 0)} alt="${""}"></button>
+  return `<div class="outer svelte-xigcs"><button class="addBtn svelte-xigcs"><img class="plus svelte-xigcs"${add_attribute("src", add, 0)} alt=""></button>
 </div>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
@@ -209,10 +209,10 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_validUser();
   $$unsubscribe_formText();
   $$unsubscribe_info();
-  return `${$validUser === true ? `<div class="${"outer"}"><div class="${"heading svelte-1ewl7nd"}">Available Halls</div>
-		<div class="${"sub-heading svelte-1ewl7nd"}">Click to get more details</div>
+  return `${$validUser === true ? `<div class="outer"><div class="heading svelte-1ewl7nd">Available Halls</div>
+		<div class="sub-heading svelte-1ewl7nd">Click to get more details</div>
 
-		<div class="${"halls svelte-1ewl7nd"}">${each(halls, (hall) => {
+		<div class="halls svelte-1ewl7nd">${each(halls, (hall) => {
     return `${hall["name"] !== void 0 ? `${validate_component(HallCard, "HallCard").$$render($$result, { info1: hall }, {}, {})}` : ``}`;
   })}
 

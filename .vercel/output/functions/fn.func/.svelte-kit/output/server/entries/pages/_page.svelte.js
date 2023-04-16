@@ -7,7 +7,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="${"svelte-zwg08z"}">${validate_component(Page$1, "Home").$$render($$result, {}, {}, {})}
+  return `<div class="svelte-zwg08z">${validate_component(Page$1, "Home").$$render($$result, {}, {}, {})}
 </div>`;
 });
 export {

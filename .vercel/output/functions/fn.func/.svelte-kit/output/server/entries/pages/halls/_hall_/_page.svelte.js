@@ -1,5 +1,5 @@
-import { c as create_ssr_component, e as escape, v as validate_component, b as subscribe, d as null_to_empty, h as each, f as add_attribute } from "../../../../chunks/index3.js";
-import { d as bookings, g as datesList, u as userId, j as crrBookingInfo, h as hideForm, k as deleteDateId } from "../../../../chunks/store.js";
+import { c as create_ssr_component, e as escape, v as validate_component, a as subscribe, n as null_to_empty, d as each, b as add_attribute } from "../../../../chunks/index3.js";
+import { c as bookings, d as datesList, u as userId, e as crrBookingInfo, h as hideForm, g as deleteDateId } from "../../../../chunks/store.js";
 import { c as convertSecToDate } from "../../../../chunks/bookingInfo.js";
 import { W as Warning, c as cancel } from "../../../../chunks/cancel.js";
 const topBarDay_svelte_svelte_type_style_lang = "";
@@ -12,7 +12,7 @@ const Top_bar_day = create_ssr_component(($$result, $$props, $$bindings, slots) 
   if ($$props.day === void 0 && $$bindings.day && day !== void 0)
     $$bindings.day(day);
   $$result.css.add(css$9);
-  return `<span class="${"top-bar__days svelte-1yyidnn"}">${escape(day)}</span>`;
+  return `<span class="top-bar__days svelte-1yyidnn">${escape(day)}</span>`;
 });
 const topBar_svelte_svelte_type_style_lang = "";
 const css$8 = {
@@ -21,7 +21,7 @@ const css$8 = {
 };
 const Top_bar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$8);
-  return `<section class="${"calendar__top-bar svelte-tm8ttv"}">${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Mon" }, {}, {})}
+  return `<section class="calendar__top-bar svelte-tm8ttv">${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Mon" }, {}, {})}
 	${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Tue" }, {}, {})}
 	${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Wed" }, {}, {})}
 	${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Thur" }, {}, {})}
@@ -30,7 +30,7 @@ const Top_bar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	${validate_component(Top_bar_day, "TopBarDay").$$render($$result, { day: "Sun" }, {}, {})}
 </section>`;
 });
-const date = new Date();
+const date = /* @__PURE__ */ new Date();
 const month = date.getMonth();
 const months = [
   "January",
@@ -88,7 +88,7 @@ const Date$1 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<div class="${escape(
     null_to_empty(`calendar__day ${inactive === true ? "inactive" : ""} ${crr_date === date2 && inactive === false ? "current" : ""} ${bookedFlag === true && inactive === false ? "booked" : ""}`),
     true
-  ) + " svelte-6c3nuf"}"><span class="${"calendar__date svelte-6c3nuf"}">${escape(date2)}</span>
+  ) + " svelte-6c3nuf"}"><span class="calendar__date svelte-6c3nuf">${escape(date2)}</span>
 </div>`;
 });
 const week_svelte_svelte_type_style_lang = "";
@@ -101,7 +101,7 @@ const Week = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   if ($$props.dates === void 0 && $$bindings.dates && dates !== void 0)
     $$bindings.dates(dates);
   $$result.css.add(css$6);
-  return `<section class="${"calendar__week svelte-1s3fbcp"}">${each(dates, (date2) => {
+  return `<section class="calendar__week svelte-1s3fbcp">${each(dates, (date2) => {
     return `${validate_component(Date$1, "Date").$$render($$result, { date: date2.date, inactive: date2.inactive }, {}, {})}`;
   })}
 </section>`;
@@ -119,8 +119,8 @@ const ColorCode = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   if ($$props.color === void 0 && $$bindings.color && color !== void 0)
     $$bindings.color(color);
   $$result.css.add(css$5);
-  return `<div class="${"current_date svelte-mgub68"}"><span class="${"color svelte-mgub68"}"${add_attribute("style", `background-color:${color}`, 0)}></span>
-	<span class="${"text svelte-mgub68"}">${escape(field)}</span>
+  return `<div class="current_date svelte-mgub68"><span class="color svelte-mgub68"${add_attribute("style", `background-color:${color}`, 0)}></span>
+	<span class="text svelte-mgub68">${escape(field)}</span>
 </div>`;
 });
 const colorCodes_svelte_svelte_type_style_lang = "";
@@ -130,7 +130,7 @@ const css$4 = {
 };
 const ColorCodes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$4);
-  return `<div class="${"color_codes svelte-ydzqir"}">${validate_component(ColorCode, "ColorCode").$$render($$result, { field: "Current Date", color: "#0075fc" }, {}, {})}
+  return `<div class="color_codes svelte-ydzqir">${validate_component(ColorCode, "ColorCode").$$render($$result, { field: "Current Date", color: "#0075fc" }, {}, {})}
 	${validate_component(ColorCode, "ColorCode").$$render($$result, { field: "Booked Dates", color: "#ff002b" }, {}, {})}
 	${validate_component(ColorCode, "ColorCode").$$render(
     $$result,
@@ -153,7 +153,7 @@ const load = () => {
     Sat: 5,
     Sun: 6
   };
-  const date2 = new Date();
+  const date2 = /* @__PURE__ */ new Date();
   const last_day = new Date(date2.getFullYear(), date2.getMonth(), 0);
   const last_day_string = last_day.toDateString();
   const last_day_day = last_day_string.slice(0, 3);
@@ -200,13 +200,13 @@ const Calendar = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   load();
   $$result.css.add(css$3);
   $$unsubscribe_datesList();
-  return `<main class="${"calendar-contain svelte-1a8sdl0"}"><section class="${"title-bar svelte-1a8sdl0"}"><span class="${"title-bar__year svelte-1a8sdl0"}">${escape(crr_month)} ${escape(crr_year)}</span>
-		<div class="${"title-bar__controls svelte-1a8sdl0"}"></div></section>
+  return `<main class="calendar-contain svelte-1a8sdl0"><section class="title-bar svelte-1a8sdl0"><span class="title-bar__year svelte-1a8sdl0">${escape(crr_month)} ${escape(crr_year)}</span>
+		<div class="title-bar__controls svelte-1a8sdl0"></div></section>
 
-	<aside class="${"calendar__sidebar svelte-1a8sdl0"}"><div class="${"sidebar__heading svelte-1a8sdl0"}">${escape(crr_day)}<br>${escape(crr_month)} ${escape(crr_date)}</div>
+	<aside class="calendar__sidebar svelte-1a8sdl0"><div class="sidebar__heading svelte-1a8sdl0">${escape(crr_day)}<br>${escape(crr_month)} ${escape(crr_date)}</div>
 		${validate_component(ColorCodes, "ColorCodes").$$render($$result, {}, {}, {})}</aside>
 
-	<section class="${"calendar__days svelte-1a8sdl0"}">${validate_component(Top_bar, "TopBar").$$render($$result, {}, {}, {})}
+	<section class="calendar__days svelte-1a8sdl0">${validate_component(Top_bar, "TopBar").$$render($$result, {}, {}, {})}
 
 		${each($datesList, (dates) => {
     return `${validate_component(Week, "Week").$$render($$result, { dates }, {}, {})}`;
@@ -228,7 +228,7 @@ const HallForm = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   $$unsubscribe_crrBookingInfo = subscribe(crrBookingInfo, (value) => value);
   $$unsubscribe_hideForm = subscribe(hideForm, (value) => $hideForm = value);
   let { id } = $$props;
-  const date2 = new Date();
+  const date2 = /* @__PURE__ */ new Date();
   let day = date2.getDate() + 1;
   let month2 = date2.getMonth() + 1;
   let year = date2.getFullYear();
@@ -250,10 +250,10 @@ const HallForm = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   $$unsubscribe_userId();
   $$unsubscribe_crrBookingInfo();
   $$unsubscribe_hideForm();
-  return `<div class="${escape(null_to_empty(`${$hideForm === false ? "cover" : ""}`), true) + " svelte-1sdfj29"}"><div class="${escape(null_to_empty(`outer ${$hideForm === false ? "" : "hide"}`), true) + " svelte-1sdfj29"}"><div class="${"title svelte-1sdfj29"}">Book this Hall</div>
+  return `<div class="${escape(null_to_empty(`${$hideForm === false ? "cover" : ""}`), true) + " svelte-1sdfj29"}"><div class="${escape(null_to_empty(`outer ${$hideForm === false ? "" : "hide"}`), true) + " svelte-1sdfj29"}"><div class="title svelte-1sdfj29">Book this Hall</div>
 
-		<div class="${"closeflex svelte-1sdfj29"}"><div class="${"field svelte-1sdfj29"}">Event Name</div>
-			<input type="${"text"}" class="${"name svelte-1sdfj29"}" placeholder="${"Enter event name"}"${add_attribute("value", eventName, 0)}></div>
+		<div class="closeflex svelte-1sdfj29"><div class="field svelte-1sdfj29">Event Name</div>
+			<input type="text" class="name svelte-1sdfj29" placeholder="Enter event name"${add_attribute("value", eventName, 0)}></div>
 
 		${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -265,10 +265,10 @@ const HallForm = create_ssr_component(($$result, $$props, $$bindings, slots) => 
     {}
   )}
 
-		<div class="${"dates svelte-1sdfj29"}"><div class="${"field svelte-1sdfj29"}">Start Date</div>
-			<div class="${"field svelte-1sdfj29"}">End Date</div>
-			<input type="${"date"}" class="${"date svelte-1sdfj29"}"${add_attribute("min", today, 0)}${add_attribute("max", lastDate, 0)}${add_attribute("value", startDate, 0)}>
-			<input type="${"date"}" class="${"date svelte-1sdfj29"}"${add_attribute("min", today, 0)}${add_attribute("max", lastDate, 0)}${add_attribute("value", endDate, 0)}></div>
+		<div class="dates svelte-1sdfj29"><div class="field svelte-1sdfj29">Start Date</div>
+			<div class="field svelte-1sdfj29">End Date</div>
+			<input type="date" class="date svelte-1sdfj29"${add_attribute("min", today, 0)}${add_attribute("max", lastDate, 0)}${add_attribute("value", startDate, 0)}>
+			<input type="date" class="date svelte-1sdfj29"${add_attribute("min", today, 0)}${add_attribute("max", lastDate, 0)}${add_attribute("value", endDate, 0)}></div>
 
 		${validate_component(Warning, "Warning").$$render(
     $$result,
@@ -294,7 +294,7 @@ const HallForm = create_ssr_component(($$result, $$props, $$bindings, slots) => 
     true
   ) + " svelte-1sdfj29"}" ${"disabled"}>Submit</button>
 
-		<button class="${"close svelte-1sdfj29"}"><img${add_attribute("src", cancel, 0)} alt="${""}"></button></div>
+		<button class="close svelte-1sdfj29"><img${add_attribute("src", cancel, 0)} alt=""></button></div>
 </div>`;
 });
 const bookingDate_svelte_svelte_type_style_lang = "";
@@ -325,7 +325,7 @@ const BookingDate = create_ssr_component(($$result, $$props, $$bindings, slots) 
   $$unsubscribe_bookings();
   $$unsubscribe_userId();
   $$unsubscribe_deleteDateId();
-  return `<div class="${"outer svelte-1jiffj8"}">${`<div>${escape(startDate)}</div>
+  return `<div class="outer svelte-1jiffj8">${`<div>${escape(startDate)}</div>
 		<div>--</div>
 		<div>${escape(endDate)}</div>
 		<div>:</div>
@@ -366,21 +366,21 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_crrBookingInfo();
   $$unsubscribe_bookings();
   $$unsubscribe_hideForm();
-  return `<div class="${"outer svelte-aanqum"}">
-	<div class="${"title svelte-aanqum"}">Details</div>
-	<div class="${"inner svelte-aanqum"}"><div class="${"name svelte-aanqum"}">${escape(data["name"])}</div>
-		<div class="${"grid svelte-aanqum"}"><div class="${"sub-grid"}"><div class="${"head svelte-aanqum"}">Incharge</div>
-				<div class="${"value svelte-aanqum"}">${escape(data["incharge"])}</div>
-				<div class="${"head svelte-aanqum"}">Contact</div>
-				<div class="${"value svelte-aanqum"}">${escape(data["contact"])}</div></div>
-			<div class="${"cap-grid svelte-aanqum"}"><div><div class="${"capacity svelte-aanqum"}">${escape(data["capacity"])}</div>
-					<div class="${"cap-head svelte-aanqum"}">Capacity</div></div></div></div>
-		<div class="${"head svelte-aanqum"}">Description</div>
-		<div class="${"value svelte-aanqum"}">${escape(data["desc"])}</div>
-		<div class="${"head svelte-aanqum"}">Location</div>
-		<div class="${"value svelte-aanqum"}">${escape(data["location"])}</div>
-		<div class="${"head svelte-aanqum"}">Your Bookings (mm/dd/yyyy)</div>
-		<div class="${"value svelte-aanqum"}">${$crrBookingInfo.length > 0 ? `${each($crrBookingInfo, (info) => {
+  return `<div class="outer svelte-aanqum">
+	<div class="title svelte-aanqum">Details</div>
+	<div class="inner svelte-aanqum"><div class="name svelte-aanqum">${escape(data["name"])}</div>
+		<div class="grid svelte-aanqum"><div class="sub-grid"><div class="head svelte-aanqum">Incharge</div>
+				<div class="value svelte-aanqum">${escape(data["incharge"])}</div>
+				<div class="head svelte-aanqum">Contact</div>
+				<div class="value svelte-aanqum">${escape(data["contact"])}</div></div>
+			<div class="cap-grid svelte-aanqum"><div><div class="capacity svelte-aanqum">${escape(data["capacity"])}</div>
+					<div class="cap-head svelte-aanqum">Capacity</div></div></div></div>
+		<div class="head svelte-aanqum">Description</div>
+		<div class="value svelte-aanqum">${escape(data["desc"])}</div>
+		<div class="head svelte-aanqum">Location</div>
+		<div class="value svelte-aanqum">${escape(data["location"])}</div>
+		<div class="head svelte-aanqum">Your Bookings (mm/dd/yyyy)</div>
+		<div class="value svelte-aanqum">${$crrBookingInfo.length > 0 ? `${each($crrBookingInfo, (info) => {
     return `${validate_component(BookingDate, "BookingDate").$$render(
       $$result,
       {
@@ -394,9 +394,9 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     )}`;
   })}` : `<div>No Bookings</div>`}</div>
 
-		<div class="${"head svelte-aanqum"}">Calendar</div>
+		<div class="head svelte-aanqum">Calendar</div>
 		${validate_component(Calendar, "Calendar").$$render($$result, {}, {}, {})}
-		<button ${!$hideForm ? "disabled" : ""} class="${"book svelte-aanqum"}">Book</button></div>
+		<button ${!$hideForm ? "disabled" : ""} class="book svelte-aanqum">Book</button></div>
 
 	${validate_component(HallForm, "HallForm").$$render($$result, { id: data["id"] }, {}, {})}
 </div>`;

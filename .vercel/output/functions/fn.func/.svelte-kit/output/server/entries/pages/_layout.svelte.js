@@ -1,4 +1,4 @@
-import { c as create_ssr_component, b as subscribe, e as escape, d as null_to_empty, v as validate_component } from "../../chunks/index3.js";
+import { c as create_ssr_component, a as subscribe, e as escape, n as null_to_empty, v as validate_component } from "../../chunks/index3.js";
 import "firebase/auth";
 import "../../chunks/firebase2.js";
 import { v as validUser } from "../../chunks/store.js";
@@ -14,11 +14,11 @@ const Navbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   validUser.set(JSON.parse($validUser));
   $$result.css.add(css$2);
   $$unsubscribe_validUser();
-  return `<div class="${"outer svelte-qjzqi3"}"><div class="${"inner svelte-qjzqi3"}">
-		<div class="${"nav-item svelte-qjzqi3"}"><a href="${"/"}" class="${"anchor svelte-qjzqi3"}">Home</a></div>
-		<div class="${"nav-item svelte-qjzqi3"}"><a href="${"/about"}" class="${"anchor svelte-qjzqi3"}">About</a></div></div>
-	<div class="${"inner svelte-qjzqi3"}">${$validUser === false ? `<a href="${"/userForm"}"><div class="${escape(null_to_empty(`nav-item ${$validUser === true ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="${"anchor svelte-qjzqi3"}" ${($validUser === true ? true : false) ? "disabled" : ""}>User Login</button></div></a>
-			<a href="${"/userForm"}"><div class="${escape(null_to_empty(`nav-item ${$validUser === true ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="${"anchor svelte-qjzqi3"}" ${($validUser === true ? true : false) ? "disabled" : ""}>Admin Login</button></div></a>` : `<div class="${escape(null_to_empty(`nav-item ${$validUser === false ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="${"anchor svelte-qjzqi3"}">Logout</button>
+  return `<div class="outer svelte-qjzqi3"><div class="inner svelte-qjzqi3">
+		<div class="nav-item svelte-qjzqi3"><a href="/" class="anchor svelte-qjzqi3">Home</a></div>
+		<div class="nav-item svelte-qjzqi3"><a href="/about" class="anchor svelte-qjzqi3">About</a></div></div>
+	<div class="inner svelte-qjzqi3">${$validUser === false ? `<a href="/userForm"><div class="${escape(null_to_empty(`nav-item ${$validUser === true ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="anchor svelte-qjzqi3" ${($validUser === true ? true : false) ? "disabled" : ""}>User Login</button></div></a>
+			<a href="/userForm"><div class="${escape(null_to_empty(`nav-item ${$validUser === true ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="anchor svelte-qjzqi3" ${($validUser === true ? true : false) ? "disabled" : ""}>Admin Login</button></div></a>` : `<div class="${escape(null_to_empty(`nav-item ${$validUser === false ? "hidden" : ""}`), true) + " svelte-qjzqi3"}"><button class="anchor svelte-qjzqi3">Logout</button>
 				${``}</div>`}</div>
 </div>`;
 });
@@ -29,7 +29,7 @@ const css$1 = {
 };
 const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return `<div class="${"outer svelte-bh61rd"}"><div class="${"rights"}">🄯 All Rights Reserved</div>
+  return `<div class="outer svelte-bh61rd"><div class="rights">🄯 All Rights Reserved</div>
 </div>`;
 });
 const loading_svelte_svelte_type_style_lang = "";
@@ -41,7 +41,7 @@ const css = {
 const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
-<div class="${"bg svelte-b7a15z"}">
+<div class="bg svelte-b7a15z">
 	
 	
 	${slots.default ? slots.default({}) : ``}

@@ -38,7 +38,6 @@ function setContext(key, context) {
 function getContext(key) {
   return get_current_component().$$.context.get(key);
 }
-Promise.resolve();
 const ATTR_REGEX = /[&"]/g;
 const CONTENT_REGEX = /[&<]/g;
 function escape(value, is_attr = false) {
@@ -117,16 +116,16 @@ function add_attribute(name, value, boolean) {
   return ` ${name}${assignment}`;
 }
 export {
-  safe_not_equal as a,
-  subscribe as b,
+  subscribe as a,
+  add_attribute as b,
   create_ssr_component as c,
-  null_to_empty as d,
+  each as d,
   escape as e,
-  add_attribute as f,
+  noop as f,
   getContext as g,
-  each as h,
+  safe_not_equal as h,
   missing_component as m,
-  noop as n,
+  null_to_empty as n,
   setContext as s,
   validate_component as v
 };

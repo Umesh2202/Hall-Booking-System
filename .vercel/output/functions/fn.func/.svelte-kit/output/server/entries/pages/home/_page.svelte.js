@@ -1,4 +1,4 @@
-import { c as create_ssr_component, b as subscribe, e as escape, d as null_to_empty, f as add_attribute, v as validate_component } from "../../../chunks/index3.js";
+import { c as create_ssr_component, a as subscribe, e as escape, n as null_to_empty, b as add_attribute, v as validate_component } from "../../../chunks/index3.js";
 import { v as validUser, f as formText } from "../../../chunks/store.js";
 import { a as add } from "../../../chunks/add.js";
 const top_svelte_svelte_type_style_lang = "";
@@ -8,8 +8,8 @@ const css$4 = {
 };
 const Top = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$4);
-  return `<div class="${"heading svelte-1mifo9q"}">Hall Booking System</div>
-<div class="${"info svelte-1mifo9q"}">A comprehensive hall booking system meant to simplify managing halls</div>`;
+  return `<div class="heading svelte-1mifo9q">Hall Booking System</div>
+<div class="info svelte-1mifo9q">A comprehensive hall booking system meant to simplify managing halls</div>`;
 });
 const option_svelte_svelte_type_style_lang = "";
 const css$3 = {
@@ -24,11 +24,11 @@ const Option = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$3);
   $$unsubscribe_validUser();
   $$unsubscribe_formText();
-  return `<div class="${"container svelte-m0nz3d"}"><div class="${escape(null_to_empty(`options `), true) + " svelte-m0nz3d"}"><a${add_attribute("href", `${$validUser === true ? "/halls" : "/userForm"}`, 0)}><button class="${"svelte-m0nz3d"}">${escape(`${$validUser === true ? "Book a hall" : "SignUp"}`)}</button></a></div>
+  return `<div class="container svelte-m0nz3d"><div class="${escape(null_to_empty(`options `), true) + " svelte-m0nz3d"}"><a${add_attribute("href", `${$validUser === true ? "/halls" : "/userForm"}`, 0)}><button class="svelte-m0nz3d">${escape(`${$validUser === true ? "Book a hall" : "SignUp"}`)}</button></a></div>
 </div>`;
 });
-const tick = "/_app/immutable/assets/tick-d05000a3.svg";
-const cross = "/_app/immutable/assets/cross-679ffe62.svg";
+const tick = "/_app/immutable/assets/tick.d05000a3.svg";
+const cross = "/_app/immutable/assets/cross.679ffe62.svg";
 const featureCard_svelte_svelte_type_style_lang = "";
 const css$2 = {
   code: ".feature.svelte-1hfk3yc{padding:2em;border-radius:1em;background-color:#f8f9fa;box-shadow:2px 2px 8px var(--shadow);display:grid;justify-items:center}.title.svelte-1hfk3yc{font-size:2.5rem;margin-top:1em;font-weight:500}.desc.svelte-1hfk3yc{line-height:1.3em;width:80%;margin-top:3em;font-size:1.3rem;font-weight:500}",
@@ -45,9 +45,9 @@ const FeatureCard = create_ssr_component(($$result, $$props, $$bindings, slots) 
   if ($$props.desc === void 0 && $$bindings.desc && desc !== void 0)
     $$bindings.desc(desc);
   $$result.css.add(css$2);
-  return `<div class="${"feature svelte-1hfk3yc"}"><img${add_attribute("src", svg, 0)} alt="${""}">
-	<div class="${"title svelte-1hfk3yc"}">${escape(feature)}</div>
-	<div class="${"desc svelte-1hfk3yc"}">${escape(desc)}</div>
+  return `<div class="feature svelte-1hfk3yc"><img${add_attribute("src", svg, 0)} alt="">
+	<div class="title svelte-1hfk3yc">${escape(feature)}</div>
+	<div class="desc svelte-1hfk3yc">${escape(desc)}</div>
 </div>`;
 });
 const info_svelte_svelte_type_style_lang = "";
@@ -57,8 +57,8 @@ const css$1 = {
 };
 const Info = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return `<div class="${"container svelte-12j85pr"}"><div class="${"feature-head svelte-12j85pr"}">Supported features that you <br> can rely safely on</div>
-	<div class="${"features svelte-12j85pr"}">${validate_component(FeatureCard, "FeatureCard").$$render(
+  return `<div class="container svelte-12j85pr"><div class="feature-head svelte-12j85pr">Supported features that you <br> can rely safely on</div>
+	<div class="features svelte-12j85pr">${validate_component(FeatureCard, "FeatureCard").$$render(
     $$result,
     {
       svg: tick,
@@ -97,7 +97,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<div class="${"home svelte-exj9jz"}">${validate_component(Top, "Top").$$render($$result, {}, {}, {})}
+  return `<div class="home svelte-exj9jz">${validate_component(Top, "Top").$$render($$result, {}, {}, {})}
 	${validate_component(Option, "Option").$$render($$result, {}, {}, {})}
 	${validate_component(Info, "Info").$$render($$result, {}, {}, {})}
 </div>`;

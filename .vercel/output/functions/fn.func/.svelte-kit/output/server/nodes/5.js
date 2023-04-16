@@ -2,8 +2,9 @@ import * as server from '../entries/pages/halls/_hall_/_page.server.ts.js';
 
 export const index = 5;
 export const component = async () => (await import('../entries/pages/halls/_hall_/_page.svelte.js')).default;
-export const file = '_app/immutable/components/pages/halls/_hall_/_page.svelte-2a9fa5dc.js';
+export const file = '_app/immutable/entry/halls-_hall_-page.svelte.967b9c6a.js';
 export { server };
-export const imports = ["_app/immutable/components/pages/halls/_hall_/_page.svelte-2a9fa5dc.js","_app/immutable/chunks/index-42505854.js","_app/immutable/chunks/store-44f3bbc0.js","_app/immutable/chunks/index-159fcc0c.js","_app/immutable/chunks/axios-b3c02076.js","_app/immutable/chunks/cancel-cc8606d8.js"];
-export const stylesheets = ["_app/immutable/assets/_page-f942a8c1.css","_app/immutable/assets/cancel-9cd0615c.css"];
+export const server_id = "src/routes/halls/[hall]/+page.server.ts";
+export const imports = ["_app/immutable/entry/halls-_hall_-page.svelte.967b9c6a.js","_app/immutable/chunks/index.0569c376.js","_app/immutable/chunks/store.50882a15.js","_app/immutable/chunks/index.5dbb22dc.js","_app/immutable/chunks/axios.707ed124.js","_app/immutable/chunks/cancel.31c05a2a.js"];
+export const stylesheets = ["_app/immutable/assets/_page.72b87957.css","_app/immutable/assets/cancel.aadc1d5d.css"];
 export const fonts = [];

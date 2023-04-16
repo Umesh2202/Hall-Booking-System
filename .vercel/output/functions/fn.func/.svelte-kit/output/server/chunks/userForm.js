@@ -1,5 +1,5 @@
-import { c as create_ssr_component, f as add_attribute, e as escape, b as subscribe, d as null_to_empty, v as validate_component } from "./index3.js";
-import { p as popup, f as formText, c as password, e as email } from "./store.js";
+import { c as create_ssr_component, b as add_attribute, e as escape, a as subscribe, n as null_to_empty, v as validate_component } from "./index3.js";
+import { p as popup, f as formText, j as password, k as email } from "./store.js";
 import "firebase/auth";
 import "./firebase2.js";
 const formInput_svelte_svelte_type_style_lang = "";
@@ -13,8 +13,8 @@ const FormInput = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   if ($$props.field === void 0 && $$bindings.field && field !== void 0)
     $$bindings.field(field);
   $$result.css.add(css$3);
-  return `<div class="${"container svelte-12re45x"}"><label${add_attribute("for", `${field}`, 0)} class="${" svelte-12re45x"}">${escape(field)}</label>
-	${field === "Password" ? `<input type="${"password"}" name="${"pwd"}" id="${"pwd"}"${add_attribute("placeholder", `Type your ${field}`, 0)}${add_attribute("autocomplete", `${field}`, 0)} class="${"sm:text-sm text-input svelte-12re45x"}"${add_attribute("value", value, 0)}>` : `${field === "Email" ? `<input type="${"email"}" name="${"email"}" id="${"email"}"${add_attribute("placeholder", `Type your ${field}`, 0)}${add_attribute("autocomplete", `${field}`, 0)} class="${"sm:text-sm text-input svelte-12re45x"}"${add_attribute("value", value, 0)}>` : ``}`}
+  return `<div class="container svelte-12re45x"><label${add_attribute("for", `${field}`, 0)} class=" svelte-12re45x">${escape(field)}</label>
+	${field === "Password" ? `<input type="password" name="pwd" id="pwd"${add_attribute("placeholder", `Type your ${field}`, 0)}${add_attribute("autocomplete", `${field}`, 0)} class="sm:text-sm text-input svelte-12re45x"${add_attribute("value", value, 0)}>` : `${field === "Email" ? `<input type="email" name="email" id="email"${add_attribute("placeholder", `Type your ${field}`, 0)}${add_attribute("autocomplete", `${field}`, 0)} class="sm:text-sm text-input svelte-12re45x"${add_attribute("value", value, 0)}>` : ``}`}
 </div>`;
 });
 const popup_svelte_svelte_type_style_lang = "";
@@ -30,7 +30,7 @@ const Popup = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.message(message);
   $$result.css.add(css$2);
   $$unsubscribe_popup();
-  return `${$popup !== "" ? `<div class="${escape(null_to_empty(`container ${$popup === "true" ? "open-popup" : "close-popup"}`), true) + " svelte-1arhpoc"}"><div class="${"message svelte-1arhpoc"}">${escape(message)}</div>
+  return `${$popup !== "" ? `<div class="${escape(null_to_empty(`container ${$popup === "true" ? "open-popup" : "close-popup"}`), true) + " svelte-1arhpoc"}"><div class="message svelte-1arhpoc">${escape(message)}</div>
 		<div class="${escape(null_to_empty(`progress-bar ${$popup === "true" ? "progress" : "complete"}`), true) + " svelte-1arhpoc"}"></div></div>` : ``}`;
 });
 const noAccount_svelte_svelte_type_style_lang = "";
@@ -47,8 +47,8 @@ const NoAccount = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   $$result.css.add(css$1);
   $$unsubscribe_formText();
   return `<div class="${escape(null_to_empty(`noaccount ${$formText === "SignUp" ? "hidden" : ""}`), true) + " svelte-quz334"}">${$formText !== "SignUp" ? `<div>Don&#39;t have an account?</div>
-		<button class="${"signup svelte-quz334"}" ${disable_button ? "disabled" : ""}>SignUp</button>` : `<div>Already have an account?</div>
-		<button class="${"signup svelte-quz334"}">Login</button>`}
+		<button class="signup svelte-quz334" ${disable_button ? "disabled" : ""}>SignUp</button>` : `<div>Already have an account?</div>
+		<button class="signup svelte-quz334">Login</button>`}
 </div>`;
 });
 const userForm_svelte_svelte_type_style_lang = "";
@@ -69,9 +69,9 @@ const UserForm = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   $$unsubscribe_password();
   $$unsubscribe_email();
   $$unsubscribe_formText();
-  return `<div class="${"form svelte-xhq2ph"}">${validate_component(Popup, "Popup").$$render($$result, { message }, {}, {})}
-	<div class="${"container svelte-xhq2ph"}"><div class="${"login svelte-xhq2ph"}">${escape($formText)}</div>
-		<div class="${"inner svelte-xhq2ph"}">${validate_component(FormInput, "FormInput").$$render($$result, { field: "Email" }, {}, {})}
+  return `<div class="form svelte-xhq2ph">${validate_component(Popup, "Popup").$$render($$result, { message }, {}, {})}
+	<div class="container svelte-xhq2ph"><div class="login svelte-xhq2ph">${escape($formText)}</div>
+		<div class="inner svelte-xhq2ph">${validate_component(FormInput, "FormInput").$$render($$result, { field: "Email" }, {}, {})}
 			${validate_component(FormInput, "FormInput").$$render($$result, { field: "Password" }, {}, {})}</div>
 		<button class="${escape(null_to_empty(`next ${""}`), true) + " svelte-xhq2ph"}" ${""}>Next</button>
 		${validate_component(NoAccount, "NoAccount").$$render($$result, { disable_button }, {}, {})}</div>
