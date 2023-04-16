@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import type { RequestHandler } from '../$types';
+import type { RequestHandler } from '@sveltejs/kit';
 import { colRef } from '../halls/firebase';
 import { doc, getDocs, Timestamp, updateDoc, arrayUnion } from 'firebase/firestore';
 import { convertSecToDate } from '../../../components/calendar/functions/bookingInfo';

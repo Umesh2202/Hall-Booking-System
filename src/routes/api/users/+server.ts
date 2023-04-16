@@ -1,4 +1,4 @@
-import type { RequestHandler } from '../$types';
+import type { RequestHandler } from '@sveltejs/kit';
 import { colRef } from './firebase';
 import { addDoc } from 'firebase/firestore';
 
