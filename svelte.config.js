@@ -8,7 +8,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			runtime: 'nodejs18.x'
+			runtime: 'edge'
 		})
 		// prerender: {
 		// 	// use relative URLs similar to an anchor tag <a href="/test/1"></a>
