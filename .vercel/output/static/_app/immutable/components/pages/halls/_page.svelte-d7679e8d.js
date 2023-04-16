@@ -2,7 +2,7 @@ import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q a
 import { i as info, h as hideForm, a as hallEdit, f as formText, b as hallDelete, v as validUser } from "../../../chunks/store-44f3bbc0.js";
 import { W as Warning, c as cancel } from "../../../chunks/cancel-cc8606d8.js";
 import { a as axios } from "../../../chunks/axios-b3c02076.js";
-import { U as UserForm } from "../../../chunks/userForm-69e96cc8.js";
+import { U as UserForm } from "../../../chunks/userForm-2c1195b8.js";
 import { a as add } from "../../../chunks/add-11ea7e63.js";
 const hallCardField_svelte_svelte_type_style_lang = "";
 function create_fragment$5(ctx) {
@@ -975,7 +975,7 @@ function instance$3($$self, $$props, $$invalidate) {
   component_subscribe($$self, hallEdit, ($$value) => $$invalidate(16, $hallEdit = $$value));
   let hallName = $info["hallName"], inchargeName = $info["inchargeName"], desc = $info["desc"], location = $info["location"], capacity = $info["capacity"], contact = $info["contact"], invalidCapacity = false, invalidContact = false, invalidHallName = false, invalidInchargeName = false, invalidDesc = false, invalidLoc = false, notFullContact = false, emptyText = true;
   const addHall = async () => {
-    await axios.post(`http://localhost:5174/api/halls`, {
+    await axios.post(`/api/halls`, {
       name: hallName,
       incharge: inchargeName,
       desc,
@@ -986,7 +986,7 @@ function instance$3($$self, $$props, $$invalidate) {
     });
   };
   const editHall = async () => {
-    await axios.patch(`http://localhost:5174/api/halls`, {
+    await axios.patch(`/api/halls`, {
       name: hallName,
       incharge: inchargeName,
       desc,
@@ -1148,7 +1148,7 @@ class AddHallForm extends SvelteComponent {
   }
 }
 const deleteHall = async (id) => {
-  await axios.delete("http://localhost:5174/api/halls", {
+  await axios.delete("/api/halls", {
     data: {
       id
     }

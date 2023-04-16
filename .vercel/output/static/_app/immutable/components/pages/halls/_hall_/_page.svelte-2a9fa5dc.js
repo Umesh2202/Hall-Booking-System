@@ -1449,7 +1449,7 @@ function instance$2($$self, $$props, $$invalidate) {
   const book = async () => {
     let tempBookingInfo = $crrBookingInfo;
     if ((invalidDate || invalidEventName || emptyName || emptyDate) === false) {
-      await axios.post(`http://localhost:5174/api/hallsBook`, {
+      await axios.post(`/api/hallsBook`, {
         eventName,
         startDate,
         endDate,
@@ -1977,7 +1977,7 @@ function instance$1($$self, $$props, $$invalidate) {
       },
       1e3
     );
-    await axios.post(`http://localhost:5174/api/hallsBook`, {
+    await axios.post(`/api/hallsBook`, {
       eventName,
       startDate,
       endDate,

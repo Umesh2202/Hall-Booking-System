@@ -877,7 +877,7 @@ function instance($$self, $$props, $$invalidate) {
       const user = await formAction($formText, $email, $password);
       if ($formText !== "Admin Login" && user !== void 0) {
         userId.set(user["user"]["uid"]);
-        axios.post("http://localhost:5174/api/users", { email: $email, password: $password });
+        axios.post("/api/users", { email: $email, password: $password });
       }
       email.set("");
       password.set("");
