@@ -1,5 +1,10 @@
 import axios from 'axios';
 import { redis } from '$lib/server/redis';
+import type { Config } from '@sveltejs/adapter-vercel';
+
+export const config: Config = {
+	runtime: 'edge'
+};
 
 export const load = async () => {
 	let data;
